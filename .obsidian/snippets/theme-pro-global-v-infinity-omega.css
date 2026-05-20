@@ -1,0 +1,162 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V∞.Ω — BEYOND ORIGIN
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- ORIGIN-BEYOND VARIABLES (renaissance) ---------- */
+:root {
+    --bo-void: rgba(255,255,255,0.02);   /* trace du vide */
+    --bo-hint: rgba(255,255,255,0.06);   /* première lueur */
+    --bo-core: rgba(255,255,255,0.12);   /* lumière naissante */
+
+    --bo-breath: 8.8s;
+    --bo-pulse: 4.2s;
+    --bo-shift: 11.6s;
+}
+
+/* ---------------------------------------------------------
+   1) BEYOND ORIGIN ENGINE — ÉTAT DE TRANSITION
+   (ni vide, ni lumière — entre les deux)
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   2) BEYOND ORIGIN SURFACE — NAISSANCE DE LA LUMIÈRE
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -60%;
+    background-image:
+        /* trace du vide (V∞) */
+        radial-gradient(circle at 50% 50%, var(--bo-void) 0, transparent 80%),
+        /* première lueur (transition) */
+        radial-gradient(circle at 30% 20%, var(--bo-hint) 0, transparent 60%),
+        /* lumière naissante (VΩ) */
+        linear-gradient(135deg, var(--bo-core), transparent 70%);
+    opacity: 0.18;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: bo-shift var(--bo-shift) ease-in-out infinite;
+}
+
+@keyframes bo-shift {
+    0%   { transform: scale(1) translate3d(0,0,0); opacity: 0.16; }
+    50%  { transform: scale(1.04) translate3d(8px,-10px,0); opacity: 0.22; }
+    100% { transform: scale(1) translate3d(0,0,0); opacity: 0.16; }
+}
+
+/* ---------------------------------------------------------
+   3) BEYOND ORIGIN BREATH — RESPIRATION DE RENAISSANCE
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: bo-breath var(--bo-breath) ease-in-out infinite;
+}
+
+@keyframes bo-breath {
+    0%   { box-shadow: 0 0 8px var(--bo-hint); }
+    50%  { box-shadow: 0 0 20px var(--bo-core); }
+    100% { box-shadow: 0 0 8px var(--bo-hint); }
+}
+
+/* ---------------------------------------------------------
+   4) BEYOND ORIGIN PULSE — PREMIÈRE OSCILLATION
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: bo-pulse var(--bo-pulse) ease-in-out infinite;
+}
+
+@keyframes bo-pulse {
+    0%   { text-shadow: 0 0 4px var(--bo-hint); }
+    50%  { text-shadow: 0 0 14px var(--bo-core); }
+    100% { text-shadow: 0 0 4px var(--bo-hint); }
+}
+
+/* ---------------------------------------------------------
+   5) BEYOND ORIGIN GRADIENTS — SPECTRE NAISSANT
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--bo-void),
+        var(--bo-hint),
+        var(--bo-core)
+    );
+    box-shadow: 0 0 12px var(--bo-core);
+}
+
+/* ---------------------------------------------------------
+   6) BEYOND ORIGIN HEATMAP — PREMIÈRE MATIÈRE
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--bo-hint);
+    background: linear-gradient(
+        to top,
+        var(--bo-core),
+        transparent
+    );
+    box-shadow:
+        0 0 10px var(--bo-hint),
+        0 0 16px var(--bo-core);
+}
+
+/* ---------------------------------------------------------
+   7) BEYOND ORIGIN RADAR — PREMIER RÉSEAU
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--bo-core),
+        transparent
+    );
+    box-shadow: 0 0 14px var(--bo-core);
+}
+
+/* ---------------------------------------------------------
+   8) BEYOND ORIGIN TITLES — PREMIÈRE IDENTITÉ
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--bo-core);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px var(--bo-core);
+}
+
+/* ---------------------------------------------------------
+   9) BEYOND ORIGIN HOVER — RÉACTION DE NAISSANCE
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--bo-core);
+    outline-offset: 2px;
+    filter: brightness(1.12);
+}

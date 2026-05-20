@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -e
+echo "[HUD] Initialisation HUD cockpit..."
+echo "[HUD] Mode PRIME+ actif"

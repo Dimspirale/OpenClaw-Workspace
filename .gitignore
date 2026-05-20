@@ -1,0 +1,12 @@
+# Fichiers lourds à exclure
+Racine User Dim/miniconda.sh
+cockpit/reports/ARBORESCENCE_REPAIR_FINALIS_ETERNAL.log
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Fichiers temporaires
+*.tmp
+*.bak
+*.swp

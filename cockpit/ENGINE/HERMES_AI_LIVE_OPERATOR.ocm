@@ -1,0 +1,133 @@
+HERMES_AI_LIVE_OPERATOR {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    MODULES_REQUIRED {
+        AUDIOREACTOR: "HERMES_AI_AUDIOREACTOR"
+        SCENEWRITER: "HERMES_AI_SCENEWRITER"
+        EFFECTS: "HERMES_LIGHT_EFFECTS_PRO"
+        PIXELENGINE: "HERMES_LIGHT_PIXELENGINE"
+        ASSISTANT: "HERMES_LIGHT_ASSISTANT_EXT"
+        OPTIMIZER: "HERMES_OPTIMIZER"
+    }
+
+    CAPABILITIES {
+        REALTIME_OPERATION: "ENABLED"
+        AUDIO_REACTIVE: "ENABLED"
+        ENERGY_TRACKING: "ENABLED"
+        MOOD_INTERPRETATION: "ENABLED"
+        AUTO_SCENE_SWITCHING: "ENABLED"
+        AUTO_EFFECTS: "ENABLED"
+        AUTO_PIXELMAP: "ENABLED"
+        CROWD_REACTION_MODE: "ENABLED"
+        SAFETY_LIMITS: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+    }
+
+    INPUT {
+        MODE: ["AUDIO", "MOOD", "HYBRID"]
+        SENSITIVITY: 1.0
+        SCENESET: "AUTO"
+    }
+
+    COMMANDS {
+        START: "liveop start"
+        STOP: "liveop stop"
+        SET_MODE: "liveop mode <audio|mood|hybrid>"
+        SET_SENSITIVITY: "liveop sensitivity <value>"
+        TRIGGER_SCENE: "liveop scene <name>"
+        PREVIEW: "liveop preview"
+        EXPORT: "liveop export <console>"
+    }
+
+    ENGINE {
+
+        REALTIME_AUDIO_LOGIC: "
+            ENERGY=$(hermes audio energy)
+            BEAT=$(hermes audio beat_detect)
+            BASS=$(hermes audio band 1)
+            MID=$(hermes audio band 4)
+            HIGH=$(hermes audio band 7)
+        "
+
+        MOOD_INTERPRETATION_LOGIC: "
+            MOOD=$(hermes ai interpret_mood $ENERGY $BASS $MID $HIGH)
+        "
+
+        AUTO_SCENE_SWITCHING_LOGIC: "
+            case $MOOD in
+                calm)
+                    hermes scenewriter write 'CALM_SCENE' from 'Ambiance douce, couleurs froides, mouvements lents.'
+                    hermes cues run 'CALM_SCENE'
+                    ;;
+                energetic)
+                    hermes scenewriter write 'ENERGY_SCENE' from 'Couleurs saturées, mouvements rapides, dynamique forte.'
+                    hermes cues run 'ENERGY_SCENE'
+                    ;;
+                epic)
+                    hermes scenewriter write 'EPIC_SCENE' from 'Ambiance puissante, beams serrés, effets larges.'
+                    hermes cues run 'EPIC_SCENE'
+                    ;;
+                chaotic)
+                    hermes scenewriter write 'CHAOS_SCENE' from 'Strobe, couleurs agressives, patterns rapides.'
+                    hermes cues run 'CHAOS_SCENE'
+                    ;;
+            esac
+        "
+
+        EFFECTS_REACTIVE_LOGIC: "
+            if [[ $BEAT == '1' ]]; then
+                hermes effects strobe groups ALL speed 20 size 100
+            fi
+
+            if (( $(echo \"$BASS > 0.6\" | bc -l) )); then
+                hermes effects wave_complex groups ALL waveform sine speed 1 size 80
+            fi
+
+            if (( $(echo \"$MID > 0.5\" | bc -l) )); then
+                hermes effects colorflow_pro mode rainbow speed 1.5
+            fi
+
+            if (( $(echo \"$HIGH > 0.4\" | bc -l) )); then
+                hermes pixelmap random AUTO speed 1
+            fi
+        "
+
+        SAFETY_LIMITS_LOGIC: "
+            hermes optimizer enforce_limits
+        "
+
+        EXPORT_LOGIC: "
+            case $console in
+                MA2)
+                    hermes cues export_ma2
+                    ;;
+                MA3)
+                    hermes cues export_ma3
+                    ;;
+                ONYX)
+                    hermes cues export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_DASHBOARD"
+        SECTIONS {
+            AUDIO: ["ENERGY", "BEAT", "BASS", "MID", "HIGH"]
+            MOOD: ["MOOD"]
+            SCENE: ["ACTIVE_SCENE"]
+            EFFECTS: ["ACTIVE_EFFECTS"]
+            SYSTEM: ["MODE", "SENSITIVITY"]
+        }
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_LIVE_OPERATOR"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

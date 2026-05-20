@@ -1,0 +1,56 @@
+# HERMES_BEHAVIOR.ocm
+# OpenClaw_Light — Hermes Behavior Engine
+# Comportements adaptatifs, routines, habitudes, réponses contextuelles
+
+HERMES_BEHAVIOR {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "BEHAVIOR"
+
+    ROLE: "HERMES_BEHAVIOR"
+    DESCRIPTION: "Moteur de comportements adaptatifs d'Hermes. Routines, habitudes, réponses contextuelles, styles d'action."
+
+    LINK {
+        HERMES_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_ENGINE.ocm"
+        HERMES_AI: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_AI.ocm"
+        HERMES_MEMORY: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_MEMORY.ocm"
+        HERMES_AUTOPILOT: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_AUTOPILOT.ocm"
+        META_OPS_ROOT: "~/OpenClaw_Light/COCKPIT/META_OPS"
+        FLOW_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/FLOW_ENGINE.ocm"
+        SYSTEM_ROOT: "~/OpenClaw_Light/SYSTEM"
+    }
+
+    BEHAVIOR {
+        ENABLED: true
+        CONTEXTUAL_RESPONSES: true
+        HABIT_LEARNING: true
+        ROUTINE_GENERATION: true
+        AUTO_BEHAVIOR_ADAPT: true
+        STYLE_PROFILE: "DEFAULT"
+        MAX_ROUTINES: 50
+        BEHAVIOR_PATTERNS: true
+    }
+
+    CAPABILITIES {
+        GENERATE_ROUTINE: true
+        EXECUTE_ROUTINE: true
+        ADAPT_BEHAVIOR: true
+        LEARN_HABITS: true
+        CONTEXT_RESPONSE: true
+        AI_BEHAVIOR_ACCESS: true
+        MEMORY_BEHAVIOR_ACCESS: true
+        PROVIDE_BEHAVIOR_VIEW: true
+    }
+
+    OUTPUT {
+        PROVIDE_BEHAVIOR_READY: true
+        PROVIDE_BEHAVIOR_DATA: true
+        PROVIDE_ROUTINES: true
+    }
+
+    SIGNATURE {
+        ID: "HERMES_BEHAVIOR"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

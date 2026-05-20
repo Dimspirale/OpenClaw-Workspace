@@ -1,0 +1,93 @@
+# LIGHT_ASSISTANT.ocm
+# OpenClaw_Light — Module d'assistance lumière professionnel
+# Génération de patchs, cues, effets, checklists, macros, diagnostics
+
+LIGHT_ASSISTANT {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "ASSISTANT_LUMIERE"
+
+    ROLE: "LIGHT_ASSISTANT"
+    DESCRIPTION: "Assistant lumière professionnel : patch, cues, effets, macros, checklists, diagnostics."
+
+    LINK {
+        HERMES_AI: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_AI.ocm"
+        HERMES_MEMORY: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_MEMORY.ocm"
+        HERMES_BEHAVIOR: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_BEHAVIOR.ocm"
+        SYSTEM_ROOT: "~/OpenClaw_Light/SYSTEM"
+    }
+
+    PATCH_ENGINE {
+        ENABLED: true
+        AUTO_GROUPS: true
+        AUTO_UNIVERSES: true
+        AUTO_ADDRESSING: true
+        SUPPORT_TYPES: ["SPOT", "WASH", "BEAM", "LED", "STROBE", "BLINDER", "FX"]
+        EXPORT_FORMATS: ["TEXT", "CSV", "MA2_MACRO", "MA3_CMD", "ONYX_CMD"]
+    }
+
+    CUE_ENGINE {
+        ENABLED: true
+        AUTO_FADE: true
+        AUTO_DELAY: true
+        AUTO_COLOR_LOGIC: true
+        AUTO_POSITION_LOGIC: true
+        SUPPORT_STYLES: ["THEATRE", "CONCERT", "TV", "DANCE", "AMBIENT"]
+    }
+
+    EFFECT_ENGINE {
+        ENABLED: true
+        AUTO_SPEED: true
+        AUTO_PHASE: true
+        AUTO_SIZE: true
+        SUPPORT_EFFECTS: ["CHASE", "WAVE", "CIRCLE", "RANDOM", "STROBE", "COLORFLOW"]
+    }
+
+    CHECKLIST_ENGINE {
+        ENABLED: true
+        SUPPORT_CONTEXTS: ["MONTAGE", "FOCUS", "FILAGE", "SHOW", "DEMISE"]
+        AUTO_GENERATE: true
+    }
+
+    MACRO_ENGINE {
+        ENABLED: true
+        SUPPORT_CONSOLES: ["GRANDMA2", "GRANDMA3", "ONYX", "CHAMSYS"]
+        AUTO_SYNTAX: true
+        AUTO_OPTIMIZE: true
+    }
+
+    DIAG_ENGINE {
+        ENABLED: true
+        CHECK_DMX: true
+        CHECK_POWER: true
+        CHECK_NETWORK: true
+        CHECK_PATCH: true
+        CHECK_FIXTURES: true
+    }
+
+    CAPABILITIES {
+        GENERATE_PATCH: true
+        GENERATE_CUE: true
+        GENERATE_EFFECT: true
+        GENERATE_CHECKLIST: true
+        GENERATE_MACRO: true
+        DIAGNOSE_PROBLEM: true
+        PROVIDE_ASSISTANT_VIEW: true
+    }
+
+    OUTPUT {
+        PROVIDE_LIGHT_ASSISTANT_READY: true
+        PROVIDE_PATCH: true
+        PROVIDE_CUE: true
+        PROVIDE_EFFECT: true
+        PROVIDE_MACRO: true
+        PROVIDE_CHECKLIST: true
+        PROVIDE_DIAG: true
+    }
+
+    SIGNATURE {
+        ID: "LIGHT_ASSISTANT"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

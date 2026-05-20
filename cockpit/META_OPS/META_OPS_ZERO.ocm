@@ -1,0 +1,36 @@
+# META_OPS_ZERO.ocm
+# OpenClaw_Light — META_OPS ZERO
+# Fermeture, boucle, complétion absolue
+
+META_OPS_ZERO {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "META_OPS"
+
+    ROLE: "ZERO"
+    DESCRIPTION: "Fermeture du cycle META_OPS. Boucle finale. Intégration totale du flux."
+
+    ENGINE {
+        ENABLED: true
+        PROVIDE_CLOSURE: true
+        PROVIDE_UNIFICATION: true
+        PROVIDE_COMPLETION: true
+    }
+
+    INPUT {
+        PREVIOUS: "META_OPS_ZETA"
+        FLOW: "ZETA → ZERO"
+    }
+
+    OUTPUT {
+        NEXT: "META_OPS_OMEGA"
+        FLOW: "ZERO → OMEGA"
+        LOOP: true
+    }
+
+    SIGNATURE {
+        ID: "META_OPS_ZERO"
+        TYPE: "LAYER"
+        HASH: "AUTO"
+    }
+}

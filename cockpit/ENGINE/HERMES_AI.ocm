@@ -1,0 +1,54 @@
+# HERMES_AI.ocm
+# OpenClaw_Light — Hermes Cognitive Engine
+# Interprétation avancée, intentions complexes, raisonnement, agent cognitif
+
+HERMES_AI {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "AI"
+
+    ROLE: "HERMES_AI"
+    DESCRIPTION: "Moteur cognitif d'Hermes. Analyse, interprétation, raisonnement, intentions complexes, décisions automatiques."
+
+    LINK {
+        HERMES_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_ENGINE.ocm"
+        HERMES_PILOT: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_PILOT.ocm"
+        HERMES_COMMANDS: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_COMMANDS.ocm"
+        HERMES_LISTENER: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_LISTENER.ocm"
+        TTS_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/TTS_ENGINE.ocm"
+        SYSTEM_ROOT: "~/OpenClaw_Light/SYSTEM"
+        META_OPS_ROOT: "~/OpenClaw_Light/COCKPIT/META_OPS"
+    }
+
+    CAPABILITIES {
+        INTENT_COMPLEX: true
+        NATURAL_LANGUAGE: true
+        REASONING: true
+        DECISION_MAKER: true
+        AUTO_ROUTE: true
+        META_OPS_ANALYSIS: true
+        FLOW_ANALYSIS: true
+        SYSTEM_ANALYSIS: true
+        SUGGEST_ACTIONS: true
+        AUTO_TTS_FEEDBACK: true
+    }
+
+    AI_ROUTING {
+        PILOT_THRESHOLD: 0.45
+        COMMANDS_THRESHOLD: 0.65
+        ANALYSIS_THRESHOLD: 0.30
+        AUTO_EXECUTE: true
+    }
+
+    OUTPUT {
+        PROVIDE_AI_READY: true
+        PROVIDE_AI_DECISION: true
+        PROVIDE_AI_INTENT: true
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

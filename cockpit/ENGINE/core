@@ -1,0 +1,25 @@
+#!/bin/bash
+# Wrapper cockpit-safe pour CORE_ENGINE.ocm
+# Interprète le descripteur et affiche un diagnostic cockpit-grade
+
+MODULE="$HOME/OpenClaw_Light/cockpit/ENGINE/CORE_ENGINE.ocm"
+
+if [ ! -f "$MODULE" ]; then
+  echo "[ERR] CORE_ENGINE.ocm introuvable"
+  exit 1
+fi
+
+echo "=== HERMÈS CORE ENGINE — DIAGNOSTIC ==="
+
+while IFS= read -r line; do
+  case "$line" in
+    CORE_ENGINE*)     echo "[CORE] $line" ;;
+    VERSION*|STATUS*|MODE*) echo "[INFO] $line" ;;
+    ROLE*|DESCRIPTION*)     echo "[DESC] $line" ;;
+    ENGINE*|ENABLED*|SYNC_*|VALIDATE_STATE*|ROUTE_FLOW*) echo "[CFG] $line" ;;
+    *) : ;; # ignore autres lignes
+  esac
+done < "$MODULE"
+
+echo "=== DIAGNOSTIC TERMINÉ ==="
+

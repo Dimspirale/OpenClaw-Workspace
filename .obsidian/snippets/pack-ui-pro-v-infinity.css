@@ -1,0 +1,128 @@
+/* ---------------------------------------------------------
+   PACK UI PRO v∞ — The Ultimate UI Layer
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- VARIABLES ULTIMES (auto-évolutives) ---------- */
+:root {
+    --ui∞-good: #5fffd4;
+    --ui∞-warn: #ffd24f;
+    --ui∞-bad: #ff4f6b;
+
+    --ui∞-soft-good: rgba(95,255,212,0.40);
+    --ui∞-soft-warn: rgba(255,210,79,0.40);
+    --ui∞-soft-bad: rgba(255,79,107,0.40);
+
+    --ui∞-speed: 0.28s;
+    --ui∞-pulse-speed: 2.8s;
+    --ui∞-breath-speed: 4.6s;
+}
+
+/* ---------------------------------------------------------
+   1) AUTO-ANALYSE — Le widget lit son propre état
+   --------------------------------------------------------- */
+
+[data-auto] {
+    --ui∞-current: var(--ui∞-good);
+    --ui∞-current-soft: var(--ui∞-soft-good);
+}
+
+[data-auto="warn"] {
+    --ui∞-current: var(--ui∞-warn);
+    --ui∞-current-soft: var(--ui∞-soft-warn);
+}
+
+[data-auto="bad"] {
+    --ui∞-current: var(--ui∞-bad);
+    --ui∞-current-soft: var(--ui∞-soft-bad);
+}
+
+/* ---------------------------------------------------------
+   2) AUTO-REACT — Le widget réagit sans interaction
+   --------------------------------------------------------- */
+
+[data-auto] {
+    animation: ui∞-breath var(--ui∞-breath-speed) ease-in-out infinite;
+}
+
+@keyframes ui∞-breath {
+    0%   { box-shadow: 0 0 12px var(--ui∞-current-soft); }
+    50%  { box-shadow: 0 0 32px var(--ui∞-current-soft); }
+    100% { box-shadow: 0 0 12px var(--ui∞-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   3) AUTO-PULSE — Oscillation intelligente
+   --------------------------------------------------------- */
+
+[data-auto] .ui-value,
+[data-auto] .ui-label {
+    animation: ui∞-pulse var(--ui∞-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes ui∞-pulse {
+    0%   { text-shadow: 0 0 8px var(--ui∞-current-soft); }
+    50%  { text-shadow: 0 0 26px var(--ui∞-current-soft); }
+    100% { text-shadow: 0 0 8px var(--ui∞-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   4) AUTO-CORRECT — Le widget ajuste sa couleur
+   --------------------------------------------------------- */
+
+[data-auto][data-level="low"] {
+    --ui∞-current: var(--ui∞-bad);
+    --ui∞-current-soft: var(--ui∞-soft-bad);
+}
+
+[data-auto][data-level="mid"] {
+    --ui∞-current: var(--ui∞-warn);
+    --ui∞-current-soft: var(--ui∞-soft-warn);
+}
+
+[data-auto][data-level="high"] {
+    --ui∞-current: var(--ui∞-good);
+    --ui∞-current-soft: var(--ui∞-soft-good);
+}
+
+/* ---------------------------------------------------------
+   5) AUTO-GLOW — Intensité adaptative
+   --------------------------------------------------------- */
+
+[data-auto] {
+    border-color: var(--ui∞-current);
+    color: var(--ui∞-current);
+}
+
+/* ---------------------------------------------------------
+   6) AUTO-RESPONSE — Réaction contextuelle
+   --------------------------------------------------------- */
+
+[data-auto][data-context="danger"] {
+    animation-duration: calc(var(--ui∞-breath-speed) * 0.6);
+}
+
+[data-auto][data-context="focus"] {
+    filter: brightness(1.18);
+}
+
+[data-auto][data-context="idle"] {
+    opacity: 0.75;
+}
+
+/* ---------------------------------------------------------
+   7) AUTO-EVOLVE — Le widget change de comportement
+   --------------------------------------------------------- */
+
+[data-auto][data-evolve="pulse"] {
+    animation: ui∞-pulse var(--ui∞-pulse-speed) ease-in-out infinite;
+}
+
+[data-auto][data-evolve="breath"] {
+    animation: ui∞-breath var(--ui∞-breath-speed) ease-in-out infinite;
+}
+
+[data-auto][data-evolve="static"] {
+    animation: none;
+    box-shadow: none;
+}

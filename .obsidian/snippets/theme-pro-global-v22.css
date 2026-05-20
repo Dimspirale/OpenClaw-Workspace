@@ -1,0 +1,194 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V22 — INFINITY WEAVE
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- INFINITY VARIABLES ---------- */
+:root {
+    --iw-low: #ff4f6b;      /* tension tissée */
+    --iw-mid: #4fd1ff;      /* analyse tissée */
+    --iw-high: #5fffd4;     /* harmonie tissée */
+
+    --iw-soft-low: rgba(255,79,107,0.32);
+    --iw-soft-mid: rgba(79,209,255,0.32);
+    --iw-soft-high: rgba(95,255,212,0.32);
+
+    --iw-weave-speed: 8.4s;
+    --iw-breath-speed: 5.0s;
+    --iw-pulse-speed: 2.4s;
+
+    --iw-thread-opacity: 0.22;
+    --iw-warp-opacity: 0.18;
+}
+
+/* ---------------------------------------------------------
+   1) INFINITY ENGINE — ÉTATS DU TISSAGE
+   data-infinity="low|mid|high"
+   --------------------------------------------------------- */
+
+[data-infinity="low"] {
+    --iw-current: var(--iw-low);
+    --iw-current-soft: var(--iw-soft-low);
+}
+
+[data-infinity="mid"] {
+    --iw-current: var(--iw-mid);
+    --iw-current-soft: var(--iw-soft-mid);
+}
+
+[data-infinity="high"] {
+    --iw-current: var(--iw-high);
+    --iw-current-soft: var(--iw-soft-high);
+}
+
+/* ---------------------------------------------------------
+   2) INFINITY SURFACE — TISSAGE QUANTIQUE
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background-image:
+        /* trame principale */
+        repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,var(--iw-thread-opacity)) 0 3px,
+            transparent 3px 10px
+        ),
+        /* trame secondaire */
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255,255,255,var(--iw-thread-opacity)) 0 3px,
+            transparent 3px 10px
+        ),
+        /* warp chromatique */
+        radial-gradient(circle at 50% 50%, var(--iw-current-soft) 0, transparent 70%),
+        /* halo structurel */
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,var(--iw-warp-opacity)) 0, transparent 55%);
+    opacity: 0.36;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: iw-weave var(--iw-weave-speed) ease-in-out infinite;
+}
+
+@keyframes iw-weave {
+    0%   { transform: translate3d(0,0,0) scale(1); }
+    50%  { transform: translate3d(16px,-18px,0) scale(1.06); }
+    100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+/* ---------------------------------------------------------
+   3) INFINITY BREATH — RESPIRATION DU TISSAGE
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: iw-breath var(--iw-breath-speed) ease-in-out infinite;
+}
+
+@keyframes iw-breath {
+    0%   { box-shadow: 0 0 20px var(--iw-current-soft); }
+    50%  { box-shadow: 0 0 44px var(--iw-current-soft); }
+    100% { box-shadow: 0 0 20px var(--iw-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   4) INFINITY PULSE — PULSATION DU RÉSEAU
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: iw-pulse var(--iw-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes iw-pulse {
+    0%   { text-shadow: 0 0 10px var(--iw-current-soft); }
+    50%  { text-shadow: 0 0 32px var(--iw-current-soft); }
+    100% { text-shadow: 0 0 10px var(--iw-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   5) INFINITY GRADIENTS — SPECTRE TISSÉ
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--iw-low),
+        var(--iw-mid),
+        var(--iw-high)
+    );
+    box-shadow: 0 0 20px var(--iw-current-soft);
+}
+
+/* ---------------------------------------------------------
+   6) INFINITY HEATMAP
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--iw-current-soft);
+    background: linear-gradient(
+        to top,
+        var(--iw-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow:
+        0 0 16px var(--iw-current-soft),
+        0 0 26px rgba(255,255,255,0.12);
+}
+
+/* ---------------------------------------------------------
+   7) INFINITY RADAR
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--iw-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow: 0 0 24px var(--iw-current-soft);
+}
+
+/* ---------------------------------------------------------
+   8) INFINITY TITLES
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--iw-current);
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    text-shadow: 0 0 22px var(--iw-current-soft);
+}
+
+/* ---------------------------------------------------------
+   9) INFINITY HOVER — TISSAGE RÉACTIF
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--iw-current-soft);
+    outline-offset: 2px;
+    filter: brightness(1.26);
+}

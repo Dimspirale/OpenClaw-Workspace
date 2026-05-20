@@ -1,0 +1,142 @@
+=== systemctl --user status hermes-net.service ===
+● hermes-net.service - Hermes network throughput daemon
+     Loaded: loaded (/home/dimitri/.config/systemd/user/hermes-net.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2026-05-08 22:40:39 CEST; 6min ago
+ Invocation: 2deb41982f0240e480357c360815bd7b
+   Main PID: 9161 (bash)
+      Tasks: 2 (limit: 9520)
+     Memory: 1.7M (peak: 3.7M)
+        CPU: 4.100s
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/hermes-net.service
+             ├─ 9161 bash /home/dimitri/.local/bin/hermes_net_daemon.sh
+             └─13908 sleep 1
+
+May 08 22:40:39 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+
+=== journalctl --user -u hermes-net.service (last 200 lines) ===
+May 08 22:24:36 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:24:36 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3556]: env: $'bash\r': No such file or directory
+May 08 22:24:36 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3556]: env: use -[v]S to pass options in shebang lines
+May 08 22:24:36 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:24:36 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:24:41 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 1.
+May 08 22:24:41 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:24:41 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3599]: env: $'bash\r': No such file or directory
+May 08 22:24:41 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3599]: env: use -[v]S to pass options in shebang lines
+May 08 22:24:41 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:24:41 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:24:46 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 2.
+May 08 22:24:46 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:24:46 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3634]: env: $'bash\r': No such file or directory
+May 08 22:24:46 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3634]: env: use -[v]S to pass options in shebang lines
+May 08 22:24:46 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:24:46 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:24:52 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 3.
+May 08 22:24:52 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:24:52 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3644]: env: $'bash\r': No such file or directory
+May 08 22:24:52 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3644]: env: use -[v]S to pass options in shebang lines
+May 08 22:24:52 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:24:52 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:24:57 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 4.
+May 08 22:24:57 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:24:57 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3654]: env: $'bash\r': No such file or directory
+May 08 22:24:57 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3654]: env: use -[v]S to pass options in shebang lines
+May 08 22:24:57 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:24:57 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:25:02 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 5.
+May 08 22:25:02 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:25:02 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3664]: env: $'bash\r': No such file or directory
+May 08 22:25:02 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3664]: env: use -[v]S to pass options in shebang lines
+May 08 22:25:02 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:25:02 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:25:07 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 6.
+May 08 22:25:07 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:25:07 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3674]: env: $'bash\r': No such file or directory
+May 08 22:25:07 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3674]: env: use -[v]S to pass options in shebang lines
+May 08 22:25:07 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:25:07 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:25:13 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 7.
+May 08 22:25:13 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:25:13 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3690]: env: $'bash\r': No such file or directory
+May 08 22:25:13 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3690]: env: use -[v]S to pass options in shebang lines
+May 08 22:25:13 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:25:13 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:25:18 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 8.
+May 08 22:25:18 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:25:18 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3700]: env: $'bash\r': No such file or directory
+May 08 22:25:18 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3700]: env: use -[v]S to pass options in shebang lines
+May 08 22:25:18 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:25:18 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:25:23 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 9.
+May 08 22:25:23 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:25:23 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3710]: env: $'bash\r': No such file or directory
+May 08 22:25:23 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3710]: env: use -[v]S to pass options in shebang lines
+May 08 22:25:23 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:25:23 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:25:28 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 10.
+May 08 22:25:28 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:25:28 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3720]: env: $'bash\r': No such file or directory
+May 08 22:25:28 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3720]: env: use -[v]S to pass options in shebang lines
+May 08 22:25:28 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:25:28 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:25:34 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 11.
+May 08 22:25:34 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:25:34 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3732]: env: $'bash\r': No such file or directory
+May 08 22:25:34 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3732]: env: use -[v]S to pass options in shebang lines
+May 08 22:25:34 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:25:34 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:25:39 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 12.
+May 08 22:25:39 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:25:39 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3742]: env: $'bash\r': No such file or directory
+May 08 22:25:39 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3742]: env: use -[v]S to pass options in shebang lines
+May 08 22:25:39 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:25:39 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:25:44 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 13.
+May 08 22:25:44 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:25:44 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3752]: env: $'bash\r': No such file or directory
+May 08 22:25:44 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3752]: env: use -[v]S to pass options in shebang lines
+May 08 22:25:44 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:25:44 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:25:49 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 14.
+May 08 22:25:49 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:25:49 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3762]: env: $'bash\r': No such file or directory
+May 08 22:25:49 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3762]: env: use -[v]S to pass options in shebang lines
+May 08 22:25:49 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:25:49 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:25:55 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 15.
+May 08 22:25:55 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:25:55 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3772]: env: $'bash\r': No such file or directory
+May 08 22:25:55 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3772]: env: use -[v]S to pass options in shebang lines
+May 08 22:25:55 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:25:55 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:26:00 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 16.
+May 08 22:26:00 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:26:00 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3782]: env: $'bash\r': No such file or directory
+May 08 22:26:00 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3782]: env: use -[v]S to pass options in shebang lines
+May 08 22:26:00 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:26:00 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:26:05 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 17.
+May 08 22:26:05 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:26:05 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3792]: env: $'bash\r': No such file or directory
+May 08 22:26:05 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3792]: env: use -[v]S to pass options in shebang lines
+May 08 22:26:05 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:26:05 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:26:10 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 18.
+May 08 22:26:10 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:26:10 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3805]: env: $'bash\r': No such file or directory
+May 08 22:26:10 LAPTOP-ASUS-DIMITRI hermes_net_daemon.sh[3805]: env: use -[v]S to pass options in shebang lines
+May 08 22:26:10 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Main process exited, code=exited, status=127/n/a
+May 08 22:26:10 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Failed with result 'exit-code'.
+May 08 22:26:15 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Scheduled restart job, restart counter is at 19.
+May 08 22:26:15 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:26:15 LAPTOP-ASUS-DIMITRI systemd[385]: Stopping hermes-net.service - Hermes network throughput daemon...
+May 08 22:26:15 LAPTOP-ASUS-DIMITRI systemd[385]: Stopped hermes-net.service - Hermes network throughput daemon.
+May 08 22:26:16 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:36:57 LAPTOP-ASUS-DIMITRI systemd[385]: Stopping hermes-net.service - Hermes network throughput daemon...
+May 08 22:36:57 LAPTOP-ASUS-DIMITRI systemd[385]: Stopped hermes-net.service - Hermes network throughput daemon.
+May 08 22:36:57 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Consumed 1.891s CPU time over 10min 41.399s wall clock time, 3.6M memory peak.
+May 08 22:36:57 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.
+May 08 22:40:39 LAPTOP-ASUS-DIMITRI systemd[385]: Stopping hermes-net.service - Hermes network throughput daemon...
+May 08 22:40:39 LAPTOP-ASUS-DIMITRI systemd[385]: Stopped hermes-net.service - Hermes network throughput daemon.
+May 08 22:40:39 LAPTOP-ASUS-DIMITRI systemd[385]: hermes-net.service: Consumed 2.222s CPU time over 3min 41.776s wall clock time, 3.7M memory peak.
+May 08 22:40:39 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.

@@ -1,0 +1,162 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL VΦ — PRIMAL LIGHT
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- PRIMAL VARIABLES (lumière première) ---------- */
+:root {
+    --phi-glow: rgba(255,255,255,0.18);   /* lueur fondamentale */
+    --phi-core: rgba(255,255,255,0.28);   /* cœur lumineux */
+    --phi-flare: rgba(255,255,255,0.36);  /* éclat primal */
+
+    --phi-breath: 7.8s;
+    --phi-pulse: 3.6s;
+    --phi-flare-speed: 11.2s;
+}
+
+/* ---------------------------------------------------------
+   1) PRIMAL ENGINE — LUMIÈRE NON DIFFRACTÉE
+   (aucun état, car la lumière première est unique)
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   2) PRIMAL SURFACE — RAYONNEMENT ORIGINEL
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -58%;
+    background-image:
+        /* halo primal */
+        radial-gradient(circle at 50% 50%, var(--phi-core) 0, transparent 75%),
+        /* éclat primal */
+        radial-gradient(circle at 30% 20%, var(--phi-flare) 0, transparent 60%),
+        /* lueur fondamentale */
+        linear-gradient(135deg, var(--phi-glow), transparent 70%);
+    opacity: 0.34;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: phi-flare var(--phi-flare-speed) ease-in-out infinite;
+}
+
+@keyframes phi-flare {
+    0%   { transform: scale(1) rotate(0deg); opacity: 0.32; }
+    50%  { transform: scale(1.06) rotate(180deg); opacity: 0.40; }
+    100% { transform: scale(1) rotate(360deg); opacity: 0.32; }
+}
+
+/* ---------------------------------------------------------
+   3) PRIMAL BREATH — RESPIRATION LUMINEUSE
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: phi-breath var(--phi-breath) ease-in-out infinite;
+}
+
+@keyframes phi-breath {
+    0%   { box-shadow: 0 0 20px var(--phi-glow); }
+    50%  { box-shadow: 0 0 44px var(--phi-core); }
+    100% { box-shadow: 0 0 20px var(--phi-glow); }
+}
+
+/* ---------------------------------------------------------
+   4) PRIMAL PULSE — OSCILLATION ORIGINELLE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: phi-pulse var(--phi-pulse) ease-in-out infinite;
+}
+
+@keyframes phi-pulse {
+    0%   { text-shadow: 0 0 10px var(--phi-glow); }
+    50%  { text-shadow: 0 0 28px var(--phi-core); }
+    100% { text-shadow: 0 0 10px var(--phi-glow); }
+}
+
+/* ---------------------------------------------------------
+   5) PRIMAL GRADIENTS — SPECTRE NON NÉ
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--phi-glow),
+        var(--phi-core),
+        var(--phi-flare)
+    );
+    box-shadow: 0 0 22px var(--phi-core);
+}
+
+/* ---------------------------------------------------------
+   6) PRIMAL HEATMAP — MATIÈRE LUMINEUSE
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--phi-core);
+    background: linear-gradient(
+        to top,
+        var(--phi-core),
+        transparent
+    );
+    box-shadow:
+        0 0 18px var(--phi-glow),
+        0 0 26px var(--phi-core);
+}
+
+/* ---------------------------------------------------------
+   7) PRIMAL RADAR — RÉSEAU LUMINEUX
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--phi-core),
+        transparent
+    );
+    box-shadow: 0 0 24px var(--phi-core);
+}
+
+/* ---------------------------------------------------------
+   8) PRIMAL TITLES — IDENTITÉ LUMINEUSE
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--phi-core);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    text-shadow: 0 0 22px var(--phi-core);
+}
+
+/* ---------------------------------------------------------
+   9) PRIMAL HOVER — RÉACTION ORIGINELLE
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--phi-core);
+    outline-offset: 2px;
+    filter: brightness(1.24);
+}

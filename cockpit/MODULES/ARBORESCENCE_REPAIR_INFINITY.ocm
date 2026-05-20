@@ -1,0 +1,44 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_INFINITY.ocm — Hermès Cockpit Arborescence Repair INFINITY v4.0
+# Surveillance continue + auto-réparation en temps réel
+
+ROOT="$HOME/OpenClaw_Light"
+LOG="$ROOT/cockpit/reports/ARBORESCENCE_REPAIR_INFINITY.log"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR INFINITY — ACTIVATION ==="
+echo "Log : $LOG"
+echo "Racine : $ROOT"
+echo
+
+echo "=== INFINITY LOG — $(date) ===" > "$LOG"
+
+echo "[∞] Lancement du mode surveillance continue..."
+echo "[∞] Toute anomalie sera réparée automatiquement."
+
+inotifywait -m -r "$ROOT" -e create -e delete -e modify |
+while read -r path action file; do
+  echo "[∞] Événement détecté : $action → $file" >> "$LOG"
+
+  # Suppression automatique des fichiers parasites
+  if [[ "$file" == *":Zone.Identifier" ]]; then
+    rm -f "$path/$file"
+    echo "[DEL] $path/$file" >> "$LOG"
+  fi
+
+  if [[ "$file" == *"Copie"* || "$file" == *"("*")"* ]]; then
+    rm -f "$path/$file"
+    echo "[DEL] $path/$file" >> "$LOG"
+  fi
+
+  # Correction automatique des permissions
+  if [[ "$file" == *.sh || "$file" == *.ocm ]]; then
+    chmod +x "$path/$file"
+    echo "[CHMOD] $path/$file" >> "$LOG"
+  fi
+
+  # Conversion CRLF → LF
+  if grep -q $'\r' "$path/$file" 2>/dev/null; then
+    sed -i 's/\r$//' "$path/$file"
+    echo "[LF] $path/$file" >> "$LOG"
+  fi
+done

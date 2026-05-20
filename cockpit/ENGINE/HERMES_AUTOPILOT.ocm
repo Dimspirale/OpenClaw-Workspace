@@ -1,0 +1,58 @@
+# HERMES_AUTOPILOT.ocm
+# OpenClaw_Light — Hermes Autopilot Engine
+# Autonomie contrôlée, supervision continue, actions préventives, optimisation automatique
+
+HERMES_AUTOPILOT {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "AUTOPILOT"
+
+    ROLE: "HERMES_AUTOPILOT"
+    DESCRIPTION: "Moteur d'autopilotage d'Hermes. Supervision continue, optimisation automatique, actions préventives, autonomie contrôlée."
+
+    LINK {
+        HERMES_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_ENGINE.ocm"
+        HERMES_AI: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_AI.ocm"
+        HERMES_PILOT: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_PILOT.ocm"
+        HERMES_COMMANDS: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_COMMANDS.ocm"
+        FLOW_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/FLOW_ENGINE.ocm"
+        META_OPS_ROOT: "~/OpenClaw_Light/COCKPIT/META_OPS"
+        SYSTEM_ROOT: "~/OpenClaw_Light/SYSTEM"
+    }
+
+    AUTOPILOT {
+        ENABLED: true
+        MODE: "SUPERVISED"
+        CHECK_INTERVAL: 5
+        AUTO_OPTIMIZE: true
+        AUTO_CORRECT: true
+        AUTO_SEQUENCE: true
+        AUTO_META_SYNC: true
+        AUTO_FLOW_BALANCE: true
+        SAFETY_LOCK: true
+    }
+
+    CAPABILITIES {
+        SUPERVISION_CONTINUE: true
+        DETECTION_ANOMALIES: true
+        OPTIMISATION_CYCLE: true
+        META_OPS_MAINTENANCE: true
+        FLOW_STABILISATION: true
+        SYSTEM_HEALTH_MONITOR: true
+        ACTION_PREVENTIVE: true
+        AUTONOMIE_LIMITEE: true
+        DECISION_CONTEXTUELLE: true
+    }
+
+    OUTPUT {
+        PROVIDE_AUTOPILOT_READY: true
+        PROVIDE_AUTOPILOT_STATUS: true
+        PROVIDE_AUTOPILOT_ACTION: true
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AUTOPILOT"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

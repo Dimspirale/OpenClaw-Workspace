@@ -1,0 +1,104 @@
+HERMES_LIGHT_EFFECTS_PRO {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    CAPABILITIES {
+        WAVE_COMPLEX: "ENABLED"
+        CHASE_MULTI: "ENABLED"
+        COLORFLOW_PRO: "ENABLED"
+        PIXELMAP_2D: "ENABLED"
+        PIXELMAP_3D: "ENABLED"
+        POSITION_SWEEP_PRO: "ENABLED"
+        INTELLIGENT_OFFSET: "ENABLED"
+        AUTO_GROUPING: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+    }
+
+    PARAMETERS {
+        SPEED: "0.01-20"
+        SIZE: "0-200"
+        PHASE: "0-360"
+        OFFSET: "0-360"
+        WAVEFORM: ["sine", "cosine", "saw", "triangle", "square", "noise"]
+        COLOR_MODES: ["rainbow", "gradient", "split", "dualflow", "random"]
+        DIMMER_CURVES: ["linear", "square", "log", "s-curve"]
+        PIXELMAP_RESOLUTION: "AUTO"
+    }
+
+    COMMANDS {
+        WAVE_COMPLEX: "effect wave complex group <g> waveform <type> speed <s> size <sz> phase <p>"
+        CHASE_MULTI: "effect chase multi groups <g1,g2,g3> speed <s> offset <o>"
+        COLORFLOW_PRO: "effect colorflow pro mode <mode> speed <s> phase <p>"
+        PIXELMAP_2D: "effect pixelmap2d matrix <w>x<h> mode <mode> speed <s>"
+        PIXELMAP_3D: "effect pixelmap3d matrix <w>x<h>x<d> mode <mode> speed <s>"
+        POSITION_SWEEP_PRO: "effect sweep pro group <g> angle <a> speed <s> wave <type>"
+        AUTO_OFFSET: "effect auto offset group <g>"
+        EXPORT: "effect export <console>"
+    }
+
+    ENGINE {
+
+        AUTO_GROUPING_LOGIC: "
+            hermes groups auto_detect
+            hermes groups sort_by_position
+        "
+
+        OFFSET_LOGIC: "
+            COUNT=$(hermes groups count $group)
+            STEP=$((360/COUNT))
+            hermes effects apply_offset $group $STEP
+        "
+
+        PIXELMAP_2D_LOGIC: "
+            hermes pixelmap build2d $matrix $mode $speed
+        "
+
+        PIXELMAP_3D_LOGIC: "
+            hermes pixelmap build3d $matrix $mode $speed
+        "
+
+        WAVE_COMPLEX_LOGIC: "
+            hermes effects wave_complex $group $waveform $speed $size $phase
+        "
+
+        CHASE_MULTI_LOGIC: "
+            hermes effects chase_multi $groups $speed $offset
+        "
+
+        COLORFLOW_PRO_LOGIC: "
+            hermes effects colorflow_pro $mode $speed $phase
+        "
+
+        EXPORT_LOGIC: "
+            case $console in
+                MA2)
+                    hermes effects export_ma2
+                    ;;
+                MA3)
+                    hermes effects export_ma3
+                    ;;
+                ONYX)
+                    hermes effects export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "EFFECT_TYPE",
+            "GROUPS",
+            "PARAMETERS",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_LIGHT_EFFECTS_PRO"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

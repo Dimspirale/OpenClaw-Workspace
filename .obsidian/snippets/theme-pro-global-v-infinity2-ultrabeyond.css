@@ -1,0 +1,162 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V∞² — ULTRABEYOND
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- ULTRA VARIABLES (irréalité) ---------- */
+:root {
+    --ub-trace: rgba(255,255,255,0.03);   /* trace d’existence */
+    --ub-ghost: rgba(255,255,255,0.07);   /* lueur irréelle */
+    --ub-flux: rgba(255,255,255,0.12);    /* flux impossible */
+
+    --ub-shift: 13.6s;
+    --ub-breath: 9.2s;
+    --ub-pulse: 4.4s;
+}
+
+/* ---------------------------------------------------------
+   1) ULTRABEYOND ENGINE — NON-LOGIQUE
+   (aucun état, car l’état n’a pas de sens ici)
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   2) ULTRABEYOND SURFACE — IRRÉALITÉ MANIFESTÉE
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -70%;
+    background-image:
+        /* trace d’existence */
+        radial-gradient(circle at 50% 50%, var(--ub-trace) 0, transparent 85%),
+        /* lueur irréelle */
+        radial-gradient(circle at 30% 20%, var(--ub-ghost) 0, transparent 65%),
+        /* flux impossible */
+        linear-gradient(135deg, var(--ub-flux), transparent 75%);
+    opacity: 0.20;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: ub-shift var(--ub-shift) ease-in-out infinite;
+}
+
+@keyframes ub-shift {
+    0%   { transform: scale(1) rotate(0deg); opacity: 0.18; }
+    50%  { transform: scale(1.08) rotate(270deg); opacity: 0.26; }
+    100% { transform: scale(1) rotate(540deg); opacity: 0.18; }
+}
+
+/* ---------------------------------------------------------
+   3) ULTRABEYOND BREATH — RESPIRATION IMPOSSIBLE
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: ub-breath var(--ub-breath) ease-in-out infinite;
+}
+
+@keyframes ub-breath {
+    0%   { box-shadow: 0 0 10px var(--ub-trace); }
+    50%  { box-shadow: 0 0 30px var(--ub-ghost); }
+    100% { box-shadow: 0 0 10px var(--ub-trace); }
+}
+
+/* ---------------------------------------------------------
+   4) ULTRABEYOND PULSE — OSCILLATION NON-RÉELLE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: ub-pulse var(--ub-pulse) ease-in-out infinite;
+}
+
+@keyframes ub-pulse {
+    0%   { text-shadow: 0 0 6px var(--ub-trace); }
+    50%  { text-shadow: 0 0 22px var(--ub-ghost); }
+    100% { text-shadow: 0 0 6px var(--ub-trace); }
+}
+
+/* ---------------------------------------------------------
+   5) ULTRABEYOND GRADIENTS — SPECTRE IMPOSSIBLE
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--ub-trace),
+        var(--ub-ghost),
+        var(--ub-flux)
+    );
+    box-shadow: 0 0 18px var(--ub-ghost);
+}
+
+/* ---------------------------------------------------------
+   6) ULTRABEYOND HEATMAP — MATIÈRE IRRÉELLE
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--ub-ghost);
+    background: linear-gradient(
+        to top,
+        var(--ub-flux),
+        transparent
+    );
+    box-shadow:
+        0 0 14px var(--ub-ghost),
+        0 0 20px var(--ub-flux);
+}
+
+/* ---------------------------------------------------------
+   7) ULTRABEYOND RADAR — RÉSEAU IMPOSSIBLE
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--ub-flux),
+        transparent
+    );
+    box-shadow: 0 0 20px var(--ub-flux);
+}
+
+/* ---------------------------------------------------------
+   8) ULTRABEYOND TITLES — IDENTITÉ IRRÉELLE
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--ub-flux);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-shadow: 0 0 18px var(--ub-ghost);
+}
+
+/* ---------------------------------------------------------
+   9) ULTRABEYOND HOVER — RÉACTION PARADOXALE
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--ub-ghost);
+    outline-offset: 2px;
+    filter: brightness(1.18);
+}

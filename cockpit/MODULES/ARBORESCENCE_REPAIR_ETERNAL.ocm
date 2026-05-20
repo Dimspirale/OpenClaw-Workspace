@@ -1,0 +1,31 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_ETERNAL.ocm — Hermès Cockpit Arborescence Repair ETERNAL v14.0
+# Protection éternelle + intégration BOOT_SEQUENCE
+
+ROOT="$HOME/OpenClaw_Light"
+LOG="$ROOT/cockpit/reports/ARBORESCENCE_REPAIR_ETERNAL.log"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR ETERNAL — ACTIVATION ==="
+echo "Log : $LOG"
+echo "Racine : $ROOT"
+echo
+
+echo "=== ETERNAL LOG — $(date) ===" > "$LOG"
+
+###############################################
+# 1. AUTO-RÉPARATION INITIALE
+###############################################
+
+find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \; -exec echo "[CHMOD] {}" >> "$LOG" \;
+grep -rl $'\r' "$ROOT" | while read -r f; do sed -i 's/\r$//' "$f"; echo "[LF] $f" >> "$LOG"; done
+
+###############################################
+# 2. SURVEILLANCE CONTINUE
+###############################################
+
+echo "[∞] Activation du mode ETERNAL..."
+inotifywait -m -r "$ROOT" -e create -e delete -e modify |
+while read -r path action file; do
+  echo "[∞] $action → $

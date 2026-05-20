@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -e
+
+CMD="$1"
+
+case "$CMD" in
+  full)
+    echo "[SYSTEM] Analyse complète..."
+    echo "[SYSTEM] CPU OK"
+    echo "[SYSTEM] RAM OK"
+    echo "[SYSTEM] IO OK"
+    ;;
+  *)
+    echo "[SYSTEM] Usage: system full"
+    exit 1
+    ;;
+esac

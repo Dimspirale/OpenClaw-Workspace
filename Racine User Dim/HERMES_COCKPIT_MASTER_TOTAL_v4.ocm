@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -e
+
+PROFILE="$1"
+
+echo "[COCKPIT_MASTER] Activation cockpit maître..."
+echo "[COCKPIT_MASTER] Profil : $PROFILE"
+echo "[COCKPIT_MASTER] Cockpit prêt."

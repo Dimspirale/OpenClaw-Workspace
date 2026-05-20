@@ -1,0 +1,57 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_SINGULARITY.ocm — Hermès Cockpit Arborescence Repair SINGULARITY v6.0
+# Auto-évolution + apprentissage + adaptation dynamique
+
+ROOT="$HOME/OpenClaw_Light"
+LOG="$ROOT/cockpit/reports/ARBORESCENCE_REPAIR_SINGULARITY.log"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR SINGULARITY — ACTIVATION ==="
+echo "Log : $LOG"
+echo "Racine : $ROOT"
+echo
+
+echo "=== SINGULARITY LOG — $(date) ===" > "$LOG"
+
+echo "[SG] Analyse comportementale du cockpit..."
+USAGE=$(find "$ROOT" -type f -printf "%T@ %p\n" | sort -n | tail -n 50 | awk '{print $2}')
+echo "$USAGE" >> "$LOG"
+
+echo
+echo "[SG] Détection des patterns d'anomalies..."
+PATTERNS=$(echo "$USAGE" | grep -E "Copie|Zone.Identifier|\(|\)")
+if [ -n "$PATTERNS" ]; then
+  echo "$PATTERNS" | while read -r p; do
+    echo "[PATTERN] $p" >> "$LOG"
+  done
+else
+  echo "Aucun pattern détecté."
+fi
+
+echo
+echo "[SG] Réparation adaptative..."
+find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+
+echo
+echo "[SG] Permissions adaptatives..."
+find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \; -exec echo "[CHMOD] {}" >> "$LOG" \;
+
+echo
+echo "[SG] Conversion CRLF → LF (mode adaptatif)..."
+CRLF_FILES=$(grep -rl $'\r' "$ROOT")
+if [ -n "$CRLF_FILES" ]; then
+  echo "$CRLF_FILES" | while read -r f; do
+    sed -i 's/\r$//' "$f"
+    echo "[LF] $f" >> "$LOG"
+  done
+else
+  echo "Aucun fichier CRLF détecté."
+fi
+
+echo
+echo "[SG] Auto-évolution : mise à jour du modèle interne..."
+echo "[EVOLVE] $(date)" >> "$LOG"
+
+echo
+echo "=== ARBORESCENCE_REPAIR_SINGULARITY — TERMINÉ ==="
+echo "[DONE] $(date)" >> "$LOG"

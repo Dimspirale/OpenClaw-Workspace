@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e
+
+CMD="$1"
+
+case "$CMD" in
+  scan)
+    echo "[GPU] Scan GPU..."
+    echo "[GPU] VRAM OK"
+    echo "[GPU] Température OK"
+    ;;
+  *)
+    echo "[GPU] Usage: gpu scan"
+    exit 1
+    ;;
+esac

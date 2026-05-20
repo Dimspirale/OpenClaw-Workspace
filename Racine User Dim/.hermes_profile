@@ -1,0 +1,11 @@
+git=0
+python=0
+node=42
+docker=0
+build=0
+ssh=0
+cpu_avg=0
+ram_avg=6
+cpu_var=603
+ram_var=8
+focus_domain=node

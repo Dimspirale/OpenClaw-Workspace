@@ -1,0 +1,46 @@
+# ============================================================
+# HERMES_GPU_PRIME.ocm
+# Module GPU détaillé pour Hermès Cockpit / OpenClaw_Light
+# Mode PRIME : métriques étendues, cockpit-safe
+# Sans couleurs, sans Unicode, sans artefacts
+# ============================================================
+
+HERMES_GPU_PRIME() {
+
+    if ! command -v nvidia-smi >/dev/null 2>&1; then
+        echo -n "GPU:N/A"
+        return 0
+    fi
+
+    local raw
+    raw="$(nvidia-smi --query-gpu=utilization.gpu,memory.used,memory.total,temperature.gpu,power.draw,clocks.sm,clocks.mem,pstate --format=csv,noheader,nounits 2>/dev/null | head -n 1)"
+
+    if [ -z "$raw" ]; then
+        echo -n "GPU:N/A"
+        return 0
+    fi
+
+    local util used total temp power clock_sm clock_mem pstate
+    IFS=',' read -r util used total temp power clock_sm clock_mem pstate <<EOF
+$raw
+EOF
+
+    util="$(echo "$util" | xargs)"
+    used="$(echo "$used" | xargs)"
+    total="$(echo "$total" | xargs)"
+    temp="$(echo "$temp" | xargs)"
+    power="$(echo "$power" | xargs)"
+    clock_sm="$(echo "$clock_sm" | xargs)"
+    clock_mem="$(echo "$clock_mem" | xargs)"
+    pstate="$(echo "$pstate" | xargs)"
+
+    local vram_pct
+    if [ "$total" -gt 0 ] 2>/dev/null; then
+        vram_pct=$(( 100 * used / total ))
+    else
+        vram_pct=0
+    fi
+
+    echo -n "GPU:${util}% VRAM:${used}/${total}MB(${vram_pct}%) TEMP:${temp}C PWR:${power}W CLK:${clock_sm}/${clock_mem}MHz PSTATE:${pstate}"
+}
+

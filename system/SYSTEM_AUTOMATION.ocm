@@ -1,0 +1,72 @@
+# SYSTEM_AUTOMATION.ocm
+# OpenClaw_Light — Module d’Automatisation Système
+# Version monolithique, stable, cockpit-grade
+
+SYSTEM_AUTOMATION {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "COCKPIT"
+
+    AUTOMATION_CORE {
+        ENABLED: true
+        AUTO_START: true
+        AUTO_RELOAD: true
+        AUTO_SYNC: true
+        LOG_ACTIONS: true
+    }
+
+    TASKS {
+        ON_BOOT: [
+            "CHECK_ENV",
+            "SYNC_META_OPS",
+            "LOAD_AUTOMATION_RULES",
+            "VERIFY_SYSTEM_GLOBAL"
+        ]
+
+        ON_CHANGE: [
+            "RELOAD_MODULE",
+            "UPDATE_STATE",
+            "WRITE_LOG"
+        ]
+
+        ON_ERROR: [
+            "TRIGGER_RECOVERY",
+            "LOG_EVENT",
+            "RESTART_AUTOMATION"
+        ]
+    }
+
+    RULES {
+        WATCH_PATHS: [
+            "~/OpenClaw_Light/COCKPIT",
+            "~/OpenClaw_Light/SYSTEM",
+            "~/OpenClaw_Light/COCKPIT/META_OPS"
+        ]
+
+        WATCH_EVENTS: [
+            "CREATE",
+            "MODIFY",
+            "DELETE"
+        ]
+
+        ACTIONS {
+            CREATE: "LOAD_NEW_MODULE"
+            MODIFY: "RELOAD_MODULE"
+            DELETE: "CLEAN_REFERENCES"
+        }
+    }
+
+    ENGINE {
+        META_OPS_INTEGRATION: true
+        SYSTEM_GLOBAL_LINK: "~/OpenClaw_Light/SYSTEM/SYSTEM_GLOBAL.ocm"
+        RECOVERY_LINK: "~/OpenClaw_Light/SYSTEM/SYSTEM_RECOVERY.ocm"
+        EXPORT_LINK: "~/OpenClaw_Light/SYSTEM/SYSTEM_EXPORT.ocm"
+    }
+
+    PERFORMANCE {
+        THREADS: 2
+        PRIORITY: "HIGH"
+        CACHE: true
+        CACHE_TTL: "10s"
+    }
+}

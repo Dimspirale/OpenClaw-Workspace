@@ -1,0 +1,37 @@
+# HERMES_GPU.ocm
+# Module HUD GPU pour Hermès Cockpit / OpenClaw_Light
+# Affiche : GPU%, VRAM used/total, TempC
+
+HERMES_GPU() {
+    # Vérifie la présence de nvidia-smi
+    if ! command -v nvidia-smi >/dev/null 2>&1; then
+        echo "GPU:N/A"
+        return 0
+    fi
+
+    # Récupération brute
+    local line
+    line="$(nvidia-smi --query-gpu=utilization.gpu,memory.used,memory.total,temperature.gpu --format=csv,noheader,nounits 2>/dev/null | head -n 1)"
+
+    # Si échec
+    if [ -z "$line" ]; then
+        echo "GPU:N/A"
+        return 0
+    fi
+
+    # Parsing : util%, mem_used, mem_total, tempC
+    local util used total temp
+    IFS=',' read -r util used total temp <<EOF
+$line
+EOF
+
+    # Trim espaces
+    util="$(echo "$util" | xargs)"
+    used="$(echo "$used" | xargs)"
+    total="$(echo "$total" | xargs)"
+    temp="$(echo "$temp" | xargs)"
+
+    # Format cockpit compact
+    # Exemple : GPU:32% VRAM:5371/6144MB TEMP:53C
+    echo -n "GPU:${util}% VRAM:${used}/${total}MB TEMP:${temp}C"
+}

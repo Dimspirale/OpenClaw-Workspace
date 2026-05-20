@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+case "$1" in
+    core)
+        shift
+        echo "[CORE] $*"
+        ;;
+    hermes-os)
+        shift
+        echo "[HERMES_OS] $*"
+        ;;
+    cockpit)
+        shift
+        echo "[COCKPIT] $*"
+        ;;
+    fusion)
+        shift
+        echo "[FUSION] $*"
+        ;;
+    *)
+        echo "[HERMES] Commande inconnue : $1"
+        ;;
+esac

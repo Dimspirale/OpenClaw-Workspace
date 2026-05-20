@@ -1,0 +1,109 @@
+HERMES_LIGHT_AUTOPATCH {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    FEATURES {
+        AUTO_PATCH: "ENABLED"
+        AUTO_FIX: "ENABLED"
+        AUTO_MODE_SELECT: "ENABLED"
+        AUTO_UNIVERSE_ASSIGN: "ENABLED"
+        AUTO_ADDRESSING: "ENABLED"
+        AUTO_CONFLICT_RESOLUTION: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+    }
+
+    RULES {
+        ADDRESS_STEP: 1
+        DEFAULT_UNIVERSE: 1
+        MAX_ADDRESS: 512
+        AUTO_INCREMENT: "YES"
+        FIXTURE_MODE_PRIORITY: "HIGHEST_CHANNEL_COUNT"
+        MERGE_IDENTICAL_FIXTURES: "YES"
+        VALIDATE_CHANNEL_OVERLAP: "YES"
+        VALIDATE_UNIVERSE_RANGE: "YES"
+    }
+
+    COMMANDS {
+        PATCH_FIXTURE: "patch <fixture> qty <n> mode <mode> universe <u> start <addr>"
+        PATCH_AUTO: "patch auto <fixture> qty <n>"
+        PATCH_RANGE: "patch range <fixture> <start>-<end> mode <mode>"
+        PATCH_IMPORT: "patch import <file>"
+        PATCH_EXPORT: "patch export <console>"
+        PATCH_VALIDATE: "patch validate"
+        PATCH_FIX: "patch fix"
+    }
+
+    ENGINE {
+        AUTO_PATCH_LOGIC: "
+            # 1 — Sélection du mode optimal
+            if AUTO_MODE_SELECT == 'ENABLED'; then
+                SELECT_MODE=$(hermes fixture bestmode $fixture)
+            else
+                SELECT_MODE=$mode
+            fi
+
+            # 2 — Sélection automatique de l'univers
+            if AUTO_UNIVERSE_ASSIGN == 'ENABLED'; then
+                UNIVERSE=$(hermes patch find_free_universe $SELECT_MODE)
+            else
+                UNIVERSE=$u
+            fi
+
+            # 3 — Calcul automatique de l'adresse
+            if AUTO_ADDRESSING == 'ENABLED'; then
+                ADDRESS=$(hermes patch find_free_address $UNIVERSE $SELECT_MODE)
+            else
+                ADDRESS=$addr
+            fi
+
+            # 4 — Application du patch
+            hermes patch apply $fixture $qty $SELECT_MODE $UNIVERSE $ADDRESS
+
+            # 5 — Correction automatique
+            if AUTO_FIX == 'ENABLED'; then
+                hermes patch resolve_conflicts
+            fi
+        "
+
+        VALIDATION_LOGIC: "
+            hermes patch check_conflicts
+            hermes patch check_overlaps
+            hermes patch check_universe_limits
+            hermes patch check_mode_validity
+        "
+
+        EXPORT_LOGIC: "
+            case $console in
+                MA2)
+                    hermes patch export_ma2
+                    ;;
+                MA3)
+                    hermes patch export_ma3
+                    ;;
+                ONYX)
+                    hermes patch export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "FIXTURE",
+            "MODE",
+            "UNIVERSE",
+            "ADDRESS",
+            "CHANNELS",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_LIGHT_AUTOPATCH"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

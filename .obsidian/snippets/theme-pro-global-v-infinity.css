@@ -1,0 +1,155 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V∞ — BEYOND
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- BEYOND VARIABLES (le minimum absolu) ---------- */
+:root {
+    --beyond-void: rgba(255,255,255,0.02);
+    --beyond-hint: rgba(255,255,255,0.04);
+    --beyond-pulse: 6.6s;
+    --beyond-breath: 9.4s;
+}
+
+/* ---------------------------------------------------------
+   1) BEYOND ENGINE — NON-ÉTAT
+   (aucun data-attribute, aucune condition)
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   2) BEYOND SURFACE — TRACE MINIMALE
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -60%;
+    background-image:
+        radial-gradient(circle at 50% 50%, var(--beyond-void) 0, transparent 80%),
+        linear-gradient(135deg, var(--beyond-hint), transparent 70%);
+    opacity: 0.10;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: beyond-shift var(--beyond-breath) ease-in-out infinite;
+}
+
+@keyframes beyond-shift {
+    0%   { transform: scale(1) translate3d(0,0,0); opacity: 0.10; }
+    50%  { transform: scale(1.02) translate3d(4px,-6px,0); opacity: 0.14; }
+    100% { transform: scale(1) translate3d(0,0,0); opacity: 0.10; }
+}
+
+/* ---------------------------------------------------------
+   3) BEYOND BREATH — RESPIRATION SANS IDENTITÉ
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: beyond-breath var(--beyond-breath) ease-in-out infinite;
+}
+
+@keyframes beyond-breath {
+    0%   { box-shadow: 0 0 6px var(--beyond-void); }
+    50%  { box-shadow: 0 0 14px var(--beyond-void); }
+    100% { box-shadow: 0 0 6px var(--beyond-void); }
+}
+
+/* ---------------------------------------------------------
+   4) BEYOND PULSE — OSCILLATION SANS SPECTRE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: beyond-pulse var(--beyond-pulse) ease-in-out infinite;
+}
+
+@keyframes beyond-pulse {
+    0%   { text-shadow: 0 0 2px var(--beyond-hint); }
+    50%  { text-shadow: 0 0 8px var(--beyond-hint); }
+    100% { text-shadow: 0 0 2px var(--beyond-hint); }
+}
+
+/* ---------------------------------------------------------
+   5) BEYOND GRADIENTS — NON-SPECTRE
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--beyond-void),
+        var(--beyond-hint),
+        var(--beyond-void)
+    );
+    box-shadow: 0 0 8px var(--beyond-hint);
+}
+
+/* ---------------------------------------------------------
+   6) BEYOND HEATMAP — TRACE
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--beyond-hint);
+    background: linear-gradient(
+        to top,
+        var(--beyond-hint),
+        transparent
+    );
+    box-shadow:
+        0 0 6px var(--beyond-hint),
+        0 0 10px var(--beyond-void);
+}
+
+/* ---------------------------------------------------------
+   7) BEYOND RADAR — ÉCHO MINIMAL
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--beyond-hint),
+        transparent
+    );
+    box-shadow: 0 0 10px var(--beyond-hint);
+}
+
+/* ---------------------------------------------------------
+   8) BEYOND TITLES — NON-IDENTITÉ
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--beyond-hint);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    text-shadow: 0 0 6px var(--beyond-hint);
+}
+
+/* ---------------------------------------------------------
+   9) BEYOND HOVER — RÉACTION SANS RÉACTION
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--beyond-hint);
+    outline-offset: 2px;
+    filter: brightness(1.06);
+}

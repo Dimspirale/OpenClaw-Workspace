@@ -1,0 +1,118 @@
+/* ---------------------------------------------------------
+   PACK UI PRO v∞.Ω — Beyond Ultimate
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- VARIABLES COSMIQUES (influence globale) ---------- */
+:root {
+    --uio-omega: rgba(95,255,212,0.45);   /* harmonie totale */
+    --uio-warn: rgba(255,210,79,0.45);    /* tension globale */
+    --uio-bad: rgba(255,79,107,0.45);     /* anomalie globale */
+
+    --uio-breath: 6.6s;
+    --uio-pulse: 3.4s;
+    --uio-shift: 12.4s;
+}
+
+/* ---------------------------------------------------------
+   1) GLOBAL FIELD — Champ d’influence UI
+   (toute UI portant data-global influence le cockpit)
+   --------------------------------------------------------- */
+
+[data-global] {
+    --uio-current: var(--uio-omega);
+}
+
+[data-global="warn"] {
+    --uio-current: var(--uio-warn);
+}
+
+[data-global="bad"] {
+    --uio-current: var(--uio-bad);
+}
+
+/* ---------------------------------------------------------
+   2) GLOBAL BREATH — Respiration du cockpit entier
+   --------------------------------------------------------- */
+
+[data-global] {
+    animation: uio-breath var(--uio-breath) ease-in-out infinite;
+}
+
+@keyframes uio-breath {
+    0%   { box-shadow: 0 0 18px var(--uio-current); }
+    50%  { box-shadow: 0 0 42px var(--uio-current); }
+    100% { box-shadow: 0 0 18px var(--uio-current); }
+}
+
+/* ---------------------------------------------------------
+   3) GLOBAL PULSE — Oscillation du système
+   --------------------------------------------------------- */
+
+[data-global] .ui-value,
+[data-global] .ui-label {
+    animation: uio-pulse var(--uio-pulse) ease-in-out infinite;
+}
+
+@keyframes uio-pulse {
+    0%   { text-shadow: 0 0 10px var(--uio-current); }
+    50%  { text-shadow: 0 0 30px var(--uio-current); }
+    100% { text-shadow: 0 0 10px var(--uio-current); }
+}
+
+/* ---------------------------------------------------------
+   4) GLOBAL SHIFT — Influence sur les panels, HUD, overlays
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion,
+.ui-panel,
+.ui-navbar,
+.ui-modal,
+.ui-drawer,
+.ui-command-panel {
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+[data-global] ~ * {
+    border-color: var(--uio-current) !important;
+    box-shadow: 0 0 20px var(--uio-current) !important;
+}
+
+/* ---------------------------------------------------------
+   5) GLOBAL CORRECTION — Ajustement automatique du cockpit
+   --------------------------------------------------------- */
+
+[data-global="bad"] ~ * {
+    filter: saturate(0.6) brightness(0.9);
+}
+
+[data-global="warn"] ~ * {
+    filter: saturate(1.1) brightness(1.05);
+}
+
+[data-global="good"],
+[data-global="omega"] {
+    filter: saturate(1.2) brightness(1.12);
+}
+
+/* ---------------------------------------------------------
+   6) GLOBAL EVOLUTION — Le cockpit s’adapte
+   --------------------------------------------------------- */
+
+[data-global][data-evolve="slow"] {
+    animation-duration: calc(var(--uio-breath) * 1.4);
+}
+
+[data-global][data-evolve="fast"] {
+    animation-duration: calc(var(--uio-breath) * 0.6);
+}
+
+[data-global][data-evolve="static"] {
+    animation: none;
+    box-shadow: none;
+}

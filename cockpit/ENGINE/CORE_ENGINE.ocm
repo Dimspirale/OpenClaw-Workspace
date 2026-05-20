@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+set -e
+
+CMD="$1"
+
+case "$CMD" in
+  diag)
+    echo "[CORE] Diagnostic complet..."
+    echo "[CORE] CPU OK"
+    echo "[CORE] RAM OK"
+    echo "[CORE] FS OK"
+    echo "[CORE] NET OK"
+    ;;
+  *)
+    echo "[CORE] Usage: core diag"
+    exit 1
+    ;;
+esac

@@ -1,0 +1,70 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR.ocm — Hermès Cockpit Arborescence Repair v1.0
+# Analyse + Réparation + Nettoyage + Normalisation
+
+ROOT="$HOME/OpenClaw_Light"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR — DIAGNOSTIC INITIAL ==="
+echo "Racine analysée : $ROOT"
+echo
+
+echo "[1] Vérification des dossiers critiques..."
+CRITICAL_DIRS=(
+  "cockpit"
+  "cockpit/MODULES"
+  "cockpit/ENGINE"
+  "modules"
+  "core"
+  "engine"
+  "hud"
+  "system"
+)
+
+for d in "${CRITICAL_DIRS[@]}"; do
+  if [ ! -d "$ROOT/$d" ]; then
+    echo "  → Dossier manquant : $d — création..."
+    mkdir -p "$ROOT/$d"
+  else
+    echo "  ✔ $d OK"
+  fi
+done
+
+echo
+echo "[2] Recherche des fichiers parasites (Zone.Identifier)..."
+find "$ROOT" -type f -name "*:Zone.Identifier"
+
+echo "[Nettoyage]"
+find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+
+echo
+echo "[3] Recherche des copies Windows (Copie, (1), (2)..."
+find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \)
+
+echo "[Nettoyage]"
+find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+
+echo
+echo "[4] Correction des permissions .sh et .ocm..."
+find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+
+echo
+echo "[5] Détection des fichiers CRLF..."
+CRLF_FILES=$(grep -rl $'\r' "$ROOT")
+
+if [ -n "$CRLF_FILES" ]; then
+  echo "$CRLF_FILES"
+  echo "[Conversion CRLF → LF]"
+  echo "$CRLF_FILES" | while read -r f; do
+    sed -i 's/\r$//' "$f"
+  done
+else
+  echo "Aucun fichier CRLF détecté."
+fi
+
+echo
+echo "[6] Vérification finale de l'arborescence..."
+find "$ROOT" -maxdepth 4 -type d
+
+echo
+echo "=== ARBORESCENCE_REPAIR.ocm — OPÉRATION TERMINÉE ==="
+

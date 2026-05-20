@@ -1,0 +1,142 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V11 — BIOLUMENS
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- VARIABLES BIOLUMINESCENTES ---------- */
+:root {
+    --bl-core: #5fffd4;
+    --bl-core-soft: rgba(95,255,212,0.35);
+
+    --bl-gradient-a: #5fffd4;
+    --bl-gradient-b: #7b5cff;
+    --bl-gradient-c: #4fd1ff;
+
+    --bl-breath-speed: 4.8s;
+    --bl-pulse-speed: 2.6s;
+
+    --bl-cell-opacity: 0.22;
+}
+
+/* ---------- TEXTURE ORGANIQUE (ultra légère) ---------- */
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -35%;
+    background-image:
+        radial-gradient(circle at 20% 30%, rgba(95,255,212,var(--bl-cell-opacity)) 0, transparent 55%),
+        radial-gradient(circle at 80% 70%, rgba(123,92,255,0.18) 0, transparent 60%),
+        radial-gradient(circle at 50% 50%, rgba(79,209,255,0.12) 0, transparent 65%);
+    opacity: 0.32;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+/* ---------- RESPIRATION ORGANIQUE ---------- */
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: bl-breath var(--bl-breath-speed) ease-in-out infinite;
+}
+
+@keyframes bl-breath {
+    0%   { box-shadow: 0 0 12px rgba(95,255,212,0.18); }
+    50%  { box-shadow: 0 0 26px rgba(95,255,212,0.32); }
+    100% { box-shadow: 0 0 12px rgba(95,255,212,0.18); }
+}
+
+/* ---------- PULSATION CELLULAIRE ---------- */
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: bl-pulse var(--bl-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes bl-pulse {
+    0%   { text-shadow: 0 0 6px var(--bl-core-soft); }
+    50%  { text-shadow: 0 0 18px var(--bl-core-soft); }
+    100% { text-shadow: 0 0 6px var(--bl-core-soft); }
+}
+
+/* ---------- GRADIENTS VIVANTS ---------- */
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--bl-gradient-a),
+        var(--bl-gradient-b),
+        var(--bl-gradient-c)
+    );
+    box-shadow: 0 0 10px rgba(95,255,212,0.35);
+}
+
+/* ---------- HEATMAP BIOLUMINESCENTE ---------- */
+.heat-cell {
+    border: 1px solid rgba(95,255,212,0.28);
+    background: linear-gradient(
+        to top,
+        rgba(95,255,212,0.75),
+        rgba(95,255,212,0.08)
+    );
+    box-shadow:
+        0 0 8px rgba(95,255,212,0.25),
+        0 0 14px rgba(123,92,255,0.22);
+}
+
+/* ---------- RADAR ORGANIQUE ---------- */
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--bl-gradient-a),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow: 0 0 12px rgba(95,255,212,0.35);
+}
+
+/* ---------- TITRES BIOLUMINESCENTS ---------- */
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--bl-core);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px var(--bl-core-soft);
+}
+
+/* ---------- FUSION STATE (organique) ---------- */
+.hud-fusion[data-fusion-state="low"] .fusion-score {
+    color: #ff4f6b;
+    text-shadow: 0 0 14px rgba(255,79,107,0.55);
+}
+
+.hud-fusion[data-fusion-state="mid"] .fusion-score {
+    color: var(--bl-core);
+    text-shadow: 0 0 14px var(--bl-core-soft);
+}
+
+.hud-fusion[data-fusion-state="high"] .fusion-score {
+    color: #4fff9a;
+    text-shadow: 0 0 14px rgba(79,255,154,0.55);
+}
+
+/* ---------- HOVER ORGANIC FOCUS ---------- */
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid rgba(95,255,212,0.55);
+    outline-offset: 2px;
+}
