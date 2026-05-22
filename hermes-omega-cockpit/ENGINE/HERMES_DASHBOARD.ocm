@@ -1,7 +1,3 @@
-#!/usr/bin/env bash
-set -e
-
-PROFILE="$1"
-
-echo "[DASHBOARD] Chargement dashboard pour profil $PROFILE..."
-echo "[DASHBOARD] Widgets OK"
+version https://git-lfs.github.com/spec/v1
+oid sha256:27d1055d832b5280d02cce976b24130259a5b32bc062cd3f88bf29ed03a2adcb
+size 136

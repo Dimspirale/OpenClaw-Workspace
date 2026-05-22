@@ -1,35 +1,3 @@
-# META_OPS_BETA.ocm
-# OpenClaw_Light — META_OPS BETA
-# Expansion dynamique, propulsion, activation du flux
-
-META_OPS_BETA {
-    VERSION: "1.0.0"
-    STATUS: "STABLE"
-    MODE: "META_OPS"
-
-    ROLE: "BETA"
-    DESCRIPTION: "Expansion dynamique. Propulsion du flux. Activation et mise en mouvement."
-
-    ENGINE {
-        ENABLED: true
-        PROVIDE_MOTION: true
-        PROVIDE_ENERGY: true
-        PROVIDE_PROPAGATION: true
-    }
-
-    INPUT {
-        PREVIOUS: "META_OPS_ALPHA"
-        FLOW: "ALPHA → BETA"
-    }
-
-    OUTPUT {
-        NEXT: "META_OPS_GAMMA"
-        FLOW: "BETA → GAMMA"
-    }
-
-    SIGNATURE {
-        ID: "META_OPS_BETA"
-        TYPE: "LAYER"
-        HASH: "AUTO"
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5941570e1e69f255dee0aa35d89d9b0cbaac206167a15d457f9fb8b2475b4b1f
+size 697

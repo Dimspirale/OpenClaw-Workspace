@@ -1,35 +1,3 @@
-# META_OPS_DELTA.ocm
-# OpenClaw_Light — META_OPS DELTA
-# Transformation, modulation, adaptation dynamique
-
-META_OPS_DELTA {
-    VERSION: "1.0.0"
-    STATUS: "STABLE"
-    MODE: "META_OPS"
-
-    ROLE: "DELTA"
-    DESCRIPTION: "Transformation active. Modulation du flux. Adaptation dynamique et réactivité."
-
-    ENGINE {
-        ENABLED: true
-        PROVIDE_TRANSFORMATION: true
-        PROVIDE_MODULATION: true
-        PROVIDE_ADAPTATION: true
-    }
-
-    INPUT {
-        PREVIOUS: "META_OPS_GAMMA"
-        FLOW: "GAMMA → DELTA"
-    }
-
-    OUTPUT {
-        NEXT: "META_OPS_EPSILON"
-        FLOW: "DELTA → EPSILON"
-    }
-
-    SIGNATURE {
-        ID: "META_OPS_DELTA"
-        TYPE: "LAYER"
-        HASH: "AUTO"
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a50ae287939d20b3e57df3acbd4db0398daed942c825ee4fdfca071b55fa94fa
+size 723

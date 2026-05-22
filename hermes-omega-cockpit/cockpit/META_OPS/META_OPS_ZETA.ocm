@@ -1,35 +1,3 @@
-# META_OPS_ZETA.ocm
-# OpenClaw_Light — META_OPS ZETA
-# Projection, expansion maîtrisée, pré‑intégration finale
-
-META_OPS_ZETA {
-    VERSION: "1.0.0"
-    STATUS: "STABLE"
-    MODE: "META_OPS"
-
-    ROLE: "ZETA"
-    DESCRIPTION: "Projection du flux. Expansion maîtrisée. Pré‑intégration avant ZERO."
-
-    ENGINE {
-        ENABLED: true
-        PROVIDE_PROJECTION: true
-        PROVIDE_EXPANSION: true
-        PROVIDE_PRE_INTEGRATION: true
-    }
-
-    INPUT {
-        PREVIOUS: "META_OPS_EPSILON"
-        FLOW: "EPSILON → ZETA"
-    }
-
-    OUTPUT {
-        NEXT: "META_OPS_ZERO"
-        FLOW: "ZETA → ZERO"
-    }
-
-    SIGNATURE {
-        ID: "META_OPS_ZETA"
-        TYPE: "LAYER"
-        HASH: "AUTO"
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:eb496f424ba8cc565eabe0fb07f65bffd14d4e236395a1dd97e6acf5668ebd1c
+size 721
