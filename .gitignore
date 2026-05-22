@@ -32,3 +32,4 @@ infra/hermes_cockpit/cockpit/ENGINE/
 # yarn / pnp artifacts
 .pnp.cjs
 .yarn/install-state.gz
+.venv/
