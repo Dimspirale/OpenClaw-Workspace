@@ -1,18 +1,3 @@
-#!/usr/bin/env bash
-set -e
-
-CMD="$1"
-
-case "$CMD" in
-  diag)
-    echo "[CORE] Diagnostic complet..."
-    echo "[CORE] CPU OK"
-    echo "[CORE] RAM OK"
-    echo "[CORE] FS OK"
-    echo "[CORE] NET OK"
-    ;;
-  *)
-    echo "[CORE] Usage: core diag"
-    exit 1
-    ;;
-esac
+version https://git-lfs.github.com/spec/v1
+oid sha256:8ff12f6ccc52b10d11a3a7802b416d937d7403d1f62d4dd720514eadc9fcc59b
+size 270

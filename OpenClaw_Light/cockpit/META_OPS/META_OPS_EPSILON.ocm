@@ -1,35 +1,3 @@
-# META_OPS_EPSILON.ocm
-# OpenClaw_Light — META_OPS EPSILON
-# Synthèse, convergence, optimisation du flux
-
-META_OPS_EPSILON {
-    VERSION: "1.0.0"
-    STATUS: "STABLE"
-    MODE: "META_OPS"
-
-    ROLE: "EPSILON"
-    DESCRIPTION: "Synthèse active. Convergence du flux. Optimisation et clarification."
-
-    ENGINE {
-        ENABLED: true
-        PROVIDE_SYNTHESIS: true
-        PROVIDE_CONVERGENCE: true
-        PROVIDE_OPTIMIZATION: true
-    }
-
-    INPUT {
-        PREVIOUS: "META_OPS_DELTA"
-        FLOW: "DELTA → EPSILON"
-    }
-
-    OUTPUT {
-        NEXT: "META_OPS_ZETA"
-        FLOW: "EPSILON → ZETA"
-    }
-
-    SIGNATURE {
-        ID: "META_OPS_EPSILON"
-        TYPE: "LAYER"
-        HASH: "AUTO"
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:0d8de47e1efdb761cd1f0bf8a3b0679a7cee7fc68bbfe8e9228652919fdb9843
+size 714

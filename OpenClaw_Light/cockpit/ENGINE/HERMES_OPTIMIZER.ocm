@@ -1,18 +1,3 @@
-HERMES_OPTIMIZER {
-    VERSION: "1.0.0"
-    STATUS: "ACTIVE"
-
-    RULES {
-        HIGH_GPU_LOAD_THRESHOLD: 85
-        HIGH_CPU_LOAD_THRESHOLD: 90
-
-        ACTION_ON_GPU_OVERLOAD: "SWITCH_TO_LIGHT_ENGINE"
-        ACTION_ON_CPU_OVERLOAD: "DELAY_NON_CRITICAL_TASKS"
-    }
-
-    SIGNATURE {
-        ID: "HERMES_OPTIMIZER"
-        TYPE: "ENGINE"
-        HASH: "AUTO"
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9d28bc2c599eb481f9699a6bdedd1cb6d0ecdfe7021a4b2553202b642a02ff98
+size 369
