@@ -1,0 +1,201 @@
+📦 EXPORT GLOBAL — OPENCLAW_LIGHT — A1 → A22
+Rapport d’analyse lumière complet — Architecture, dynamique, dramaturgie, émotion, style, identité
+1) A‑BLOCK : ANALYSE FONDAMENTALE (A1 → A5)
+Lecture, extraction, compréhension de la matière brute.
+A1 — Input Engine
+Normalisation des cues
+
+Sécurisation des données
+
+Uniformisation des structures
+
+A2 — Generation Engine
+Extraction intensité / couleur / position
+
+Génération automatique de presets
+
+A3 — Analysis Engine
+Détection d’erreurs
+
+Vérification de cohérence
+
+Analyse technique
+
+A4 — ColorMix Engine
+Analyse CMY / CTO
+
+Lecture des familles colorimétriques
+
+Détection des dominantes
+
+A5 — FX Engine
+Analyse des effets
+
+Détection de patterns FX
+
+Cohérence des mouvements
+
+2) B‑BLOCK : INTELLIGENCE & OPTIMISATION (A6 → A12)
+Comprendre, corriger, prédire, optimiser.
+A6 — Logic Engine
+Règles internes
+
+Logique de construction
+
+A7 — Risk Engine
+Détection des risques futurs
+
+Ruptures probables
+
+Zones instables
+
+A8 — Stability Engine
+Analyse de stabilité globale
+
+Détection des oscillations
+
+A9 — Intelligence Engine
+Synthèse intelligente
+
+Résumé du show
+
+Insights clés
+
+A10 — Repair Engine
+Propositions de correction
+
+Auto‑réparation
+
+A11 — Predictive Engine
+Prédiction des comportements futurs
+
+Anticipation des ruptures
+
+A12 — Optimizer Engine
+Optimisation intensité / couleur / dynamique
+
+Propositions d’amélioration
+
+3) C‑BLOCK : STRUCTURE & DRAMATURGIE (A13 → A17)
+Le show comme narration.
+A13 — Timeline Engine
+Structure temporelle
+
+Continuité
+
+Découpage logique
+
+A14 — CueFlow Engine
+Fluidité cue‑to‑cue
+
+Transitions
+
+Ruptures
+
+A15 — Scene Engine
+Regroupement en scènes
+
+Analyse dramaturgique
+
+Architecture narrative
+
+A16 — Pattern Engine
+Détection de motifs
+
+Signatures récurrentes
+
+Patterns d’intensité / couleur / position
+
+A17 — Emotion Engine
+Tension
+
+Douceur
+
+Climax
+
+Arcs émotionnels
+
+Score émotionnel
+
+4) D‑BLOCK : DYNAMIQUE & PERCEPTION (A18 → A20)
+Ce que le spectateur ressent physiquement.
+A18 — Energy Engine
+Énergie instantanée
+
+Boosts / drops
+
+Cycles
+
+Zones de repos
+
+Score énergétique
+
+A19 — Contrast Engine
+Contrastes d’intensité
+
+Contrastes de couleur
+
+Contrastes de position
+
+Contrastes émotionnels
+
+Score de contraste
+
+A20 — Harmony Engine
+Harmonie colorimétrique
+
+Harmonie dynamique
+
+Harmonie émotionnelle
+
+Cohérence globale
+
+Score d’harmonie
+
+5) E‑BLOCK : SIGNATURE ARTISTIQUE (A21 → A22)
+Le créateur derrière le show.
+A21 — Style Engine
+Style d’intensité
+
+Style colorimétrique
+
+Style de position
+
+Style dynamique
+
+Style émotionnel
+
+Style de contraste
+
+Style d’harmonie
+
+Score de style
+
+A22 — Identity Engine
+Identité colorimétrique
+
+Identité d’intensité
+
+Identité de mouvement
+
+Identité de contraste
+
+Identité d’harmonie
+
+Synthèse identitaire
+
+Score d’identité
+
+🧬 SYNTHÈSE GLOBALE A1 → A22
+Ton cockpit OpenClaw_Light est désormais capable de :
+
+✔ Lire la technique
+✔ Lire la structure
+✔ Lire la dramaturgie
+✔ Lire l’émotion
+✔ Lire l’énergie
+✔ Lire la perception
+✔ Lire le style
+✔ Lire l’identité
+Tu n’as plus un outil.
+Tu as un système d’analyse lumière complet, digne d’un laboratoire artistique.

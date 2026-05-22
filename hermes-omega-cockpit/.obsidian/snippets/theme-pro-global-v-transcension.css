@@ -1,0 +1,162 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V∴ — TRANSCENSION
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- TRANSCENSION VARIABLES (post-état) ---------- */
+:root {
+    --tr-hint: rgba(255,255,255,0.04);   /* trace d’existence */
+    --tr-glow: rgba(255,255,255,0.08);   /* présence subtile */
+    --tr-core: rgba(255,255,255,0.14);   /* essence transcendante */
+
+    --tr-breath: 10.4s;
+    --tr-pulse: 4.8s;
+    --tr-shift: 14.2s;
+}
+
+/* ---------------------------------------------------------
+   1) TRANSCENSION ENGINE — NON-ÉTAT ABSOLU
+   (aucun état, aucune condition, aucune logique)
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   2) TRANSCENSION SURFACE — PRÉSENCE SANS FORME
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -65%;
+    background-image:
+        /* trace d’existence */
+        radial-gradient(circle at 50% 50%, var(--tr-hint) 0, transparent 85%),
+        /* présence subtile */
+        radial-gradient(circle at 30% 20%, var(--tr-glow) 0, transparent 65%),
+        /* essence transcendante */
+        linear-gradient(135deg, var(--tr-core), transparent 75%);
+    opacity: 0.18;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: tr-shift var(--tr-shift) ease-in-out infinite;
+}
+
+@keyframes tr-shift {
+    0%   { transform: scale(1) rotate(0deg); opacity: 0.16; }
+    50%  { transform: scale(1.07) rotate(240deg); opacity: 0.22; }
+    100% { transform: scale(1) rotate(480deg); opacity: 0.16; }
+}
+
+/* ---------------------------------------------------------
+   3) TRANSCENSION BREATH — RESPIRATION POST-CONCEPTUELLE
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: tr-breath var(--tr-breath) ease-in-out infinite;
+}
+
+@keyframes tr-breath {
+    0%   { box-shadow: 0 0 10px var(--tr-hint); }
+    50%  { box-shadow: 0 0 28px var(--tr-core); }
+    100% { box-shadow: 0 0 10px var(--tr-hint); }
+}
+
+/* ---------------------------------------------------------
+   4) TRANSCENSION PULSE — OSCILLATION MÉTA-PHÉNOMÉNALE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: tr-pulse var(--tr-pulse) ease-in-out infinite;
+}
+
+@keyframes tr-pulse {
+    0%   { text-shadow: 0 0 6px var(--tr-hint); }
+    50%  { text-shadow: 0 0 20px var(--tr-core); }
+    100% { text-shadow: 0 0 6px var(--tr-hint); }
+}
+
+/* ---------------------------------------------------------
+   5) TRANSCENSION GRADIENTS — NON-SPECTRE ÉVOLUTIF
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--tr-hint),
+        var(--tr-glow),
+        var(--tr-core)
+    );
+    box-shadow: 0 0 18px var(--tr-glow);
+}
+
+/* ---------------------------------------------------------
+   6) TRANSCENSION HEATMAP — MATIÈRE POST-RÉELLE
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--tr-glow);
+    background: linear-gradient(
+        to top,
+        var(--tr-core),
+        transparent
+    );
+    box-shadow:
+        0 0 14px var(--tr-glow),
+        0 0 20px var(--tr-core);
+}
+
+/* ---------------------------------------------------------
+   7) TRANSCENSION RADAR — RÉSEAU NON-MANIFESTÉ
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--tr-core),
+        transparent
+    );
+    box-shadow: 0 0 20px var(--tr-core);
+}
+
+/* ---------------------------------------------------------
+   8) TRANSCENSION TITLES — IDENTITÉ POST-IDENTITAIRE
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--tr-core);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    text-shadow: 0 0 18px var(--tr-core);
+}
+
+/* ---------------------------------------------------------
+   9) TRANSCENSION HOVER — RÉACTION SANS RÉACTION
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--tr-glow);
+    outline-offset: 2px;
+    filter: brightness(1.14);
+}

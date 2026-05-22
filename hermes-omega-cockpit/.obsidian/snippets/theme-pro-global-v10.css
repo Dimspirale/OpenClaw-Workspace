@@ -1,0 +1,144 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V10 — NEURAL VISION
+   OpenClaw_Light — 2026
+   Layered on top of V9 (can be in same file, after V9)
+   --------------------------------------------------------- */
+
+/* ---------- NEURAL VARIABLES ---------- */
+:root {
+    --nv-accent-strong: #7b5cff;
+    --nv-accent-soft: rgba(123,92,255,0.35);
+    --nv-danger: #ff4f6b;
+    --nv-safe: #4fff9a;
+
+    --nv-pulse-speed: 2.4s;
+    --nv-breath-speed: 4.2s;
+}
+
+/* ---------- GLOBAL NEURAL GLOW ---------- */
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle neural grid background */
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background-image:
+        radial-gradient(circle at 0 0, rgba(255,255,255,0.06) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(123,92,255,0.18) 0, transparent 60%);
+    opacity: 0.35;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+/* ---------- NEURAL PULSE ON KEY VALUES ---------- */
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: nv-pulse var(--nv-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes nv-pulse {
+    0%   { text-shadow: 0 0 4px var(--nv-accent-soft); }
+    50%  { text-shadow: 0 0 16px var(--nv-accent-soft); }
+    100% { text-shadow: 0 0 4px var(--nv-accent-soft); }
+}
+
+/* ---------- NEURAL BREATH ON CONTAINERS ---------- */
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: nv-breath var(--nv-breath-speed) ease-in-out infinite;
+}
+
+@keyframes nv-breath {
+    0%   { box-shadow: 0 0 12px rgba(123,92,255,0.18); }
+    50%  { box-shadow: 0 0 26px rgba(123,92,255,0.32); }
+    100% { box-shadow: 0 0 12px rgba(123,92,255,0.18); }
+}
+
+/* ---------- NEURAL STATE COLORING (FUSION SCORE) ---------- */
+.fusion-score {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Use data attribute on container: data-fusion-state="low|mid|high" */
+.hud-fusion[data-fusion-state="low"] .fusion-score {
+    color: var(--nv-danger);
+    text-shadow: 0 0 14px rgba(255,79,107,0.6);
+}
+
+.hud-fusion[data-fusion-state="mid"] .fusion-score {
+    color: var(--t9-accent);
+    text-shadow: 0 0 14px var(--t9-accent-soft);
+}
+
+.hud-fusion[data-fusion-state="high"] .fusion-score {
+    color: var(--nv-safe);
+    text-shadow: 0 0 14px rgba(79,255,154,0.6);
+}
+
+/* ---------- NEURAL GRADIENT ON BARS ---------- */
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--nv-accent-strong),
+        var(--t9-accent),
+        var(--nv-safe)
+    );
+}
+
+/* ---------- NEURAL EDGE ON HEATMAP ---------- */
+.heat-cell {
+    border: 1px solid rgba(123,92,255,0.35);
+    box-shadow:
+        0 0 10px rgba(79,209,255,0.25),
+        0 0 18px rgba(123,92,255,0.25);
+}
+
+/* ---------- NEURAL RING ON RADAR ---------- */
+.ultra-radar-center {
+    box-shadow:
+        0 0 18px rgba(123,92,255,0.4),
+        inset 0 0 12px rgba(79,209,255,0.25);
+}
+
+/* ---------- NEURAL LABELS ---------- */
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--nv-accent-strong);
+}
+
+/* ---------- NEURAL FOCUS ON HOVER ---------- */
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid rgba(123,92,255,0.6);
+    outline-offset: 2px;
+}

@@ -1,0 +1,70 @@
+# SYSTEM_EXPORT.ocm
+# OpenClaw_Light — Module d’Exportation Système
+# Version monolithique, stable, cockpit-grade
+
+SYSTEM_EXPORT {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "COCKPIT"
+
+    EXPORT_CORE {
+        ENABLED: true
+        DEFAULT_FORMAT: "json"
+        ALLOWED_FORMATS: ["json", "ocm", "txt"]
+        AUTO_EXPORT_ON_CHANGE: false
+        LOG_EXPORTS: true
+    }
+
+    PATHS {
+        EXPORT_ROOT: "~/OpenClaw_Light/EXPORTS"
+        SYSTEM_ROOT: "~/OpenClaw_Light/SYSTEM"
+        COCKPIT_ROOT: "~/OpenClaw_Light/COCKPIT"
+        META_OPS_ROOT: "~/OpenClaw_Light/COCKPIT/META_OPS"
+    }
+
+    RULES {
+        EXPORTABLE_MODULES: [
+            "SYSTEM_GLOBAL",
+            "SYSTEM_AUTOMATION",
+            "SYSTEM_EXPORT",
+            "SYSTEM_RECOVERY",
+            "COCKPIT_ROOT",
+            "META_OPS_*"
+        ]
+
+        ON_EXPORT {
+            VERIFY_INTEGRITY: true
+            TIMESTAMP: true
+            HASH: true
+        }
+    }
+
+    ENGINE {
+        SYSTEM_GLOBAL_LINK: "~/OpenClaw_Light/SYSTEM/SYSTEM_GLOBAL.ocm"
+        RECOVERY_LINK: "~/OpenClaw_Light/SYSTEM/SYSTEM_RECOVERY.ocm"
+        META_OPS_INTEGRATION: true
+        AUTO_SYNC: true
+    }
+
+    FORMATS {
+        JSON {
+            PRETTY: true
+            INDENT: 2
+        }
+
+        OCM {
+            STRICT: true
+            HEADER: true
+        }
+
+        TXT {
+            MINIMAL: true
+        }
+    }
+
+    PERFORMANCE {
+        THREADS: 1
+        PRIORITY: "NORMAL"
+        CACHE: false
+    }
+}

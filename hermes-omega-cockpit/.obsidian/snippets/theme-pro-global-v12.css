@@ -1,0 +1,172 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V12 — CHROMATIC INTELLIGENCE
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- VARIABLES CHROMATIQUES DYNAMIQUES ---------- */
+:root {
+    --ci-low: #ff4f6b;
+    --ci-mid: #4fd1ff;
+    --ci-high: #5fffd4;
+
+    --ci-soft-low: rgba(255,79,107,0.35);
+    --ci-soft-mid: rgba(79,209,255,0.35);
+    --ci-soft-high: rgba(95,255,212,0.35);
+
+    --ci-breath-speed: 4.6s;
+    --ci-pulse-speed: 2.4s;
+}
+
+/* ---------------------------------------------------------
+   1) CHROMATIC ENGINE — ADAPTATION AUTOMATIQUE
+   Le conteneur HUD-FUSION reçoit :
+   data-fusion="low|mid|high"
+   --------------------------------------------------------- */
+
+/* LOW STATE — Danger / Rupture / Instabilité */
+[data-fusion="low"] {
+    --ci-current: var(--ci-low);
+    --ci-current-soft: var(--ci-soft-low);
+}
+
+/* MID STATE — Normal / Stable / Cohérent */
+[data-fusion="mid"] {
+    --ci-current: var(--ci-mid);
+    --ci-current-soft: var(--ci-soft-mid);
+}
+
+/* HIGH STATE — Harmonie / Identité forte / Style affirmé */
+[data-fusion="high"] {
+    --ci-current: var(--ci-high);
+    --ci-current-soft: var(--ci-soft-high);
+}
+
+/* ---------------------------------------------------------
+   2) TEXTURE CHROMATIQUE (ultra légère)
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -35%;
+    background-image:
+        radial-gradient(circle at 20% 30%, var(--ci-current-soft) 0, transparent 55%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0, transparent 60%);
+    opacity: 0.28;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   3) RESPIRATION CHROMATIQUE
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: ci-breath var(--ci-breath-speed) ease-in-out infinite;
+}
+
+@keyframes ci-breath {
+    0%   { box-shadow: 0 0 12px var(--ci-current-soft); }
+    50%  { box-shadow: 0 0 26px var(--ci-current-soft); }
+    100% { box-shadow: 0 0 12px var(--ci-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   4) PULSATION CHROMATIQUE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: ci-pulse var(--ci-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes ci-pulse {
+    0%   { text-shadow: 0 0 6px var(--ci-current-soft); }
+    50%  { text-shadow: 0 0 18px var(--ci-current-soft); }
+    100% { text-shadow: 0 0 6px var(--ci-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   5) GRADIENTS CHROMATIQUES
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--ci-low),
+        var(--ci-mid),
+        var(--ci-high)
+    );
+    box-shadow: 0 0 10px var(--ci-current-soft);
+}
+
+/* ---------------------------------------------------------
+   6) HEATMAP CHROMATIQUE
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--ci-current-soft);
+    background: linear-gradient(
+        to top,
+        var(--ci-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow:
+        0 0 8px var(--ci-current-soft),
+        0 0 14px rgba(255,255,255,0.12);
+}
+
+/* ---------------------------------------------------------
+   7) RADAR CHROMATIQUE
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--ci-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow: 0 0 12px var(--ci-current-soft);
+}
+
+/* ---------------------------------------------------------
+   8) TITRES & LABELS CHROMATIQUES
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--ci-current);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px var(--ci-current-soft);
+}
+
+/* ---------------------------------------------------------
+   9) HOVER CHROMATIQUE
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--ci-current-soft);
+    outline-offset: 2px;
+}

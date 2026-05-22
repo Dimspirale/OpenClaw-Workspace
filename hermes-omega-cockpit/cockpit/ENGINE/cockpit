@@ -1,0 +1,24 @@
+#!/bin/bash
+# Wrapper cockpit-safe pour COCKPIT_ROOT.ocm
+# Interprète le descripteur et affiche un diagnostic cockpit-grade
+
+MODULE="$HOME/OpenClaw_Light/cockpit/COCKPIT_ROOT.ocm"
+
+if [ ! -f "$MODULE" ]; then
+  echo "[ERR] COCKPIT_ROOT.ocm introuvable"
+  exit 1
+fi
+
+echo "=== HERMÈS COCKPIT MASTER — DIAGNOSTIC ==="
+
+while IFS= read -r line; do
+  case "$line" in
+    COCKPIT_ROOT*|ENGINE*|ENABLED*) echo "[COCKPIT] $line" ;;
+    VERSION*|STATUS*|MODE*)         echo "[INFO] $line" ;;
+    ROLE*|DESCRIPTION*)             echo "[DESC] $line" ;;
+    LOAD_HUD*|LOAD_CORE*|LOAD_META_OPS*|AUTO_SYNC*) echo "[LOAD] $line" ;;
+    *) : ;;
+  esac
+done < "$MODULE"
+
+echo "=== DIAGNOSTIC TERMINÉ ==="

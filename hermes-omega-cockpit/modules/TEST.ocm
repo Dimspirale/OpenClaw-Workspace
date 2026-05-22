@@ -1,0 +1,10 @@
+# ============================================================
+# TEST.ocm
+# Module généré automatiquement par HERMES_MODULE_BUILDER
+# Format : LF, cockpit-safe, sans couleurs, sans Unicode
+# ============================================================
+
+TEST() {
+    # Code du module ici
+    echo -n "TEST:OK"
+}

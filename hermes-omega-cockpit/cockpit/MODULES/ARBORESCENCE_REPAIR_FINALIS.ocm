@@ -1,0 +1,101 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_FINALIS.ocm — Hermès Cockpit Arborescence Repair FINALIS v13.0
+# Fusion ultime : ZERO + Ω + ABSOLUTE + INFINITY + OMNI + SINGULARITY + ULTRA + ULTIMATE + OMEGA
+# Auto-sélection, auto-réparation, auto-évolution, surveillance continue, régénération cosmique
+
+ROOT="$HOME/OpenClaw_Light"
+LOG="$ROOT/cockpit/reports/ARBORESCENCE_REPAIR_FINALIS.log"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR FINALIS — ACTIVATION ==="
+echo "Log : $LOG"
+echo "Racine : $ROOT"
+echo
+
+echo "=== FINALIS LOG — $(date) ===" > "$LOG"
+
+###############################################
+# 1. ANALYSE PROFONDE
+###############################################
+
+CRITICAL_ERRORS=0
+CRITICAL_DIRS=(
+  "cockpit" "cockpit/MODULES" "cockpit/ENGINE" "cockpit/hud"
+  "cockpit/monitoring" "cockpit/maintenance" "cockpit/shutdown"
+  "cockpit/startup" "cockpit/status" "cockpit/structure" "cockpit/timeline"
+  "modules" "core" "engine" "hud" "system"
+)
+
+for d in "${CRITICAL_DIRS[@]}"; do
+  if [ ! -d "$ROOT/$d" ]; then
+    echo "[ERR] Missing: $d" >> "$LOG"
+    CRITICAL_ERRORS=$((CRITICAL_ERRORS+1))
+  fi
+done
+
+PARASITES=$(find "$ROOT" -type f -name "*:Zone.Identifier" -o -name "*Copie*" -o -name "*(*).*")
+CRLF=$(grep -rl $'\r' "$ROOT")
+
+###############################################
+# 2. SÉLECTION DU MODE
+###############################################
+
+if [ "$CRITICAL_ERRORS" -ge 5 ]; then
+  MODE="ABSOLUTE+OMEGA"
+elif [ -n "$PARASITES" ] && [ -n "$CRLF" ]; then
+  MODE="INFINITY+OMEGA"
+elif [ -n "$PARASITES" ]; then
+  MODE="Ω"
+elif [ -n "$CRLF" ]; then
+  MODE="SINGULARITY"
+else
+  MODE="ZERO"
+fi
+
+echo "[FINALIS] Mode sélectionné : $MODE"
+echo "[MODE] $MODE" >> "$LOG"
+
+###############################################
+# 3. EXÉCUTION DU MODE
+###############################################
+
+case $MODE in
+  "ZERO")
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+    ;;
+  "Ω")
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    ;;
+  "ABSOLUTE+OMEGA")
+    for d in "${CRITICAL_DIRS[@]}"; do mkdir -p "$ROOT/$d"; done
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+    ;;
+  "INFINITY+OMEGA")
+    inotifywait -m -r "$ROOT" -e create -e delete -e modify |
+    while read -r path action file; do
+      echo "[∞Ω] $action → $file" >> "$LOG"
+      if [[ "$file" == *":Zone.Identifier" ]]; then rm -f "$path/$file"; fi
+      if [[ "$file" == *"Copie"* || "$file" == *"("*")"* ]]; then rm -f "$path/$file"; fi
+      if [[ "$file" == *.sh || "$file" == *.ocm ]]; then chmod +x "$path/$file"; fi
+      if grep -q $'\r' "$path/$file" 2>/dev/null; then sed -i 's/\r$//' "$path/$file"; fi
+    done
+    ;;
+  "SINGULARITY")
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+    echo "[EVOLVE] $(date)" >> "$LOG"
+    ;;
+esac
+
+echo
+echo "=== ARBORESCENCE_REPAIR_FINALIS — TERMINÉ ==="
+echo "[DONE] $(date)" >> "$LOG"

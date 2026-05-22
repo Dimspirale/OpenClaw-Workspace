@@ -1,0 +1,56 @@
+# ARCHITECTURE_MAP.ocm
+# OpenClaw_Light — Architecture Map
+# Cartographie structurelle, vision hiérarchique, topologie cockpit
+
+ARCHITECTURE_MAP {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "COCKPIT"
+
+    ROLE: "MAP"
+    DESCRIPTION: "Cartographie structurelle complète du système OpenClaw_Light."
+
+    LAYERS {
+        SYSTEM: {
+            ROOT: "SYSTEM_GLOBAL"
+            MODULES: [
+                "SYSTEM_AUTOMATION",
+                "SYSTEM_EXPORT",
+                "SYSTEM_RECOVERY"
+            ]
+        }
+
+        COCKPIT: {
+            ROOT: "COCKPIT_ROOT"
+            MODULES: [
+                "META_OPS_OMEGA",
+                "META_OPS_ALPHA",
+                "META_OPS_BETA",
+                "META_OPS_GAMMA",
+                "META_OPS_DELTA",
+                "META_OPS_EPSILON",
+                "META_OPS_ZETA",
+                "META_OPS_ZERO"
+            ]
+        }
+    }
+
+    FLOWS {
+        META_OPS: "OMEGA → ZERO"
+        SYSTEM: "GLOBAL → AUTOMATION → EXPORT → RECOVERY"
+        COCKPIT: "ROOT → META_OPS"
+    }
+
+    ENGINE {
+        ENABLED: true
+        AUTO_MAP: true
+        AUTO_UPDATE: true
+        INTEGRITY_CHECK: true
+    }
+
+    SIGNATURE {
+        ID: "ARCHITECTURE_MAP"
+        TYPE: "MAP"
+        HASH: "AUTO"
+    }
+}

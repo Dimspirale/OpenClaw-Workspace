@@ -1,0 +1,44 @@
+# COCKPIT_ROOT.ocm
+# OpenClaw_Light — Racine du Cockpit
+# Point d’entrée opérationnel, interface centrale, cœur du HUD
+
+COCKPIT_ROOT {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "COCKPIT"
+
+    ROLE: "ROOT"
+    DESCRIPTION: "Racine du cockpit. Point d’entrée du HUD, du CORE et des META_OPS."
+
+    ENGINE {
+        ENABLED: true
+        LOAD_HUD: true
+        LOAD_CORE: true
+        LOAD_META_OPS: true
+        AUTO_SYNC: true
+    }
+
+    PATHS {
+        META_OPS_ROOT: "~/OpenClaw_Light/COCKPIT/META_OPS"
+        SYSTEM_ROOT: "~/OpenClaw_Light/SYSTEM"
+    }
+
+    BEHAVIOR {
+        ON_START: [
+            "INIT_HUD",
+            "INIT_CORE",
+            "INIT_META_OPS"
+        ]
+
+        ON_UPDATE: [
+            "SYNC_STATE",
+            "VERIFY_INTEGRITY"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "COCKPIT_ROOT"
+        TYPE: "ROOT"
+        HASH: "AUTO"
+    }
+}

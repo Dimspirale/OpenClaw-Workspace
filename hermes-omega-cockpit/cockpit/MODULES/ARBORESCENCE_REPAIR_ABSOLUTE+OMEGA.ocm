@@ -1,0 +1,72 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_ABSOLUTE+OMEGA.ocm — Hermès Cockpit Hybrid Repair v12.0
+# Fusion ABSOLUTE + OMEGA : reconstruction profonde + régénération cosmique
+
+ROOT="$HOME/OpenClaw_Light"
+LOG="$ROOT/cockpit/reports/ARBORESCENCE_REPAIR_ABSOLUTE+OMEGA.log"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR ABSOLUTE+OMEGA — ACTIVATION ==="
+echo "Log : $LOG"
+echo "Racine : $ROOT"
+echo
+
+echo "=== ABSOLUTE+OMEGA LOG — $(date) ===" > "$LOG"
+
+###############################################
+# 1. RECONSTRUCTION PROFONDE (ABSOLUTE)
+###############################################
+
+CRITICAL_DIRS=(
+  "cockpit"
+  "cockpit/MODULES"
+  "cockpit/ENGINE"
+  "cockpit/hud"
+  "cockpit/monitoring"
+  "cockpit/maintenance"
+  "cockpit/shutdown"
+  "cockpit/startup"
+  "cockpit/status"
+  "cockpit/structure"
+  "cockpit/timeline"
+  "modules"
+  "core"
+  "engine"
+  "hud"
+  "system"
+)
+
+echo "[ABS] Reconstruction des dossiers critiques..."
+for d in "${CRITICAL_DIRS[@]}"; do
+  if [ ! -d "$ROOT/$d" ]; then
+    mkdir -p "$ROOT/$d"
+    echo "[REBUILD] $d" >> "$LOG"
+  else
+    echo "[OK] $d" >> "$LOG"
+  fi
+done
+
+###############################################
+# 2. AUTO-RÉPARATION COSMIQUE (OMEGA)
+###############################################
+
+echo "[Ω] Vérification des permissions..."
+find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \; -exec echo "[CHMOD] {}" >> "$LOG" \;
+
+echo "[Ω] Suppression des fichiers parasites..."
+find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+
+echo "[Ω] Conversion CRLF → LF..."
+grep -rl $'\r' "$ROOT" | while read -r f; do
+  sed -i 's/\r$//' "$f"
+  echo "[LF] $f" >> "$LOG"
+done
+
+###############################################
+# 3. SURVEILLANCE CONTINUE (INFINITY COSMIQUE)
+###############################################
+
+echo "[∞Ω] Activation du flux ABSOLUTE+OMEGA..."
+inotifywait -m -r "$ROOT" -e create -e delete -e modify |
+while read -r path action file; do
+  echo "[∞Ω] $action → $file" >> "$LOG

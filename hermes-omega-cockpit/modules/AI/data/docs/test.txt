@@ -1,0 +1,1 @@
+Ceci est un test RAG pour OpenClaw_Light.

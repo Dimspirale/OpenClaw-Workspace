@@ -1,0 +1,35 @@
+# META_OPS_GAMMA.ocm
+# OpenClaw_Light — META_OPS GAMMA
+# Articulation fonctionnelle, structuration active, mise en capacité
+
+META_OPS_GAMMA {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "META_OPS"
+
+    ROLE: "GAMMA"
+    DESCRIPTION: "Articulation fonctionnelle. Transformation du flux en capacités opérationnelles."
+
+    ENGINE {
+        ENABLED: true
+        PROVIDE_FUNCTIONS: true
+        PROVIDE_ARTICULATION: true
+        PROVIDE_CAPACITY: true
+    }
+
+    INPUT {
+        PREVIOUS: "META_OPS_BETA"
+        FLOW: "BETA → GAMMA"
+    }
+
+    OUTPUT {
+        NEXT: "META_OPS_DELTA"
+        FLOW: "GAMMA → DELTA"
+    }
+
+    SIGNATURE {
+        ID: "META_OPS_GAMMA"
+        TYPE: "LAYER"
+        HASH: "AUTO"
+    }
+}

@@ -1,0 +1,180 @@
+HERMES_AI_SHOWMASTER_OMEGA {
+    VERSION: "4.0.0"
+    STATUS: "ACTIVE"
+
+    MODULES_REQUIRED {
+        ULTRA: "HERMES_AI_SHOWMASTER_ULTRA"
+        DIRECTOR: "HERMES_AI_DIRECTOR"
+        TIMECODE: "HERMES_AI_TIMECODE"
+        AUDIOREACTOR: "HERMES_AI_AUDIOREACTOR"
+        SCENEWRITER: "HERMES_AI_SCENEWRITER"
+        RIGDESIGNER: "HERMES_AI_RIGDESIGNER"
+        LIVEOP: "HERMES_AI_LIVE_OPERATOR"
+        EFFECTS: "HERMES_LIGHT_EFFECTS_PRO"
+        PIXELENGINE: "HERMES_LIGHT_PIXELENGINE"
+        AUTOPATCH: "HERMES_LIGHT_AUTOPATCH"
+        OPTIMIZER: "HERMES_OPTIMIZER"
+    }
+
+    CAPABILITIES {
+        MULTI_TOUR: "ENABLED"
+        MULTI_SHOW: "ENABLED"
+        MULTI_RIG: "ENABLED"
+        MULTI_VENUE: "ENABLED"
+        MULTI_CREW: "ENABLED"
+        MULTI_NETWORK: "ENABLED"
+        MULTI_TIMELINE: "ENABLED"
+        MULTI_UNIVERSE: "ENABLED"
+
+        AI_PREDICTIVE: "ENABLED"
+        AI_STRATEGIC: "ENABLED"
+        AI_ARTISTIC: "ENABLED"
+        AI_LOGISTIC: "ENABLED"
+        AI_FAILOVER: "ENABLED"
+        AI_SELF_OPTIMIZATION: "ENABLED"
+
+        HYBRID_SYNC: "ENABLED"
+        LIVE_ADAPTATION: "ENABLED"
+        AUTO_STRUCTURE: "ENABLED"
+
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+        EXPORT_DXF: "ENABLED"
+    }
+
+    INPUT {
+        TOURS: "<tour1,tour2,...>"
+        SHOWS: "<show1,show2,...>"
+        RIGS: "<rig1,rig2,...>"
+        VENUES: "<venue1,venue2,...>"
+        CREWS: "<crew1,crew2,...>"
+        MODE: ["AUDIO", "TIMECODE", "HYBRID", "LIVE", "STRATEGIC"]
+        PREDICTIVE_DEPTH: "1-20"
+    }
+
+    COMMANDS {
+        BUILD: "showmaster_omega build <tourlist>"
+        ADD_TOUR: "showmaster_omega add_tour <tourfile>"
+        ADD_SHOW: "showmaster_omega add_show <showfile>"
+        ADD_RIG: "showmaster_omega add_rig <rigfile>"
+        ADD_VENUE: "showmaster_omega add_venue <venuefile>"
+        ADD_CREW: "showmaster_omega add_crew <crewfile>"
+        SWITCH_SHOW: "showmaster_omega switch_show <showname>"
+        PREVIEW: "showmaster_omega preview"
+        EXPORT: "showmaster_omega export <console>"
+        MAP: "showmaster_omega map"
+    }
+
+    ENGINE {
+
+        STEP_1_LOAD_TOURS: "
+            hermes tours clear
+            hermes tours load_list $TOURS
+            hermes tours validate
+        "
+
+        STEP_2_LOAD_SHOWS: "
+            hermes shows clear
+            hermes shows load_list $SHOWS
+            hermes shows validate
+        "
+
+        STEP_3_LOAD_RIGS: "
+            hermes rigs clear
+            hermes rigs load_list $RIGS
+            hermes rigs validate
+        "
+
+        STEP_4_LOAD_VENUES: "
+            hermes venues clear
+            hermes venues load_list $VENUES
+            hermes venues validate
+        "
+
+        STEP_5_LOAD_CREWS: "
+            hermes crews clear
+            hermes crews load_list $CREWS
+            hermes crews validate
+        "
+
+        STEP_6_PREDICTIVE_ANALYSIS: "
+            hermes ai predict_energy $PREDICTIVE_DEPTH
+            hermes ai predict_transitions $PREDICTIVE_DEPTH
+            hermes ai predict_rig_load $PREDICTIVE_DEPTH
+            hermes ai predict_venue_constraints $PREDICTIVE_DEPTH
+            hermes ai predict_logistics $PREDICTIVE_DEPTH
+        "
+
+        STEP_7_STRATEGIC_PLANNING: "
+            hermes ai strategic_plan_tour
+            hermes ai strategic_plan_shows
+            hermes ai strategic_plan_rigs
+            hermes ai strategic_plan_crews
+        "
+
+        STEP_8_MULTI_TIMELINE_BUILD: "
+            hermes timeline clear_all
+            hermes timeline build_audio
+            hermes timeline build_timecode
+            hermes timeline build_ai
+            hermes timeline merge
+        "
+
+        STEP_9_MULTI_RIG_DISTRIBUTION: "
+            hermes rigs distribute_scenes_multi
+            hermes rigs assign_universes_multi
+            hermes rigs autopatch_all
+        "
+
+        STEP_10_GLOBAL_REWRITING: "
+            hermes ai rewrite_scenes_global
+            hermes ai rewrite_effects_global
+            hermes ai rewrite_timelines_global
+            hermes ai rewrite_rigs_global
+        "
+
+        STEP_11_FAILOVER_SYSTEM: "
+            hermes optimizer enable_failover
+            hermes optimizer monitor_rigs
+            hermes optimizer monitor_network
+            hermes optimizer auto_recover
+        "
+
+        STEP_12_EXPORT: "
+            case $console in
+                MA2)
+                    hermes tours export_ma2
+                    ;;
+                MA3)
+                    hermes tours export_ma3
+                    ;;
+                ONYX)
+                    hermes tours export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "TOURS",
+            "SHOWS",
+            "RIGS",
+            "VENUES",
+            "CREWS",
+            "TIMELINES",
+            "UNIVERSES",
+            "PREDICTIVE_MODEL",
+            "STRATEGIC_PLAN",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_SHOWMASTER_OMEGA"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

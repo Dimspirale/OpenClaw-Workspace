@@ -1,0 +1,74 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_OMNI.ocm — Hermès Cockpit Arborescence Repair OMNI v5.0
+# IA autonome + prédiction + optimisation dynamique
+
+ROOT="$HOME/OpenClaw_Light"
+LOG="$ROOT/cockpit/reports/ARBORESCENCE_REPAIR_OMNI.log"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR OMNI — ACTIVATION ==="
+echo "Log : $LOG"
+echo "Racine : $ROOT"
+echo
+
+echo "=== OMNI LOG — $(date) ===" > "$LOG"
+
+echo "[OMNI] Analyse prédictive de l'arborescence..."
+ANOMALIES=$(find "$ROOT" -maxdepth 12 -type f -name "*:Zone.Identifier" -o -name "*Copie*" -o -name "*(*).*")
+
+if [ -n "$ANOMALIES" ]; then
+  echo "$ANOMALIES" | while read -r f; do
+    echo "[PREDICTED-ANOMALY] $f" >> "$LOG"
+  done
+else
+  echo "Aucune anomalie prédite."
+fi
+
+echo
+echo "[OMNI] Réparation proactive..."
+find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+
+echo
+echo "[OMNI] Optimisation dynamique des permissions..."
+find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \; -exec echo "[CHMOD] {}" >> "$LOG" \;
+
+echo
+echo "[OMNI] Conversion CRLF → LF (mode intelligent)..."
+CRLF_FILES=$(grep -rl $'\r' "$ROOT")
+if [ -n "$CRLF_FILES" ]; then
+  echo "$CRLF_FILES" | while read -r f; do
+    sed -i 's/\r$//' "$f"
+    echo "[LF] $f" >> "$LOG"
+  done
+else
+  echo "Aucun fichier CRLF détecté."
+fi
+
+echo
+echo "[OMNI] Reconstruction intelligente des dossiers Hermès..."
+REQUIRED=(
+  "cockpit"
+  "cockpit/MODULES"
+  "cockpit/ENGINE"
+  "cockpit/hud"
+  "cockpit/monitoring"
+  "cockpit/maintenance"
+  "cockpit/shutdown"
+  "cockpit/startup"
+  "cockpit/status"
+  "cockpit/structure"
+  "cockpit/timeline"
+)
+
+for d in "${REQUIRED[@]}"; do
+  if [ ! -d "$ROOT/$d" ]; then
+    mkdir -p "$ROOT/$d"
+    echo "[REBUILD] $d" >> "$LOG"
+  else
+    echo "[OK] $d" >> "$LOG"
+  fi
+done
+
+echo
+echo "=== ARBORESCENCE_REPAIR_OMNI — TERMINÉ ==="
+echo "[DONE] $(date)" >> "$LOG"

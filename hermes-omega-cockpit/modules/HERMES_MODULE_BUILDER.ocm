@@ -1,0 +1,64 @@
+# ============================================================
+# HERMES_MODULE_BUILDER.ocm
+# Générateur officiel de modules Hermès Cockpit / OpenClaw_Light
+# Commande : ocm new-module <Nom>
+# Crée un module .ocm propre, LF, cockpit-safe, avec header auto
+# ============================================================
+
+ocm() {
+
+    # Vérification arguments
+    if [ "$1" != "new-module" ] || [ -z "$2" ]; then
+        echo "Usage : ocm new-module <NomModule>"
+        return 1
+    fi
+
+    local NAME="$2"
+    local DIR="$HOME/OpenClaw_Light/modules"
+    local FILE="$DIR/${NAME}.ocm"
+
+    # Création dossier modules si absent
+    if [ ! -d "$DIR" ]; then
+        mkdir -p "$DIR"
+    fi
+
+    # Empêche l'écrasement
+    if [ -f "$FILE" ]; then
+        echo "Erreur : le module '$NAME' existe déjà."
+        return 1
+    fi
+
+    # Création du fichier module
+    cat > "$FILE" <<EOF
+# ============================================================
+# ${NAME}.ocm
+# Module généré automatiquement par HERMES_MODULE_BUILDER
+# Format : LF, cockpit-safe, sans couleurs, sans Unicode
+# ============================================================
+
+${NAME}() {
+    # Code du module ici
+    echo -n "${NAME}:OK"
+}
+EOF
+
+    # Conversion en LF (sécurité anti-CRLF)
+    if command -v dos2unix >/dev/null 2>&1; then
+        dos2unix "$FILE" >/dev/null 2>&1
+    else
+        # fallback : suppression manuelle des \r
+        sed -i 's/\r$//' "$FILE"
+    fi
+
+    # Validation syntaxique
+    bash -n "$FILE" 2>/dev/null
+    if [ $? -ne 0 ]; then
+        echo "Erreur : syntaxe invalide dans le module généré."
+        return 1
+    fi
+
+    echo "Module créé : $FILE"
+    echo "Pour l'utiliser :"
+    echo ". $FILE"
+    echo "Puis : ${NAME}"
+}

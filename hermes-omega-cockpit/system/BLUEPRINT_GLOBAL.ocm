@@ -1,0 +1,64 @@
+# BLUEPRINT_GLOBAL.ocm
+# OpenClaw_Light — Blueprint Global
+# Plan directeur absolu, structure fondamentale, carte d’intention
+
+BLUEPRINT_GLOBAL {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "COCKPIT"
+
+    ROLE: "MASTER_BLUEPRINT"
+    DESCRIPTION: "Plan directeur global. Structure fondamentale reliant SYSTEM, COCKPIT et META_OPS."
+
+    STRUCTURE {
+        SYSTEM: [
+            "SYSTEM_GLOBAL",
+            "SYSTEM_AUTOMATION",
+            "SYSTEM_EXPORT",
+            "SYSTEM_RECOVERY"
+        ]
+
+        COCKPIT: [
+            "COCKPIT_ROOT",
+            "META_OPS_*"
+        ]
+
+        META_OPS_SEQUENCE: [
+            "OMEGA",
+            "ALPHA",
+            "BETA",
+            "GAMMA",
+            "DELTA",
+            "EPSILON",
+            "ZETA",
+            "ZERO"
+        ]
+    }
+
+    ENGINE {
+        ENABLED: true
+        AUTO_SYNC: true
+        AUTO_VERIFY: true
+        INTEGRITY_MATRIX: true
+    }
+
+    BEHAVIOR {
+        ON_START: [
+            "LOAD_SYSTEM",
+            "LOAD_COCKPIT",
+            "LOAD_META_OPS",
+            "VERIFY_COHERENCE"
+        ]
+
+        ON_UPDATE: [
+            "PROPAGATE_BLUEPRINT",
+            "MAINTAIN_ALIGNMENT"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "BLUEPRINT_GLOBAL"
+        TYPE: "MASTER"
+        HASH: "AUTO"
+    }
+}

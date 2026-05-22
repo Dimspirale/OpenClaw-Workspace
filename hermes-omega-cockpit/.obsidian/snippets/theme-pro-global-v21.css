@@ -1,0 +1,192 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V21 — ZEROPOINT
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- ZEROPOINT VARIABLES ---------- */
+:root {
+    --zp-low: #1a0f14;      /* pré-rouge : tension latente */
+    --zp-mid: #0f1a24;      /* pré-bleu : analyse latente */
+    --zp-high: #0f241d;     /* pré-vert : harmonie latente */
+
+    --zp-soft-low: rgba(255,79,107,0.12);
+    --zp-soft-mid: rgba(79,209,255,0.12);
+    --zp-soft-high: rgba(95,255,212,0.12);
+
+    --zp-void-speed: 9.2s;
+    --zp-breath-speed: 5.2s;
+    --zp-pulse-speed: 3.4s;
+
+    --zp-void-opacity: 0.14;
+    --zp-field-opacity: 0.10;
+}
+
+/* ---------------------------------------------------------
+   1) ZEROPOINT ENGINE — ÉTATS PRÉ-LUMIÈRE
+   data-zeropoint="low|mid|high"
+   --------------------------------------------------------- */
+
+[data-zeropoint="low"] {
+    --zp-current: var(--zp-low);
+    --zp-current-soft: var(--zp-soft-low);
+}
+
+[data-zeropoint="mid"] {
+    --zp-current: var(--zp-mid);
+    --zp-current-soft: var(--zp-soft-mid);
+}
+
+[data-zeropoint="high"] {
+    --zp-current: var(--zp-high);
+    --zp-current-soft: var(--zp-soft-high);
+}
+
+/* ---------------------------------------------------------
+   2) ZEROPOINT SURFACE — CHAMP DU VIDE
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -50%;
+    background-image:
+        /* champ du vide */
+        radial-gradient(circle at 50% 50%, var(--zp-current-soft) 0, transparent 70%),
+        /* fluctuations quantiques */
+        repeating-radial-gradient(
+            circle at 50% 50%,
+            rgba(255,255,255,var(--zp-field-opacity)) 0 2px,
+            transparent 2px 10px
+        ),
+        /* pré-spectre */
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,var(--zp-void-opacity)) 0%,
+            transparent 60%
+        );
+    opacity: 0.22;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: zp-void var(--zp-void-speed) ease-in-out infinite;
+}
+
+@keyframes zp-void {
+    0%   { transform: scale(1) translate3d(0,0,0); opacity: 0.22; }
+    50%  { transform: scale(1.04) translate3d(8px,-12px,0); opacity: 0.28; }
+    100% { transform: scale(1) translate3d(0,0,0); opacity: 0.22; }
+}
+
+/* ---------------------------------------------------------
+   3) ZEROPOINT BREATH — RESPIRATION DU VIDE
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: zp-breath var(--zp-breath-speed) ease-in-out infinite;
+}
+
+@keyframes zp-breath {
+    0%   { box-shadow: 0 0 12px var(--zp-current-soft); }
+    50%  { box-shadow: 0 0 26px var(--zp-current-soft); }
+    100% { box-shadow: 0 0 12px var(--zp-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   4) ZEROPOINT PULSE — OSCILLATION SUB-VISUELLE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: zp-pulse var(--zp-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes zp-pulse {
+    0%   { text-shadow: 0 0 4px var(--zp-current-soft); }
+    50%  { text-shadow: 0 0 14px var(--zp-current-soft); }
+    100% { text-shadow: 0 0 4px var(--zp-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   5) ZEROPOINT GRADIENTS — PRÉ-SPECTRE
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--zp-low),
+        var(--zp-mid),
+        var(--zp-high)
+    );
+    box-shadow: 0 0 12px var(--zp-current-soft);
+}
+
+/* ---------------------------------------------------------
+   6) ZEROPOINT HEATMAP
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--zp-current-soft);
+    background: linear-gradient(
+        to top,
+        var(--zp-current),
+        rgba(255,255,255,0.03)
+    );
+    box-shadow:
+        0 0 10px var(--zp-current-soft),
+        0 0 18px rgba(255,255,255,0.08);
+}
+
+/* ---------------------------------------------------------
+   7) ZEROPOINT RADAR
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--zp-current),
+        rgba(255,255,255,0.03)
+    );
+    box-shadow: 0 0 14px var(--zp-current-soft);
+}
+
+/* ---------------------------------------------------------
+   8) ZEROPOINT TITLES
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--zp-current);
+    letter-spacing: 0.20em;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px var(--zp-current-soft);
+}
+
+/* ---------------------------------------------------------
+   9) ZEROPOINT HOVER — FLUCTUATION IMMÉDIATE
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--zp-current-soft);
+    outline-offset: 2px;
+    filter: brightness(1.14);
+}

@@ -1,0 +1,68 @@
+# ~/.bashrc — Version cockpit-safe, propre, stable
+
+# ---------------------------------------------------------
+# 1. Chargement des alias et fonctions par défaut Ubuntu
+# ---------------------------------------------------------
+if [ -f /etc/bash.bashrc ]; then
+    . /etc/bash.bashrc
+fi
+
+# ---------------------------------------------------------
+# 2. Historique propre
+# ---------------------------------------------------------
+HISTSIZE=5000
+HISTFILESIZE=10000
+HISTCONTROL=ignoredups:erasedups
+shopt -s histappend
+
+# ---------------------------------------------------------
+# 3. Options shell utiles
+# ---------------------------------------------------------
+shopt -s checkwinsize
+set -o noclobber
+
+# ---------------------------------------------------------
+# 4. PATH minimal (pas de pollution)
+# ---------------------------------------------------------
+export PATH="$HOME/bin:$PATH"
+
+# ---------------------------------------------------------
+# 5. Alias utiles
+# ---------------------------------------------------------
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias gs='git status'
+alias gp='git pull'
+alias gpp='git push'
+
+# ---------------------------------------------------------
+# 6. Hermès Cockpit (chargement manuel)
+# ---------------------------------------------------------
+# Pour activer Hermès Ω :
+#   source ~/openclaw/cockpit/hermes/prompt.sh
+#
+# Rien n'est activé automatiquement pour éviter les conflits.
+# ---------------------------------------------------------
+
+# ---------------------------------------------------------
+# 7. Couleurs basiques (optionnel)
+# ---------------------------------------------------------
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# ---------------------------------------------------------
+# 8. Prompt Bash par défaut (propre)
+# ---------------------------------------------------------
+# PS1='[\u@\h \w] \$ '
+
+# ---------------------------------------------------------
+# 9. Fin du fichier
+# ---------------------------------------------------------
+
+# Charger le prompt Hermès Ω
+# source ~/openclaw/cockpit/hermes/prompt.sh
+
+# Activer cockpit Hermès Ω automatiquement
+hermes

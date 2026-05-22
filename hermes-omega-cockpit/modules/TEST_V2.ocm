@@ -1,0 +1,9 @@
+# ============================================================
+# TEST_V2.ocm
+# Module généré automatiquement par HERMES_MODULE_BUILDER_v2
+# Format : LF, cockpit-safe, sans couleurs, sans Unicode
+# ============================================================
+
+TEST_V2() {
+    echo -n "TEST_V2:OK"
+}

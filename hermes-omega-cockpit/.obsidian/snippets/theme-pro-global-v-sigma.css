@@ -1,0 +1,200 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL VΣ — TOTALITY
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- TOTALITY VARIABLES (absolu) ---------- */
+:root {
+    --sigma-low: #ff4f6b;      /* tension intégrée */
+    --sigma-mid: #4fd1ff;      /* analyse intégrée */
+    --sigma-high: #5fffd4;     /* harmonie intégrée */
+
+    --sigma-soft-low: rgba(255,79,107,0.40);
+    --sigma-soft-mid: rgba(79,209,255,0.40);
+    --sigma-soft-high: rgba(95,255,212,0.40);
+
+    --sigma-weave-speed: 9.8s;
+    --sigma-breath-speed: 5.4s;
+    --sigma-pulse-speed: 2.4s;
+
+    --sigma-total-opacity: 0.32;
+    --sigma-core-opacity: 0.26;
+}
+
+/* ---------------------------------------------------------
+   1) TOTALITY ENGINE — UN ÉTAT QUI CONTIENT TOUS LES ÉTATS
+   --------------------------------------------------------- */
+
+[data-totality="low"] {
+    --sigma-current: var(--sigma-low);
+    --sigma-current-soft: var(--sigma-soft-low);
+}
+
+[data-totality="mid"] {
+    --sigma-current: var(--sigma-mid);
+    --sigma-current-soft: var(--sigma-soft-mid);
+}
+
+[data-totality="high"] {
+    --sigma-current: var(--sigma-high);
+    --sigma-current-soft: var(--sigma-soft-high);
+}
+
+/* ---------------------------------------------------------
+   2) TOTALITY SURFACE — TOUTES LES COUCHES FUSIONNÉES
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -55%;
+    background-image:
+        /* tissage (V22) */
+        repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,var(--sigma-total-opacity)) 0 3px,
+            transparent 3px 10px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255,255,255,var(--sigma-total-opacity)) 0 3px,
+            transparent 3px 10px
+        ),
+        /* prisme (V20) */
+        conic-gradient(
+            from 0deg,
+            var(--sigma-low),
+            var(--sigma-mid),
+            var(--sigma-high),
+            var(--sigma-low)
+        ),
+        /* vide (V21) */
+        radial-gradient(circle at 50% 50%, var(--sigma-current-soft) 0, transparent 75%),
+        /* halo total */
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,var(--sigma-core-opacity)) 0, transparent 55%);
+    opacity: 0.42;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: sigma-weave var(--sigma-weave-speed) ease-in-out infinite;
+}
+
+@keyframes sigma-weave {
+    0%   { transform: scale(1) rotate(0deg); opacity: 0.40; }
+    50%  { transform: scale(1.08) rotate(180deg); opacity: 0.46; }
+    100% { transform: scale(1) rotate(360deg); opacity: 0.40; }
+}
+
+/* ---------------------------------------------------------
+   3) TOTALITY BREATH — RESPIRATION DE L’ABSOLU
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: sigma-breath var(--sigma-breath-speed) ease-in-out infinite;
+}
+
+@keyframes sigma-breath {
+    0%   { box-shadow: 0 0 24px var(--sigma-current-soft); }
+    50%  { box-shadow: 0 0 52px var(--sigma-current-soft); }
+    100% { box-shadow: 0 0 24px var(--sigma-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   4) TOTALITY PULSE — PULSATION DE L’UNIVERS VISUEL
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: sigma-pulse var(--sigma-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes sigma-pulse {
+    0%   { text-shadow: 0 0 14px var(--sigma-current-soft); }
+    50%  { text-shadow: 0 0 40px var(--sigma-current-soft); }
+    100% { text-shadow: 0 0 14px var(--sigma-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   5) TOTALITY GRADIENTS — SPECTRE ABSOLU
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--sigma-low),
+        var(--sigma-mid),
+        var(--sigma-high)
+    );
+    box-shadow: 0 0 24px var(--sigma-current-soft);
+}
+
+/* ---------------------------------------------------------
+   6) TOTALITY HEATMAP — MATRICE UNIVERSELLE
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--sigma-current-soft);
+    background: linear-gradient(
+        to top,
+        var(--sigma-current),
+        rgba(255,255,255,0.06)
+    );
+    box-shadow:
+        0 0 20px var(--sigma-current-soft),
+        0 0 28px rgba(255,255,255,0.14);
+}
+
+/* ---------------------------------------------------------
+   7) TOTALITY RADAR — RÉSEAU COSMIQUE
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--sigma-current),
+        rgba(255,255,255,0.06)
+    );
+    box-shadow: 0 0 26px var(--sigma-current-soft);
+}
+
+/* ---------------------------------------------------------
+   8) TOTALITY TITLES — IDENTITÉ ABSOLUE
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--sigma-current);
+    letter-spacing: 0.30em;
+    text-transform: uppercase;
+    text-shadow: 0 0 26px var(--sigma-current-soft);
+}
+
+/* ---------------------------------------------------------
+   9) TOTALITY HOVER — RÉACTION DE L’ABSOLU
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--sigma-current-soft);
+    outline-offset: 2px;
+    filter: brightness(1.30);
+}

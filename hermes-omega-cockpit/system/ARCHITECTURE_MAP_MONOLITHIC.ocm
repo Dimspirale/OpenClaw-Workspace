@@ -1,0 +1,31 @@
+# ARCHITECTURE_MAP_MONOLITHIC.ocm
+# OpenClaw_Light — Architecture Map Monolithic
+# Version compacte, unifiée, cockpit-grade, zéro séparation
+
+ARCHITECTURE_MAP_MONOLITHIC {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "COCKPIT"
+
+    ROLE: "MONOLITHIC_MAP"
+    DESCRIPTION: "Version compacte et unifiée de la cartographie complète du système."
+
+    MAP {
+        SYSTEM: "GLOBAL → AUTOMATION → EXPORT → RECOVERY"
+        COCKPIT: "ROOT → META_OPS (OMEGA → ZERO)"
+        META_OPS: "8 couches séquentielles, cohérentes, auto-alignées"
+    }
+
+    ENGINE {
+        ENABLED: true
+        AUTO_SYNC: true
+        ZERO_SEPARATION: true
+        PURE_MONOLITH: true
+    }
+
+    SIGNATURE {
+        ID: "ARCHITECTURE_MAP_MONOLITHIC"
+        TYPE: "MONOLITH"
+        HASH: "AUTO"
+    }
+}

@@ -1,0 +1,162 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL VΩ² — ABSOLUTE RETURN
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- ABSOLUTE VARIABLES (résolution) ---------- */
+:root {
+    --omega2-glow: rgba(255,255,255,0.10);   /* lumière résiduelle */
+    --omega2-core: rgba(255,255,255,0.18);   /* cœur de retour */
+    --omega2-flux: rgba(255,255,255,0.26);   /* flux de résolution */
+
+    --omega2-breath: 8.6s;
+    --omega2-pulse: 3.8s;
+    --omega2-shift: 12.8s;
+}
+
+/* ---------------------------------------------------------
+   1) ABSOLUTE ENGINE — ÉTAT DE RÉSOLUTION
+   (un état unique, final)
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   2) ABSOLUTE SURFACE — REPLI COSMIQUE
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -62%;
+    background-image:
+        /* trace de l’impossible (V∞²) */
+        radial-gradient(circle at 50% 50%, var(--omega2-glow) 0, transparent 80%),
+        /* lumière de retour (VΦ) */
+        radial-gradient(circle at 30% 20%, var(--omega2-core) 0, transparent 60%),
+        /* flux de résolution */
+        linear-gradient(135deg, var(--omega2-flux), transparent 70%);
+    opacity: 0.26;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: omega2-shift var(--omega2-shift) ease-in-out infinite;
+}
+
+@keyframes omega2-shift {
+    0%   { transform: scale(1) rotate(0deg); opacity: 0.24; }
+    50%  { transform: scale(1.05) rotate(180deg); opacity: 0.30; }
+    100% { transform: scale(1) rotate(360deg); opacity: 0.24; }
+}
+
+/* ---------------------------------------------------------
+   3) ABSOLUTE BREATH — RESPIRATION DE RÉSOLUTION
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: omega2-breath var(--omega2-breath) ease-in-out infinite;
+}
+
+@keyframes omega2-breath {
+    0%   { box-shadow: 0 0 14px var(--omega2-core); }
+    50%  { box-shadow: 0 0 32px var(--omega2-flux); }
+    100% { box-shadow: 0 0 14px var(--omega2-core); }
+}
+
+/* ---------------------------------------------------------
+   4) ABSOLUTE PULSE — OSCILLATION DE RETOUR
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: omega2-pulse var(--omega2-pulse) ease-in-out infinite;
+}
+
+@keyframes omega2-pulse {
+    0%   { text-shadow: 0 0 8px var(--omega2-core); }
+    50%  { text-shadow: 0 0 24px var(--omega2-flux); }
+    100% { text-shadow: 0 0 8px var(--omega2-core); }
+}
+
+/* ---------------------------------------------------------
+   5) ABSOLUTE GRADIENTS — SPECTRE RÉSOLU
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--omega2-glow),
+        var(--omega2-core),
+        var(--omega2-flux)
+    );
+    box-shadow: 0 0 18px var(--omega2-core);
+}
+
+/* ---------------------------------------------------------
+   6) ABSOLUTE HEATMAP — MATIÈRE RÉINTÉGRÉE
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--omega2-core);
+    background: linear-gradient(
+        to top,
+        var(--omega2-core),
+        transparent
+    );
+    box-shadow:
+        0 0 14px var(--omega2-core),
+        0 0 20px var(--omega2-flux);
+}
+
+/* ---------------------------------------------------------
+   7) ABSOLUTE RADAR — RÉSEAU RÉSOLU
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--omega2-flux),
+        transparent
+    );
+    box-shadow: 0 0 20px var(--omega2-flux);
+}
+
+/* ---------------------------------------------------------
+   8) ABSOLUTE TITLES — IDENTITÉ FINALE
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--omega2-flux);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    text-shadow: 0 0 18px var(--omega2-core);
+}
+
+/* ---------------------------------------------------------
+   9) ABSOLUTE HOVER — RÉACTION DE RÉSOLUTION
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--omega2-core);
+    outline-offset: 2px;
+    filter: brightness(1.16);
+}

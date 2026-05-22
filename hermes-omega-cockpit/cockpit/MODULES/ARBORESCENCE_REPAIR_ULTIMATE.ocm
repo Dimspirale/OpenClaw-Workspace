@@ -1,0 +1,170 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_ULTIMATE.ocm — Hermès Cockpit Arborescence Repair ULTIMATE v9.0
+# Fusion totale : ZERO + Ω + ABSOLUTE + INFINITY + OMNI + SINGULARITY + ULTRA
+# IA adaptative + auto-évolution + prédiction + surveillance + fallback ZERO
+
+ROOT="$HOME/OpenClaw_Light"
+LOG="$ROOT/cockpit/reports/ARBORESCENCE_REPAIR_ULTIMATE.log"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR ULTIMATE — ACTIVATION ==="
+echo "Log : $LOG"
+echo "Racine : $ROOT"
+echo
+
+echo "=== ULTIMATE LOG — $(date) ===" > "$LOG"
+
+###############################################
+# 1. ANALYSE PROFONDE (12 niveaux)
+###############################################
+
+echo "[ULTIMATE] Analyse profonde de l'arborescence..."
+find "$ROOT" -maxdepth 12 -type d >> "$LOG"
+
+CRITICAL_ERRORS=0
+
+CRITICAL_DIRS=(
+  "cockpit"
+  "cockpit/MODULES"
+  "cockpit/ENGINE"
+  "cockpit/hud"
+  "cockpit/monitoring"
+  "cockpit/maintenance"
+  "cockpit/shutdown"
+  "cockpit/startup"
+  "cockpit/status"
+  "cockpit/structure"
+  "cockpit/timeline"
+  "modules"
+  "core"
+  "engine"
+  "hud"
+  "system"
+)
+
+for d in "${CRITICAL_DIRS[@]}"; do
+  if [ ! -d "$ROOT/$d" ]; then
+    echo "[ERR] Missing: $d" >> "$LOG"
+    CRITICAL_ERRORS=$((CRITICAL_ERRORS+1))
+  fi
+done
+
+PARASITES=$(find "$ROOT" -type f -name "*:Zone.Identifier" -o -name "*Copie*" -o -name "*(*).*")
+CRLF=$(grep -rl $'\r' "$ROOT")
+
+###############################################
+# 2. ANALYSE PRÉDICTIVE (OMNI + SINGULARITY)
+###############################################
+
+echo
+echo "[ULTIMATE] Analyse prédictive..."
+PREDICTED=$(echo "$PARASITES" | grep -E "Copie|Zone.Identifier|\(|\)")
+if [ -n "$PREDICTED" ]; then
+  echo "$PREDICTED" | while read -r p; do
+    echo "[PREDICTED] $p" >> "$LOG"
+  done
+fi
+
+###############################################
+# 3. SÉLECTION DU MODE (ULTRA)
+###############################################
+
+echo
+echo "[ULTIMATE] Sélection du mode optimal..."
+
+if [ "$CRITICAL_ERRORS" -ge 5 ]; then
+  MODE="ABSOLUTE"
+elif [ -n "$PARASITES" ] && [ -n "$CRLF" ]; then
+  MODE="OMNI"
+elif [ -n "$PARASITES" ]; then
+  MODE="Ω"
+elif [ -n "$CRLF" ]; then
+  MODE="SINGULARITY"
+else
+  MODE="ZERO"
+fi
+
+echo "[ULTIMATE] Mode sélectionné : $MODE"
+echo "[MODE] $MODE" >> "$LOG"
+
+###############################################
+# 4. EXÉCUTION DU MODE
+###############################################
+
+case $MODE in
+
+  "ZERO")
+    echo "[ULTIMATE] Mode ZERO..."
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+    ;;
+
+  "Ω")
+    echo "[ULTIMATE] Mode Ω..."
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    ;;
+
+  "ABSOLUTE")
+    echo "[ULTIMATE] Mode ABSOLUTE..."
+    for d in "${CRITICAL_DIRS[@]}"; do
+      mkdir -p "$ROOT/$d"
+    done
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+    ;;
+
+  "OMNI")
+    echo "[ULTIMATE] Mode OMNI..."
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+    ;;
+
+  "SINGULARITY")
+    echo "[ULTIMATE] Mode SINGULARITY..."
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+    echo "[EVOLVE] $(date)" >> "$LOG"
+    ;;
+
+esac
+
+###############################################
+# 5. SURVEILLANCE CONTINUE (INFINITY)
+###############################################
+
+echo
+echo "[ULTIMATE] Activation du mode INFINITY (surveillance continue)..."
+
+inotifywait -m -r "$ROOT" -e create -e delete -e modify |
+while read -r path action file; do
+  echo "[∞] $action → $file" >> "$LOG"
+
+  if [[ "$file" == *":Zone.Identifier" ]]; then
+    rm -f "$path/$file"
+    echo "[DEL] $path/$file" >> "$LOG"
+  fi
+
+  if [[ "$file" == *"Copie"* || "$file" == *"("*")"* ]]; then
+    rm -f "$path/$file"
+    echo "[DEL] $path/$file" >> "$LOG"
+  fi
+
+  if [[ "$file" == *.sh || "$file" == *.ocm ]]; then
+    chmod +x "$path/$file"
+    echo "[CHMOD] $path/$file" >> "$LOG"
+  fi
+
+  if grep -q $'\r' "$path/$file" 2>/dev/null; then
+    sed -i 's/\r$//' "$path/$file"
+    echo "[LF] $path/$file" >> "$LOG"
+  fi
+done

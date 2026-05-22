@@ -1,0 +1,128 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_ULTRA.ocm — Hermès Cockpit Arborescence Repair ULTRA v7.0
+# Fusion totale : ZERO + Ω + ABSOLUTE + INFINITY + OMNI + SINGULARITY
+# Auto-sélection du mode optimal + fallback ZERO
+
+ROOT="$HOME/OpenClaw_Light"
+LOG="$ROOT/cockpit/reports/ARBORESCENCE_REPAIR_ULTRA.log"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR ULTRA — ACTIVATION ==="
+echo "Log : $LOG"
+echo "Racine : $ROOT"
+echo
+
+echo "=== ULTRA LOG — $(date) ===" > "$LOG"
+
+###############################################
+# 1. ANALYSE DE L'ÉTAT DU COCKPIT
+###############################################
+
+echo "[ULTRA] Analyse de l'état du cockpit..."
+
+CRITICAL_ERRORS=0
+
+# Dossiers critiques
+CRITICAL_DIRS=(
+  "cockpit"
+  "cockpit/MODULES"
+  "cockpit/ENGINE"
+  "modules"
+  "core"
+  "engine"
+  "hud"
+  "system"
+)
+
+for d in "${CRITICAL_DIRS[@]}"; do
+  if [ ! -d "$ROOT/$d" ]; then
+    echo "[ERR] Dossier manquant : $d" >> "$LOG"
+    CRITICAL_ERRORS=$((CRITICAL_ERRORS+1))
+  fi
+done
+
+# Fichiers parasites
+PARASITES=$(find "$ROOT" -type f -name "*:Zone.Identifier" -o -name "*Copie*" -o -name "*(*).*")
+
+# Fichiers CRLF
+CRLF=$(grep -rl $'\r' "$ROOT")
+
+###############################################
+# 2. SÉLECTION AUTOMATIQUE DU MODE
+###############################################
+
+echo
+echo "[ULTRA] Sélection du mode optimal..."
+
+if [ "$CRITICAL_ERRORS" -ge 3 ]; then
+  MODE="ABSOLUTE"
+elif [ -n "$PARASITES" ] && [ -n "$CRLF" ]; then
+  MODE="OMNI"
+elif [ -n "$PARASITES" ]; then
+  MODE="Ω"
+elif [ -n "$CRLF" ]; then
+  MODE="SINGULARITY"
+else
+  MODE="ZERO"
+fi
+
+echo "[ULTRA] Mode sélectionné : $MODE"
+echo "[MODE] $MODE" >> "$LOG"
+
+###############################################
+# 3. EXÉCUTION DU MODE
+###############################################
+
+case $MODE in
+
+  "ZERO")
+    echo "[ULTRA] Exécution du mode ZERO..."
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+    ;;
+
+  "Ω")
+    echo "[ULTRA] Exécution du mode Ω..."
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    ;;
+
+  "ABSOLUTE")
+    echo "[ULTRA] Exécution du mode ABSOLUTE..."
+    for d in "${CRITICAL_DIRS[@]}"; do
+      mkdir -p "$ROOT/$d"
+    done
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+    ;;
+
+  "OMNI")
+    echo "[ULTRA] Exécution du mode OMNI..."
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+    ;;
+
+  "SINGULARITY")
+    echo "[ULTRA] Exécution du mode SINGULARITY..."
+    find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+    find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+    grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+    echo "[EVOLVE] $(date)" >> "$LOG"
+    ;;
+
+esac
+
+###############################################
+# 4. FIN
+###############################################
+
+echo
+echo "=== ARBORESCENCE_REPAIR_ULTRA — TERMINÉ ==="
+echo "[DONE] $(date)" >> "$LOG"

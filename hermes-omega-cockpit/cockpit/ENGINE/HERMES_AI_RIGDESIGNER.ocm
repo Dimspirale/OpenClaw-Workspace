@@ -1,0 +1,139 @@
+HERMES_AI_RIGDESIGNER {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    MODULES_REQUIRED {
+        AUTOPATCH: "HERMES_LIGHT_AUTOPATCH"
+        ASSISTANT: "HERMES_LIGHT_ASSISTANT_EXT"
+        EFFECTS: "HERMES_LIGHT_EFFECTS_PRO"
+        PIXELENGINE: "HERMES_LIGHT_PIXELENGINE"
+        SCENEWRITER: "HERMES_AI_SCENEWRITER"
+    }
+
+    CAPABILITIES {
+        NATURAL_LANGUAGE_RIG: "ENABLED"
+        AUTO_FIXTURE_SELECTION: "ENABLED"
+        AUTO_QUANTITY: "ENABLED"
+        AUTO_PLACEMENT: "ENABLED"
+        AUTO_TRUSSING: "ENABLED"
+        AUTO_UNIVERSE_PLANNING: "ENABLED"
+        AUTO_PATCH: "ENABLED"
+        AUTO_GROUPS: "ENABLED"
+        AUTO_PRESETS: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+        EXPORT_DXF: "ENABLED"
+    }
+
+    INPUT {
+        DESCRIPTION: "<text>"
+        EVENT_TYPE: "<concert|theatre|club|festival|corporate>"
+        STAGE_SIZE: "<WxD>"
+        BUDGET_LEVEL: "<low|medium|high>"
+        AUDIENCE_SIZE: "<number>"
+    }
+
+    COMMANDS {
+        DESIGN: "rigdesigner design <name> from <text>"
+        PREVIEW: "rigdesigner preview <name>"
+        EXPORT: "rigdesigner export <console|dxf>"
+        LIST_FIXTURES: "rigdesigner fixtures <name>"
+    }
+
+    ENGINE {
+
+        PARSE_DESCRIPTION_LOGIC: "
+            STYLE=$(hermes ai extract_style \"$DESCRIPTION\")
+            ENERGY=$(hermes ai extract_energy \"$DESCRIPTION\")
+            COLORS=$(hermes ai extract_colors \"$DESCRIPTION\")
+            MOVEMENT=$(hermes ai extract_movement \"$DESCRIPTION\")
+            RIG_TYPE=$(hermes ai extract_rig_type \"$DESCRIPTION\")
+        "
+
+        FIXTURE_SELECTION_LOGIC: "
+            hermes rig clear
+
+            case $BUDGET_LEVEL in
+                low)
+                    hermes rig add_fixture 'LED PAR' qty 12
+                    hermes rig add_fixture 'LED BAR' qty 6
+                    hermes rig add_fixture 'Mini Beam' qty 4
+                    ;;
+                medium)
+                    hermes rig add_fixture 'Wash 19x15W' qty 12
+                    hermes rig add_fixture 'Beam 230W' qty 8
+                    hermes rig add_fixture 'LED BAR Pixel' qty 8
+                    hermes rig add_fixture 'Hybrid 280W' qty 4
+                    ;;
+                high)
+                    hermes rig add_fixture 'Wash 19x40W' qty 16
+                    hermes rig add_fixture 'Beam 470W' qty 12
+                    hermes rig add_fixture 'Profile 1000W LED' qty 8
+                    hermes rig add_fixture 'Hybrid 480W' qty 8
+                    hermes rig add_fixture 'Pixel Matrix 7x7' qty 4
+                    ;;
+            esac
+        "
+
+        PLACEMENT_LOGIC: "
+            hermes rig place_truss 'Front' width $STAGE_SIZE
+            hermes rig place_truss 'Back' width $STAGE_SIZE
+            hermes rig place_truss 'Mid' width $STAGE_SIZE
+
+            hermes rig distribute 'Wash' on 'Front'
+            hermes rig distribute 'Beam' on 'Back'
+            hermes rig distribute 'Hybrid' on 'Mid'
+            hermes rig distribute 'Pixel' on 'Back'
+        "
+
+        UNIVERSE_PLANNING_LOGIC: "
+            hermes rig calculate_universes
+            hermes autopatch run
+        "
+
+        GROUPS_PRESETS_LOGIC: "
+            hermes groups auto_detect
+            hermes presets generate DIMMER
+            hermes presets generate COLOR from_palette \"$COLORS\"
+            hermes presets generate POSITION from_movement \"$MOVEMENT\"
+            hermes presets generate BEAM
+        "
+
+        EXPORT_LOGIC: "
+            case $console in
+                MA2)
+                    hermes rig export_ma2
+                    ;;
+                MA3)
+                    hermes rig export_ma3
+                    ;;
+                ONYX)
+                    hermes rig export_onyx
+                    ;;
+                dxf)
+                    hermes rig export_dxf
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "RIG_NAME",
+            "FIXTURE_LIST",
+            "UNIVERSES",
+            "TRUSS_LAYOUT",
+            "GROUPS",
+            "PRESETS",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_RIGDESIGNER"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

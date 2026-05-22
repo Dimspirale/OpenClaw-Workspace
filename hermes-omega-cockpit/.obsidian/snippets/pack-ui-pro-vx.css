@@ -1,0 +1,178 @@
+/* ---------------------------------------------------------
+   PACK UI PRO vX — Full UI System
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- VARIABLES GLOBALES UI SYSTEM ---------- */
+:root {
+    --uix-accent: #4fd1ff;
+    --uix-accent-soft: rgba(79,209,255,0.35);
+    --uix-bg: rgba(255,255,255,0.03);
+    --uix-bg-strong: rgba(255,255,255,0.06);
+    --uix-border: rgba(255,255,255,0.14);
+    --uix-radius: 10px;
+    --uix-speed: 0.25s;
+}
+
+/* ---------------------------------------------------------
+   1) NAVBAR PRO — Barre de navigation
+   --------------------------------------------------------- */
+
+.ui-navbar {
+    display: flex;
+    gap: 16px;
+    padding: 10px 18px;
+    background: var(--uix-bg);
+    border-bottom: 1px solid var(--uix-border);
+    backdrop-filter: blur(12px);
+}
+
+.ui-nav-item {
+    padding: 6px 12px;
+    color: var(--uix-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all var(--uix-speed);
+}
+
+.ui-nav-item:hover {
+    background: var(--uix-bg-strong);
+    border-radius: var(--uix-radius);
+    box-shadow: 0 0 12px var(--uix-accent-soft);
+}
+
+/* ---------------------------------------------------------
+   2) PANEL PRO — Panneau latéral
+   --------------------------------------------------------- */
+
+.ui-panel {
+    width: 260px;
+    height: 100%;
+    background: var(--uix-bg);
+    border-right: 1px solid var(--uix-border);
+    backdrop-filter: blur(14px);
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ui-panel-title {
+    color: var(--uix-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+}
+
+/* ---------------------------------------------------------
+   3) OVERLAY PRO — Superposition semi-transparente
+   --------------------------------------------------------- */
+
+.ui-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--uix-speed);
+}
+
+.ui-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ---------------------------------------------------------
+   4) MODAL PRO — Fenêtre centrale
+   --------------------------------------------------------- */
+
+.ui-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 420px;
+    padding: 24px;
+    background: var(--uix-bg);
+    border: 1px solid var(--uix-border);
+    border-radius: var(--uix-radius);
+    backdrop-filter: blur(14px);
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0;
+    transition: all var(--uix-speed);
+}
+
+.ui-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* ---------------------------------------------------------
+   5) DRAWER PRO — Tiroir latéral
+   --------------------------------------------------------- */
+
+.ui-drawer {
+    position: fixed;
+    top: 0;
+    right: -340px;
+    width: 340px;
+    height: 100%;
+    background: var(--uix-bg);
+    border-left: 1px solid var(--uix-border);
+    backdrop-filter: blur(14px);
+    padding: 20px;
+    transition: right var(--uix-speed);
+}
+
+.ui-drawer.active {
+    right: 0;
+}
+
+/* ---------------------------------------------------------
+   6) COMMAND PANEL PRO — Panneau de commandes
+   --------------------------------------------------------- */
+
+.ui-command-panel {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--uix-bg);
+    border: 1px solid var(--uix-border);
+    border-radius: var(--uix-radius);
+    padding: 12px 18px;
+    display: flex;
+    gap: 12px;
+    backdrop-filter: blur(12px);
+}
+
+/* ---------------------------------------------------------
+   7) MENU PRO — Menu contextuel
+   --------------------------------------------------------- */
+
+.ui-menu {
+    position: absolute;
+    background: var(--uix-bg);
+    border: 1px solid var(--uix-border);
+    border-radius: var(--uix-radius);
+    padding: 6px 0;
+    display: none;
+    backdrop-filter: blur(10px);
+}
+
+.ui-menu.active {
+    display: block;
+}
+
+.ui-menu-item {
+    padding: 8px 14px;
+    color: var(--uix-accent);
+    cursor: pointer;
+    transition: all var(--uix-speed);
+}
+
+.ui-menu-item:hover {
+    background: var(--uix-bg-strong);
+    box-shadow: inset 0 0 12px var(--uix-accent-soft);
+}

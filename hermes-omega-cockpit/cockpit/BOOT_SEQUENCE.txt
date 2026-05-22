@@ -1,0 +1,24 @@
+# BOOT_SEQUENCE — Hermès Cockpit v4 ΩMEGA
+# Profil : <DEV|SHOW|TOUR>
+# Mode   : <NORMAL|ULTRA|Ω>
+
+cd ~/OpenClaw_Light/COCKPIT/ENGINE/
+
+core diag
+core profile
+core route SYSTEM
+
+hermes-os boot
+hermes-os status
+
+hermes-os profile <DEV|SHOW|TOUR>
+hermes-os mode <NORMAL|ULTRA|Ω>
+
+cockpit start <NORMAL|ULTRA|Ω>
+
+fusion enable_coherence
+
+cockpit diag
+hermes-os status
+core diag
+fusion status

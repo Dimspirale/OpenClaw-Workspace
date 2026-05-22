@@ -1,0 +1,83 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_ABSOLUTE.ocm — Hermès Cockpit Arborescence Repair ABSOLUTE v3.0
+# Analyse profonde (12 niveaux) + reconstruction dynamique + audit total
+
+ROOT="$HOME/OpenClaw_Light"
+LOG="$ROOT/cockpit/reports/ARBORESCENCE_REPAIR_ABSOLUTE.log"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR ABSOLUTE — DÉMARRAGE ==="
+echo "Log : $LOG"
+echo "Racine : $ROOT"
+echo
+
+echo "=== ABSOLUTE LOG — $(date) ===" > "$LOG"
+
+echo "[ABS] Scan profond de l'arborescence (12 niveaux)..."
+find "$ROOT" -maxdepth 12 -type d >> "$LOG"
+
+echo
+echo "[ABS] Détection des anomalies structurelles..."
+ANOMALIES=$(find "$ROOT" -maxdepth 12 -type d -empty)
+if [ -n "$ANOMALIES" ]; then
+  echo "$ANOMALIES"
+  echo "$ANOMALIES" | while read -r d; do
+    echo "[EMPTY] $d" >> "$LOG"
+  done
+else
+  echo "Aucune anomalie détectée."
+fi
+
+echo
+echo "[ABS] Reconstruction dynamique des dossiers Hermès..."
+REQUIRED=(
+  "cockpit"
+  "cockpit/MODULES"
+  "cockpit/ENGINE"
+  "cockpit/hud"
+  "cockpit/monitoring"
+  "cockpit/maintenance"
+  "cockpit/shutdown"
+  "cockpit/startup"
+  "cockpit/status"
+  "cockpit/structure"
+  "cockpit/timeline"
+)
+
+for d in "${REQUIRED[@]}"; do
+  if [ ! -d "$ROOT/$d" ]; then
+    mkdir -p "$ROOT/$d"
+    echo "[REBUILD] $d" >> "$LOG"
+    echo "  → Reconstruit : $d"
+  else
+    echo "  ✔ $d OK"
+  fi
+done
+
+echo
+echo "[ABS] Nettoyage global des fichiers parasites..."
+find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+
+echo
+echo "[ABS] Correction des permissions globales..."
+find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \; -exec echo "[CHMOD] {}" >> "$LOG" \;
+
+echo
+echo "[ABS] Conversion CRLF → LF (scan total)..."
+CRLF_FILES=$(grep -rl $'\r' "$ROOT")
+if [ -n "$CRLF_FILES" ]; then
+  echo "$CRLF_FILES" | while read -r f; do
+    sed -i 's/\r$//' "$f"
+    echo "[LF] $f" >> "$LOG"
+  done
+else
+  echo "Aucun fichier CRLF détecté."
+fi
+
+echo
+echo "[ABS] Audit final complet..."
+find "$ROOT" -maxdepth 12 -type f >> "$LOG"
+
+echo
+echo "=== ARBORESCENCE_REPAIR_ABSOLUTE — TERMINÉ ==="
+echo "[DONE] $(date)" >> "$LOG"

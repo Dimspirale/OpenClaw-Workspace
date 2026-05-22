@@ -1,0 +1,72 @@
+# SYSTEM_RECOVERY.ocm
+# OpenClaw_Light — Module de Récupération Système
+# Version monolithique, stable, cockpit-grade
+
+SYSTEM_RECOVERY {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "COCKPIT"
+
+    RECOVERY_CORE {
+        ENABLED: true
+        AUTO_REPAIR: true
+        AUTO_SNAPSHOT: true
+        SNAPSHOT_INTERVAL: "24h"
+        LOG_RECOVERY: true
+    }
+
+    SNAPSHOTS {
+        PATH: "~/OpenClaw_Light/SYSTEM/SNAPSHOTS"
+        FORMAT: "ocm"
+        KEEP_LAST: 10
+        INCLUDE: [
+            "SYSTEM_GLOBAL",
+            "SYSTEM_AUTOMATION",
+            "SYSTEM_EXPORT",
+            "COCKPIT_ROOT",
+            "META_OPS_*"
+        ]
+    }
+
+    TRIGGERS {
+        ON_ERROR: [
+            "CREATE_SNAPSHOT",
+            "REPAIR_MODULE",
+            "VERIFY_INTEGRITY",
+            "RELOAD_SYSTEM"
+        ]
+
+        ON_BOOT: [
+            "VERIFY_LAST_SNAPSHOT",
+            "CHECK_INTEGRITY",
+            "AUTO_REPAIR_IF_NEEDED"
+        ]
+
+        ON_MANUAL: [
+            "FORCE_SNAPSHOT",
+            "FORCE_REPAIR",
+            "FORCE_RELOAD"
+        ]
+    }
+
+    ENGINE {
+        SYSTEM_GLOBAL_LINK: "~/OpenClaw_Light/SYSTEM/SYSTEM_GLOBAL.ocm"
+        AUTOMATION_LINK: "~/OpenClaw_Light/SYSTEM/SYSTEM_AUTOMATION.ocm"
+        EXPORT_LINK: "~/OpenClaw_Light/SYSTEM/SYSTEM_EXPORT.ocm"
+        META_OPS_INTEGRATION: true
+        AUTO_SYNC: true
+    }
+
+    INTEGRITY {
+        HASH: true
+        TIMESTAMP: true
+        STRICT_MODE: true
+        VERIFY_ON_LOAD: true
+    }
+
+    PERFORMANCE {
+        THREADS: 1
+        PRIORITY: "HIGH"
+        CACHE: false
+    }
+}

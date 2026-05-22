@@ -1,0 +1,150 @@
+HERMES_AI_SHOWMASTER_ULTRA {
+    VERSION: "3.0.0"
+    STATUS: "ACTIVE"
+
+    MODULES_REQUIRED {
+        SHOWMASTER_PLUS: "HERMES_AI_SHOWMASTER_PLUS"
+        DIRECTOR: "HERMES_AI_DIRECTOR"
+        TIMECODE: "HERMES_AI_TIMECODE"
+        AUDIOREACTOR: "HERMES_AI_AUDIOREACTOR"
+        SCENEWRITER: "HERMES_AI_SCENEWRITER"
+        RIGDESIGNER: "HERMES_AI_RIGDESIGNER"
+        LIVEOP: "HERMES_AI_LIVE_OPERATOR"
+        EFFECTS: "HERMES_LIGHT_EFFECTS_PRO"
+        PIXELENGINE: "HERMES_LIGHT_PIXELENGINE"
+        AUTOPATCH: "HERMES_LIGHT_AUTOPATCH"
+        OPTIMIZER: "HERMES_OPTIMIZER"
+    }
+
+    CAPABILITIES {
+        MULTI_SHOW: "ENABLED"
+        MULTI_RIG: "ENABLED"
+        MULTI_STAGE: "ENABLED"
+        MULTI_TIMELINE: "ENABLED"
+        MULTI_UNIVERSE: "ENABLED"
+        MULTI_ROOM: "ENABLED"
+        HYBRID_SYNC: "ENABLED"
+        AI_PREDICTIVE: "ENABLED"
+        AI_SCENE_GENERATION: "ENABLED"
+        AI_RIG_SWITCHING: "ENABLED"
+        AI_DYNAMIC_REWRITING: "ENABLED"
+        AI_LIVE_ADAPTATION: "ENABLED"
+        AUTO_FAILOVER: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+        EXPORT_DXF: "ENABLED"
+    }
+
+    INPUT {
+        SHOWS: "<show1,show2,...>"
+        RIGS: "<rig1,rig2,...>"
+        VENUES: "<venue1,venue2,...>"
+        MODE: ["AUDIO", "TIMECODE", "HYBRID", "LIVE"]
+        PREDICTIVE_DEPTH: "1-10"
+    }
+
+    COMMANDS {
+        BUILD: "showmaster_ultra build <showlist>"
+        ADD_SHOW: "showmaster_ultra add_show <showfile>"
+        ADD_RIG: "showmaster_ultra add_rig <rigfile>"
+        ADD_VENUE: "showmaster_ultra add_venue <venuefile>"
+        SWITCH_SHOW: "showmaster_ultra switch_show <showname>"
+        PREVIEW: "showmaster_ultra preview"
+        EXPORT: "showmaster_ultra export <console>"
+        MAP: "showmaster_ultra map"
+    }
+
+    ENGINE {
+
+        STEP_1_LOAD_SHOWS: "
+            hermes shows clear
+            hermes shows load_list $SHOWS
+            hermes shows validate
+        "
+
+        STEP_2_LOAD_RIGS: "
+            hermes rigs clear
+            hermes rigs load_list $RIGS
+            hermes rigs validate
+        "
+
+        STEP_3_LOAD_VENUES: "
+            hermes venues clear
+            hermes venues load_list $VENUES
+            hermes venues validate
+        "
+
+        STEP_4_PREDICTIVE_ANALYSIS: "
+            hermes ai predict_energy $PREDICTIVE_DEPTH
+            hermes ai predict_transitions $PREDICTIVE_DEPTH
+            hermes ai predict_rig_load $PREDICTIVE_DEPTH
+        "
+
+        STEP_5_MULTI_TIMELINE_BUILD: "
+            hermes timeline clear_all
+            hermes timeline build_audio
+            hermes timeline build_timecode
+            hermes timeline build_ai
+            hermes timeline merge
+        "
+
+        STEP_6_MULTI_RIG_DISTRIBUTION: "
+            hermes rigs distribute_scenes_multi
+            hermes rigs assign_universes_multi
+            hermes rigs autopatch_all
+        "
+
+        STEP_7_MULTI_SHOW_ORCHESTRATION: "
+            hermes shows sync_all
+            hermes shows align_to_venues
+            hermes shows optimize_transitions
+        "
+
+        STEP_8_DYNAMIC_REWRITING: "
+            hermes ai rewrite_scenes_global
+            hermes ai rewrite_effects_global
+            hermes ai rewrite_timelines_global
+        "
+
+        STEP_9_FAILOVER_SYSTEM: "
+            hermes optimizer enable_failover
+            hermes optimizer monitor_rigs
+            hermes optimizer auto_recover
+        "
+
+        STEP_10_EXPORT: "
+            case $console in
+                MA2)
+                    hermes shows export_ma2
+                    ;;
+                MA3)
+                    hermes shows export_ma3
+                    ;;
+                ONYX)
+                    hermes shows export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "SHOWS",
+            "RIGS",
+            "VENUES",
+            "SCENES",
+            "TIMELINES",
+            "UNIVERSES",
+            "PREDICTIVE_MODEL",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_SHOWMASTER_ULTRA"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

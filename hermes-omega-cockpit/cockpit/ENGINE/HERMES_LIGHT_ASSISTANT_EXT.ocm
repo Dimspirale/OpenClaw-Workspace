@@ -1,0 +1,114 @@
+HERMES_LIGHT_ASSISTANT_EXT {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    CAPABILITIES {
+        PATCH_ASSIST: "ENABLED"
+        CUE_ASSIST: "ENABLED"
+        EFFECT_GENERATOR: "ENABLED"
+        MACRO_GENERATOR: "ENABLED"
+        DIAGNOSTICS: "ENABLED"
+        FIXTURE_HELP: "ENABLED"
+        NETWORK_HELP: "ENABLED"
+    }
+
+    PATCH_ENGINE {
+        AUTO_PATCH: "ON"
+        RULES {
+            VALIDATE_ADDRESS: "YES"
+            VALIDATE_MODE: "YES"
+            VALIDATE_UNIVERSE: "YES"
+            AUTO_FIX_CONFLICTS: "YES"
+        }
+        COMMANDS {
+            PATCH_FIXTURE: "patch <fixture> <quantity> mode <mode> start <address> universe <u>"
+            PATCH_RANGE: "patch range <fixture> <start>-<end> mode <mode> universe <u>"
+        }
+    }
+
+    CUE_ENGINE {
+        AUTO_CUE: "ON"
+        RULES {
+            CHECK_FADE: "YES"
+            CHECK_DELAY: "YES"
+            CHECK_PRIORITY: "YES"
+        }
+        COMMANDS {
+            BUILD_CUE: "cue build <name> with <states>"
+            MODIFY_CUE: "cue modify <id> <parameters>"
+        }
+    }
+
+    EFFECT_ENGINE {
+        TYPES {
+            WAVE: "ENABLED"
+            CHASE: "ENABLED"
+            COLORFLOW: "ENABLED"
+            STROBE: "ENABLED"
+            POSITION_SWEEP: "ENABLED"
+        }
+        PARAMETERS {
+            SPEED: "0.1-10"
+            SIZE: "0-100"
+            OFFSET: "0-360"
+            PHASE: "0-360"
+        }
+    }
+
+    MACRO_ENGINE {
+        TARGETS {
+            MA2: "ENABLED"
+            MA3: "ENABLED"
+            ONYX: "ENABLED"
+        }
+        COMMANDS {
+            GENERATE_MACRO: "macro generate <console> <action>"
+        }
+    }
+
+    DIAGNOSTICS_ENGINE {
+        CHECKS {
+            DMX_CONFLICTS: "YES"
+            ARTNET_STATUS: "YES"
+            SACN_STATUS: "YES"
+            FIXTURE_ERRORS: "YES"
+            NETWORK_LATENCY: "YES"
+        }
+        COMMANDS {
+            RUN_FULL_DIAG: "diag full"
+            CHECK_UNIVERSE: "diag universe <u>"
+        }
+    }
+
+    FIXTURE_ENGINE {
+        COMMANDS {
+            INFO: "fixture info <model>"
+            MODELIST: "fixture modes <model>"
+            CHANNELMAP: "fixture channels <model>"
+        }
+    }
+
+    NETWORK_ENGINE {
+        COMMANDS {
+            ARTNET_SCAN: "net scan artnet"
+            SACN_SCAN: "net scan sacn"
+            PING_NODE: "net ping <ip>"
+        }
+    }
+
+    ROUTING {
+        PATCH: "LIGHT_ENGINE"
+        CUE: "LIGHT_ENGINE"
+        EFFECT: "LIGHT_ENGINE"
+        MACRO: "LIGHT_ENGINE"
+        DIAG: "LIGHT_ENGINE"
+        FIXTURE: "LIGHT_ENGINE"
+        NETWORK: "LIGHT_ENGINE"
+    }
+
+    SIGNATURE {
+        ID: "HERMES_LIGHT_ASSISTANT_EXT"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

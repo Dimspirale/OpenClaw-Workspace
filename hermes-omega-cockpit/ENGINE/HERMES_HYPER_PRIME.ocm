@@ -1,0 +1,37 @@
+cat > ~/OpenClaw_Light/ENGINE/HERMES_HYPER_PRIME.ocm << 'EOF'
+#!/usr/bin/env bash
+set -e
+
+# CPU %
+CPU=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f", usage}')
+
+# RAM %
+RAM_USED=$(free -m | awk '/Mem:/ {print $3}')
+RAM_TOTAL=$(free -m | awk '/Mem:/ {print $2}')
+RAM_PCT=$(( RAM_USED * 100 / RAM_TOTAL ))
+
+# GPU (si NVIDIA)
+if command -v nvidia-smi >/dev/null 2>&1; then
+  GPU_TEMP=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits)
+  GPU_VRAM_USED=$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits)
+  GPU_VRAM_TOTAL=$(nvidia-smi --query-gpu=memory.total --format=csv,noheader,nounits)
+  GPU_POWER=$(nvidia-smi --query-gpu=power.draw --format=csv,noheader,nounits)
+else
+  GPU_TEMP="N/A"
+  GPU_VRAM_USED="0"
+  GPU_VRAM_TOTAL="0"
+  GPU_POWER="0"
+fi
+
+# NET latency
+NET=$(ping -c 1 1.1.1.1 2>/dev/null | awk -F'=' '/time=/{print $4}' | cut -d' ' -f1)
+NET=${NET:-"N/A"}
+
+# Disk I/O (lecture + écriture)
+DISK_IO=$(iostat -d 1 2 | awk 'NR==7 {print $3+$4}')
+
+# Uptime
+UP=$(awk '{print int($1)}' /proc/uptime)
+
+echo "CPU:${CPU}% RAM:${RAM_PCT}% VRAM:${GPU_VRAM_USED}/${GPU_VRAM_TOTAL}MB TEMP:${GPU_TEMP}C PWR:${GPU_POWER}W NET:${NET}ms IO:${DISK_IO}KB/s UP:${UP}s"
+EOF

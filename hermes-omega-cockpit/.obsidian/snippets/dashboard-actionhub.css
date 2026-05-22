@@ -1,0 +1,37 @@
+/* THEME PRO v3.0 — Action Hub Integration */
+:root {
+  --ah-bg:      var(--t-bg);
+  --ah-soft:    var(--t-soft);
+  --ah-border:  var(--t-border);
+  --ah-text:    var(--t-text);
+  --ah-accent:  var(--t-accent);
+  --ah-radius:  var(--t-r-md);
+  --ah-shadow:  var(--t-depth-low);
+}
+
+#actionhub-root {
+  background: var(--ah-bg);
+  border: 1px solid var(--ah-border);
+  border-radius: var(--ah-radius);
+  box-shadow: var(--ah-shadow);
+  color: var(--ah-text);
+}
+
+.ah-btn {
+  background: var(--ah-soft);
+  border: 1px solid var(--ah-border);
+  border-radius: var(--ah-radius);
+  color: var(--ah-text);
+  transition: background var(--t-fast), border var(--t-fast), transform var(--t-fast);
+}
+
+.ah-btn:hover {
+  background: var(--t-soft);
+  border-color: var(--ah-accent);
+}
+
+.ah-status-item {
+  background: var(--ah-soft);
+  border: 1px solid var(--ah-border);
+  border-radius: var(--ah-radius);
+}

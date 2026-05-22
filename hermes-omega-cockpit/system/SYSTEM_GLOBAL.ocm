@@ -1,0 +1,57 @@
+# SYSTEM_GLOBAL.ocm
+# OpenClaw_Light — Module Système Global
+# Version cockpit-grade monolithique
+
+SYSTEM_GLOBAL {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "COCKPIT"
+
+    SYSTEM {
+        BOOT_SEQUENCE: [
+            "INIT_CORE",
+            "INIT_ENV",
+            "INIT_SECURITY",
+            "INIT_AUTOMATION",
+            "INIT_EXPORT",
+            "INIT_RECOVERY"
+        ]
+
+        PATHS {
+            ROOT: "~/OpenClaw_Light"
+            SYSTEM: "~/OpenClaw_Light/SYSTEM"
+            COCKPIT: "~/OpenClaw_Light/COCKPIT"
+            META_OPS: "~/OpenClaw_Light/COCKPIT/META_OPS"
+        }
+
+        FLAGS {
+            SAFE_MODE: false
+            DIAGNOSTIC_MODE: false
+            AUTO_RECOVERY: true
+        }
+    }
+
+    ENVIRONMENT {
+        OS: "WSL2-UBUNTU"
+        NODE: "LTS"
+        BUN: "ENABLED"
+        PNPM: "ENABLED"
+        SYSTEMD: true
+    }
+
+    SECURITY {
+        SANDBOX: true
+        LOGGING: true
+        INTEGRITY_CHECK: true
+    }
+
+    EXPORT {
+        ENABLED: true
+        FORMATS: ["json", "ocm", "txt"]
+    }
+
+    RECOVERY {
+        SNAPSHOT_INTERVAL: "24h"
+        AUTO_REPAIR: true
+    }
+}

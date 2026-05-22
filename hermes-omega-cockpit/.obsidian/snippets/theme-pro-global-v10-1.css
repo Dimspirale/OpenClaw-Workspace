@@ -1,0 +1,132 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V10.1 — NEURAL VISION OPTIMIZED
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- NEURAL VARIABLES (Optimisées) ---------- */
+:root {
+    --nv-accent-strong: #7b5cff;
+    --nv-accent-soft: rgba(123,92,255,0.28);
+    --nv-danger: #ff4f6b;
+    --nv-safe: #4fff9a;
+
+    --nv-pulse-speed: 2.2s;
+    --nv-breath-speed: 3.6s;
+
+    --nv-grid-strength: 0.22;
+}
+
+/* ---------- NEURAL GRID (Version légère) ---------- */
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -30%;
+    background-image:
+        radial-gradient(circle at 0 0, rgba(255,255,255,var(--nv-grid-strength)) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(123,92,255,0.18) 0, transparent 60%);
+    opacity: 0.28;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+/* ---------- NEURAL PULSE (Optimisé) ---------- */
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: nv-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes nv-pulse {
+    0%   { text-shadow: 0 0 4px var(--nv-accent-soft); }
+    50%  { text-shadow: 0 0 10px var(--nv-accent-soft); }
+    100% { text-shadow: 0 0 4px var(--nv-accent-soft); }
+}
+
+/* ---------- NEURAL BREATH (Optimisé) ---------- */
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: nv-breath 3.6s ease-in-out infinite;
+}
+
+@keyframes nv-breath {
+    0%   { box-shadow: 0 0 10px rgba(123,92,255,0.18); }
+    50%  { box-shadow: 0 0 18px rgba(123,92,255,0.28); }
+    100% { box-shadow: 0 0 10px rgba(123,92,255,0.18); }
+}
+
+/* ---------- NEURAL STATE COLORING (FUSION) ---------- */
+.hud-fusion[data-fusion-state="low"] .fusion-score {
+    color: var(--nv-danger);
+    text-shadow: 0 0 10px rgba(255,79,107,0.45);
+}
+
+.hud-fusion[data-fusion-state="mid"] .fusion-score {
+    color: var(--t9-accent);
+    text-shadow: 0 0 10px var(--t9-accent-soft);
+}
+
+.hud-fusion[data-fusion-state="high"] .fusion-score {
+    color: var(--nv-safe);
+    text-shadow: 0 0 10px rgba(79,255,154,0.45);
+}
+
+/* ---------- NEURAL GRADIENT (Optimisé) ---------- */
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--nv-accent-strong),
+        var(--t9-accent),
+        var(--nv-safe)
+    );
+}
+
+/* ---------- HEATMAP (Optimisée) ---------- */
+.heat-cell {
+    border: 1px solid rgba(123,92,255,0.28);
+    box-shadow:
+        0 0 6px rgba(79,209,255,0.22),
+        0 0 10px rgba(123,92,255,0.22);
+}
+
+/* ---------- RADAR (Optimisé) ---------- */
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--nv-accent-strong),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow: 0 0 8px var(--nv-accent-soft);
+}
+
+/* ---------- TITRES & LABELS ---------- */
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--nv-accent-strong);
+}
+
+/* ---------- HOVER FOCUS (Optimisé) ---------- */
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid rgba(123,92,255,0.45);
+    outline-offset: 2px;
+}

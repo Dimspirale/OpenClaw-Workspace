@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+CMD="$1"
+
+case "$CMD" in
+  start)
+    echo "[LISTENER] Démarrage listener cockpit..."
+    ;;
+  *)
+    echo "[LISTENER] Usage: listener start"
+    exit 1
+    ;;
+esac

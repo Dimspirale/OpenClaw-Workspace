@@ -1,0 +1,52 @@
+cat > ~/OpenClaw_Light/SYSTEM/HERMES_BRIDGE.ocm << 'EOF'
+# HERMES_BRIDGE.ocm
+# OpenClaw_Light — Hermes Bridge
+# Pont technique cockpit ↔ Hermes (exécution, TTS, outils, automation)
+
+HERMES_BRIDGE {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "BRIDGE"
+
+    ROLE: "HERMES_BRIDGE"
+    DESCRIPTION: "Module de liaison technique entre le cockpit et Hermes. Exécution, TTS, outils externes, automation."
+
+    ENGINE_LINK {
+        HERMES_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_ENGINE.ocm"
+        CORE_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/CORE_ENGINE.ocm"
+        FLOW_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/FLOW_ENGINE.ocm"
+    }
+
+    PATHS {
+        SYSTEM_ROOT: "~/OpenClaw_Light/SYSTEM"
+        META_OPS_ROOT: "~/OpenClaw_Light/COCKPIT/META_OPS"
+    }
+
+    CAPABILITIES {
+        EXECUTION: true
+        TTS: true
+        TOOLS: true
+        AUTOMATION: true
+        PIPELINES: true
+    }
+
+    CHANNELS {
+        INBOUND: "COCKPIT → HERMES"
+        OUTBOUND: "HERMES → COCKPIT"
+        MODE: "BIDIRECTIONAL"
+    }
+
+    OUTPUT {
+        PROVIDE_BRIDGE_READY: true
+        PROVIDE_EXEC_CHANNEL: true
+        PROVIDE_TTS_CHANNEL: true
+        PROVIDE_AUTOMATION_CHANNEL: true
+    }
+
+    SIGNATURE {
+        ID: "HERMES_BRIDGE"
+        TYPE: "BRIDGE"
+        HASH: "AUTO"
+    }
+}
+EOF

@@ -1,0 +1,28 @@
+# ============================================================
+# MODULE : OpenClaw_ObsidianBridge
+# ROLE   : Connecte OpenClaw ↔ Obsidian ↔ Ollama
+# ============================================================
+
+module_name="OpenClaw_ObsidianBridge"
+module_version="1.0"
+
+# IMPORTANT : charger les scripts dans CE dossier
+MODULE_DIR="$(dirname "$0")"
+
+source "$MODULE_DIR/obsidian_reader.sh"
+source "$MODULE_DIR/obsidian_writer.sh"
+source "$MODULE_DIR/obsidian_ai_query.sh"
+
+ocm_obsidian_read() {
+    obsidian_read "$@"
+}
+
+ocm_obsidian_write() {
+    obsidian_write "$@"
+}
+
+ocm_obsidian_ai() {
+    obsidian_ai_query "$@"
+}
+
+echo "[OpenClaw] Module OpenClaw_ObsidianBridge chargé (v$module_version)"

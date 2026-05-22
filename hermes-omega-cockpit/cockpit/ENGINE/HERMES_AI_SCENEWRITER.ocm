@@ -1,0 +1,120 @@
+HERMES_AI_SCENEWRITER {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    MODULES_REQUIRED {
+        ASSISTANT: "HERMES_LIGHT_ASSISTANT_EXT"
+        EFFECTS: "HERMES_LIGHT_EFFECTS_PRO"
+        PIXELENGINE: "HERMES_LIGHT_PIXELENGINE"
+        AUTOPATCH: "HERMES_LIGHT_AUTOPATCH"
+    }
+
+    CAPABILITIES {
+        NATURAL_LANGUAGE_SCENES: "ENABLED"
+        AUTO_GROUP_SELECTION: "ENABLED"
+        AUTO_PRESETS: "ENABLED"
+        AUTO_EFFECTS: "ENABLED"
+        AUTO_TRANSITIONS: "ENABLED"
+        AUTO_CUE_CREATION: "ENABLED"
+        MULTI_SCENE_SCRIPTING: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+    }
+
+    INPUT {
+        SCRIPT: "<text>"
+        SCENE_NAME: "<name>"
+    }
+
+    COMMANDS {
+        WRITE_SCENE: "scenewriter write <name> from <text>"
+        WRITE_MULTIPLE: "scenewriter write_multi <scriptfile>"
+        PREVIEW: "scenewriter preview <name>"
+        EXPORT: "scenewriter export <console>"
+    }
+
+    ENGINE {
+
+        PARSE_SCRIPT_LOGIC: "
+            INTENT=$(hermes ai interpret_scene \"$SCRIPT\")
+            COLOR_PALETTE=$(hermes ai extract_colors \"$SCRIPT\")
+            MOVEMENT_STYLE=$(hermes ai extract_movement \"$SCRIPT\")
+            ENERGY_LEVEL=$(hermes ai extract_energy \"$SCRIPT\")
+            GROUP_TARGETS=$(hermes ai extract_groups \"$SCRIPT\")
+        "
+
+        GROUP_SELECTION_LOGIC: "
+            if [[ $GROUP_TARGETS == 'AUTO' ]]; then
+                GROUPS=$(hermes groups auto_detect)
+            else
+                GROUPS=$GROUP_TARGETS
+            fi
+        "
+
+        PRESET_GENERATION_LOGIC: "
+            hermes presets generate DIMMER from_energy $ENERGY_LEVEL
+            hermes presets generate COLOR from_palette \"$COLOR_PALETTE\"
+            hermes presets generate POSITION from_movement \"$MOVEMENT_STYLE\"
+            hermes presets generate BEAM from_intent \"$INTENT\"
+        "
+
+        EFFECT_GENERATION_LOGIC: "
+            if [[ $MOVEMENT_STYLE == 'slow' ]]; then
+                hermes effects wave_complex groups $GROUPS waveform sine speed 0.5 size 40 phase 0
+            elif [[ $MOVEMENT_STYLE == 'fast' ]]; then
+                hermes effects chase_multi groups $GROUPS speed 3 offset 120
+            elif [[ $MOVEMENT_STYLE == 'epic' ]]; then
+                hermes effects colorflow_pro mode rainbow speed 1.5 phase 45
+            fi
+        "
+
+        PIXELENGINE_LOGIC: "
+            if [[ $INTENT == 'ambient' ]]; then
+                hermes pixelmap gradient AUTO colors \"$COLOR_PALETTE\" direction down speed 0.5
+            elif [[ $INTENT == 'energetic' ]]; then
+                hermes pixelmap pattern bars AUTO speed 2
+            fi
+        "
+
+        CUE_CREATION_LOGIC: "
+            hermes cues build \"$SCENE_NAME\" using DIMMER COLOR POSITION BEAM
+            hermes cues attach_effects \"$SCENE_NAME\"
+            hermes cues set_timing \"$SCENE_NAME\" fade 2 delay 0
+        "
+
+        EXPORT_LOGIC: "
+            case $console in
+                MA2)
+                    hermes cues export_ma2
+                    ;;
+                MA3)
+                    hermes cues export_ma3
+                    ;;
+                ONYX)
+                    hermes cues export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "SCENE_NAME",
+            "INTENT",
+            "COLOR_PALETTE",
+            "MOVEMENT_STYLE",
+            "ENERGY_LEVEL",
+            "GROUPS",
+            "CUE_CREATED",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_SCENEWRITER"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

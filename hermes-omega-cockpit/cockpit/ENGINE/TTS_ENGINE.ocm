@@ -1,0 +1,40 @@
+cat > ~/OpenClaw_Light/COCKPIT/ENGINE/TTS_ENGINE.ocm << 'EOF'
+# TTS_ENGINE.ocm
+# OpenClaw_Light — Text-to-Speech Engine
+# Moteur TTS cockpit (NeuTTS, EdgeTTS, Coqui, Bark)
+
+TTS_ENGINE {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "AUDIO"
+
+    ROLE: "TTS_ENGINE"
+    DESCRIPTION: "Moteur TTS du cockpit. Fournit la synthèse vocale via Hermes."
+
+    ENGINE {
+        ENABLED: true
+        PROVIDE_TTS: true
+        PROVIDE_AUDIO_OUTPUT: true
+        SUPPORT_NEUTTS: true
+        SUPPORT_EDGETTS: true
+        SUPPORT_COQUI: true
+        SUPPORT_BARK: true
+    }
+
+    PATHS {
+        AUDIO_OUT: "~/OpenClaw_Light/OUTPUT/audio"
+        SYSTEM_ROOT: "~/OpenClaw_Light/SYSTEM"
+    }
+
+    OUTPUT {
+        PROVIDE_TTS_AUDIO: true
+        PROVIDE_TTS_STATUS: true
+    }
+
+    SIGNATURE {
+        ID: "TTS_ENGINE"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}
+EOF

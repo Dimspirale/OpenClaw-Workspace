@@ -1,0 +1,57 @@
+HERMES_BENCHMARK {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    CONFIG {
+        MODELS_TO_TEST: [
+            "llama3.1",
+            "qwen2.5:14b"
+        ]
+
+        PROMPT: "Test de performance. Réponds par un mot."
+        TOKENS_TO_GENERATE: 64
+        GPU_QUERY: "nvidia-smi --query-gpu=utilization.gpu,memory.used --format=csv,noheader"
+        CPU_QUERY: "top -bn1 | grep 'Cpu(s)'"
+    }
+
+    EXECUTION {
+        RUN_BENCHMARK: "
+            for MODEL in ${MODELS_TO_TEST[@]}; do
+                echo '--- BENCHMARK: '$MODEL' ---';
+
+                START=$(date +%s%3N);
+
+                RESPONSE=$(ollama run $MODEL \"$PROMPT\" 2>&1 >/dev/null);
+
+                END=$(date +%s%3N);
+                LATENCY=$((END-START));
+
+                GPU=$(eval $GPU_QUERY);
+                CPU=$(eval $CPU_QUERY);
+
+                echo 'MODEL: '$MODEL;
+                echo 'LATENCY_MS: '$LATENCY;
+                echo 'GPU: '$GPU;
+                echo 'CPU: '$CPU;
+                echo '--- END ---';
+                echo '';
+            done
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "MODEL",
+            "LATENCY_MS",
+            "GPU",
+            "CPU"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_BENCHMARK"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

@@ -1,0 +1,81 @@
+/* ---------------------------------------------------------
+   PACK UI PRO v∴ — Transcended UI
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- VARIABLES TRANSCENDÉES (quasi-nulles) ---------- */
+:root {
+    --uit-hint: rgba(255,255,255,0.02);   /* présence résiduelle */
+    --uit-glow: rgba(255,255,255,0.04);   /* lumière fantôme */
+    --uit-core: rgba(255,255,255,0.06);   /* essence minimale */
+
+    --uit-speed: 12s; /* lenteur cosmique */
+}
+
+/* ---------------------------------------------------------
+   1) NON-PRESENCE — Le widget existe sans exister
+   --------------------------------------------------------- */
+
+[data-transcend] {
+    opacity: 0.12;
+    border-color: var(--uit-hint);
+    color: var(--uit-core);
+    transition: opacity var(--uit-speed) ease-in-out;
+}
+
+/* ---------------------------------------------------------
+   2) NON-ACTION — Le widget ne réagit plus
+   --------------------------------------------------------- */
+
+[data-transcend]:hover,
+[data-transcend]:active {
+    opacity: 0.14;
+    filter: none;
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   3) NON-ÉMISSION — Plus de glow, plus de pulse
+   --------------------------------------------------------- */
+
+[data-transcend] .ui-value,
+[data-transcend] .ui-label {
+    text-shadow: 0 0 4px var(--uit-hint);
+}
+
+/* ---------------------------------------------------------
+   4) NON-FORME — Le widget perd sa matérialité
+   --------------------------------------------------------- */
+
+[data-transcend]::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(circle, var(--uit-glow), transparent 70%);
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   5) NON-ÉTAT — Aucun état ne s’applique
+   --------------------------------------------------------- */
+
+[data-transcend][data-state],
+[data-transcend][data-level],
+[data-transcend][data-context],
+[data-transcend][data-auto],
+[data-transcend][data-system],
+[data-transcend][data-global] {
+    /* tous les états sont neutralisés */
+    --ui∞-current: var(--uit-hint);
+    --ui∞-current-soft: var(--uit-glow);
+}
+
+/* ---------------------------------------------------------
+   6) NON-ÉVOLUTION — Le widget ne change plus
+   --------------------------------------------------------- */
+
+[data-transcend][data-evolve] {
+    animation: none;
+    box-shadow: none;
+}

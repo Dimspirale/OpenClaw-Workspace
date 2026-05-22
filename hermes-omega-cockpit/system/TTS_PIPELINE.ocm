@@ -1,0 +1,36 @@
+cat > ~/OpenClaw_Light/SYSTEM/TTS_PIPELINE.ocm << 'EOF'
+# TTS_PIPELINE.ocm
+# OpenClaw_Light — TTS Pipeline
+# Pipeline audio Hermes → TTS_ENGINE → fichier audio
+
+TTS_PIPELINE {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "PIPELINE"
+
+    ROLE: "TTS_PIPELINE"
+    DESCRIPTION: "Pipeline audio reliant Hermes au moteur TTS du cockpit."
+
+    LINK {
+        HERMES_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_ENGINE.ocm"
+        TTS_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/TTS_ENGINE.ocm"
+    }
+
+    CAPABILITIES {
+        TEXT_INPUT: true
+        AUDIO_OUTPUT: true
+        PIPELINE_EXECUTION: true
+    }
+
+    OUTPUT {
+        PROVIDE_AUDIO_FILE: true
+        PROVIDE_PIPELINE_STATUS: true
+    }
+
+    SIGNATURE {
+        ID: "TTS_PIPELINE"
+        TYPE: "PIPELINE"
+        HASH: "AUTO"
+    }
+}
+EOF

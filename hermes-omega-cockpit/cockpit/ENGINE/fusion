@@ -1,0 +1,24 @@
+#!/bin/bash
+# Wrapper cockpit-safe pour FLOW_ENGINE.ocm
+# Interprète le descripteur et affiche un diagnostic cockpit-grade
+
+MODULE="$HOME/OpenClaw_Light/cockpit/ENGINE/FLOW_ENGINE.ocm"
+
+if [ ! -f "$MODULE" ]; then
+  echo "[ERR] FLOW_ENGINE.ocm introuvable"
+  exit 1
+fi
+
+echo "=== HERMÈS FLOW ENGINE — DIAGNOSTIC ==="
+
+while IFS= read -r line; do
+  case "$line" in
+    FLOW_ENGINE*|ENGINE*|ENABLED*) echo "[FLOW] $line" ;;
+    VERSION*|STATUS*|MODE*)        echo "[INFO] $line" ;;
+    ROLE*|DESCRIPTION*)            echo "[DESC] $line" ;;
+    FLOW_IN*|FLOW_OUT*|FLOW_ROUTE*|FLOW_BALANCE*) echo "[STREAM] $line" ;;
+    *) : ;;
+  esac
+done < "$MODULE"
+
+echo "=== DIAGNOSTIC TERMINÉ ==="

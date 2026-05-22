@@ -1,0 +1,113 @@
+HERMES_LIGHT_SHOWBUILDER {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    MODULES_REQUIRED {
+        AUTOPATCH: "HERMES_LIGHT_AUTOPATCH"
+        ASSISTANT: "HERMES_LIGHT_ASSISTANT_EXT"
+        EFFECTS: "HERMES_LIGHT_EFFECTS_PRO"
+    }
+
+    FEATURES {
+        AUTO_PATCH: "ENABLED"
+        AUTO_GROUPS: "ENABLED"
+        AUTO_PRESETS: "ENABLED"
+        AUTO_CUES: "ENABLED"
+        AUTO_EFFECTS: "ENABLED"
+        AUTO_TIMING: "ENABLED"
+        AUTO_STRUCTURE: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+    }
+
+    WORKFLOW {
+        STEP_1_PATCH: "patch auto <fixturelist>"
+        STEP_2_GROUPS: "groups auto"
+        STEP_3_PRESETS: "presets auto"
+        STEP_4_CUES: "cues auto"
+        STEP_5_EFFECTS: "effects auto"
+        STEP_6_STRUCTURE: "show structure auto"
+        STEP_7_EXPORT: "show export <console>"
+    }
+
+    COMMANDS {
+        BUILD_SHOW: "show build <name>"
+        BUILD_FROM_PATCH: "show build from patch"
+        EXPORT: "show export <console>"
+        PREVIEW: "show preview"
+    }
+
+    ENGINE {
+
+        PATCH_LOGIC: "
+            hermes autopatch run
+        "
+
+        GROUPS_LOGIC: "
+            hermes groups auto_detect
+            hermes groups sort_by_position
+            hermes groups sort_by_type
+        "
+
+        PRESETS_LOGIC: "
+            hermes presets generate DIMMER
+            hermes presets generate COLOR
+            hermes presets generate POSITION
+            hermes presets generate BEAM
+        "
+
+        CUES_LOGIC: "
+            hermes cues build 'OPEN' using DIMMER=100 COLOR=WHITE TIME=2
+            hermes cues build 'COLORFLOW' using COLORFLOW_PRO TIME=3
+            hermes cues build 'POSITION_SWEEP' using SWEEP_PRO TIME=3
+            hermes cues build 'STROBE' using STROBE TIME=1
+            hermes cues build 'FINALE' using FULL TIME=4
+        "
+
+        EFFECTS_LOGIC: "
+            hermes effects wave_complex groups ALL waveform sine speed 1 size 80 phase 0
+            hermes effects colorflow_pro mode rainbow speed 1.5 phase 45
+            hermes effects chase_multi groups G1,G2,G3 speed 2 offset 120
+            hermes effects pixelmap2d matrix AUTO mode gradient speed 1
+        "
+
+        STRUCTURE_LOGIC: "
+            hermes show add_sequence 'INTRO' cues OPEN
+            hermes show add_sequence 'MIDDLE' cues COLORFLOW POSITION_SWEEP
+            hermes show add_sequence 'ENERGY' cues STROBE
+            hermes show add_sequence 'FINALE' cues FINALE
+        "
+
+        EXPORT_LOGIC: "
+            case $console in
+                MA2)
+                    hermes show export_ma2
+                    ;;
+                MA3)
+                    hermes show export_ma3
+                    ;;
+                ONYX)
+                    hermes show export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "SHOW_NAME",
+            "SEQUENCES",
+            "CUES",
+            "EFFECTS",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_LIGHT_SHOWBUILDER"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}
