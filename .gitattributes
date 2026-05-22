@@ -1,6 +1,6 @@
 * text=auto eol=lf
-*.ocm filter=lfs diff=lfs merge=lfs -text
 app/cockpit/reports/*.log filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.ocm filter=lfs diff=lfs merge=lfs -text
 app/cockpit/ENGINE/* filter=lfs diff=lfs merge=lfs -text
 infra/hermes_cockpit/cockpit/ENGINE/* filter=lfs diff=lfs merge=lfs -text
-*.bin filter=lfs diff=lfs merge=lfs -text
