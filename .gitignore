@@ -1,35 +1,16 @@
-# Node / Yarn PnP
-.pnp.cjs
-.pnp.loader.mjs
-.yarn/*
-.yarnrc.yml
-# logs
-*.log
-# Obsidian caches / plugins
-**/.obsidian
-# OS
-.DS_Store
-Thumbs.db
-# env
-.env
-# backups
-*.backup
-.pnp.cjs
-.pnp.loader.mjs
-# logs and shell history
-*.log
-*.log.*
-.bash_history
-
-# obsidian
-.obsidian/
-*.obsidian
-
-# build / engine binaries
-app/cockpit/ENGINE/
-infra/hermes_cockpit/cockpit/ENGINE/
-
-# yarn / pnp artifacts
-.pnp.cjs
-.yarn/install-state.gz
+# Virtual environments
 .venv/
+venv/
+ENV/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
