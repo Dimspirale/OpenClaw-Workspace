@@ -16,3 +16,19 @@ Thumbs.db
 *.backup
 .pnp.cjs
 .pnp.loader.mjs
+# logs and shell history
+*.log
+*.log.*
+.bash_history
+
+# obsidian
+.obsidian/
+*.obsidian
+
+# build / engine binaries
+app/cockpit/ENGINE/
+infra/hermes_cockpit/cockpit/ENGINE/
+
+# yarn / pnp artifacts
+.pnp.cjs
+.yarn/install-state.gz
