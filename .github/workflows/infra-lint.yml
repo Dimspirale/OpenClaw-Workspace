@@ -1,0 +1,17 @@
+name: Infra Lint
+on: [push, pull_request]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run shellcheck on scripts
+        run: |
+          if command -v shellcheck >/dev/null 2>&1; then
+            shellcheck -x **/*.sh || true
+          else
+            echo "shellcheck not installed in runner"
+          fi

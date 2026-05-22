@@ -1,0 +1,5 @@
+# Fichiers interdits (>100MB)
+*.log
+*.bin
+*.dump
+*.cache

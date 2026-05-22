@@ -1,0 +1,1 @@
+PS1='\[$(hermes_prompt_stats)\]\n\[\e[38;5;45m\][\$(hermes_folder)]\[\e[0m\]\n\[\e[97m\]\u@\h\[\e[0m\]\$ '

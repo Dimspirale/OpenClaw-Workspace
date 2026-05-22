@@ -1,0 +1,16 @@
+# Node / Yarn PnP
+.pnp.cjs
+.pnp.loader.mjs
+.yarn/*
+.yarnrc.yml
+# logs
+*.log
+# Obsidian caches / plugins
+**/.obsidian
+# OS
+.DS_Store
+Thumbs.db
+# env
+.env
+# backups
+*.backup

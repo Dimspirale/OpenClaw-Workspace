@@ -1,0 +1,185 @@
+No projects found in "/home/dimitri"
+✔ Dépendances mises à jour
+
+── 4. Sauvegarde intelligente OneDrive
+sending incremental file list
+deleting Racine User Dim/wget-log
+deleting Racine User Dim/rag_pipeline.py
+deleting Racine User Dim/rag_daemon.py
+deleting Racine User Dim/nvidia-toolkit.deb
+deleting Racine User Dim/miniconda.sh
+deleting Racine User Dim/install-nvidia-toolkit.sh
+deleting Racine User Dim/hud.sh
+deleting Racine User Dim/hermes-net.status
+deleting Racine User Dim/hermes-net.log.20260508-224625
+deleting Racine User Dim/hermes-net.log
+deleting Racine User Dim/hermes-net.err
+deleting Racine User Dim/hermes-net.20260508-224720.log
+deleting Racine User Dim/hermes-net.20260508-223940.log.gz
+deleting Racine User Dim/hermes-net.20260508-223900.log
+deleting Racine User Dim/HUD_ENGINE.ocm
+deleting Racine User Dim/HERMES_SYSTEM_MONITOR_TOTAL.ocm
+deleting Racine User Dim/HERMES_OS.ocm
+deleting Racine User Dim/HERMES_LISTENER.ocm
+deleting Racine User Dim/HERMES_GPU_MONITOR.ocm
+deleting Racine User Dim/HERMES_ENGINE.ocm
+deleting Racine User Dim/HERMES_DASHBOARD_GPU.ocm
+deleting Racine User Dim/HERMES_DASHBOARD.ocm
+deleting Racine User Dim/HERMES_COCKPIT_MASTER_TOTAL_v4.ocm
+deleting Racine User Dim/CORE_ENGINE.ocm
+deleting Racine User Dim/150
+deleting Racine User Dim/.webui_secret_key
+deleting Racine User Dim/.python_history
+deleting Racine User Dim/.profile
+deleting Racine User Dim/.motd_shown
+deleting Racine User Dim/.lesshst
+deleting Racine User Dim/.hermes_profile
+deleting Racine User Dim/.gitconfig
+deleting Racine User Dim/.condarc
+deleting Racine User Dim/.bashrc_local
+deleting Racine User Dim/.bashrc.prompt_add.backup
+deleting Racine User Dim/.bashrc.hermes_fix3.backup
+deleting Racine User Dim/.bashrc.hermes_fix.backup
+deleting Racine User Dim/.bashrc.hermes_final.backup
+deleting Racine User Dim/.bashrc.fix2.backup
+deleting Racine User Dim/.bashrc.backup
+deleting Racine User Dim/.bashrc
+deleting Racine User Dim/.bash_logout
+deleting Racine User Dim/.bash_history
+deleting Racine User Dim/.azure
+deleting Racine User Dim/.aws
+deleting Racine User Dim/
+deleting ENGINE/Generation_Shows_Complets.md
+deleting ENGINE/Generation_Presets.md
+deleting ENGINE/Generation_FX.md
+deleting ENGINE/Generation_Cues_Dynamiques.md
+deleting ENGINE/Generation_ColorMix.md
+deleting ENGINE/Generation_Advanced.md
+deleting ENGINE/Export_Shows.md
+deleting ENGINE/Analyse_Projecteurs.md
+deleting ENGINE/Analyse_Presets.md
+deleting engine/system
+deleting engine/listener
+deleting engine/hud
+deleting engine/hermes-os
+deleting engine/gpu
+deleting engine/fusion
+deleting engine/dashboard-gpu
+deleting engine/dashboard
+deleting engine/core
+deleting engine/cockpit
+deleting engine/HUD_ENGINE.ocm
+deleting engine/HERMES_SYSTEM_MONITOR_TOTAL.ocm
+deleting engine/HERMES_OS.ocm
+deleting engine/HERMES_LISTENER.ocm
+deleting engine/HERMES_HYPER_PRIME.ocm
+deleting engine/HERMES_GPU_MONITOR.ocm
+deleting engine/HERMES_ENGINE.ocm
+deleting engine/HERMES_DASHBOARD_GPU.ocm
+deleting engine/HERMES_DASHBOARD.ocm
+deleting engine/HERMES_COCKPIT_MASTER_TOTAL_v4.ocm
+deleting engine/CORE_ENGINE.ocm
+./
+install_log_20260520_142652.txt
+installer.sh
+pre_scan.sh
+.obsidian/
+.obsidian/plugins/
+.obsidian/plugins/dataview/
+.obsidian/plugins/templater-obsidian/
+.obsidian/snippets/
+.yarn/
+ENGINE/
+bin/
+cockpit/
+cockpit/ENGINE/
+cockpit/ENGINE/hermes/
+cockpit/META_OPS/
+cockpit/MODULES/
+cockpit/UI/
+cockpit/blueprint/
+cockpit/core/
+cockpit/core/CORE_ENGINE_TOTAL.md
+cockpit/dashboard/
+cockpit/diagnostic/
+cockpit/emergency/
+cockpit/flowchart/
+cockpit/hud/
+cockpit/maintenance/
+cockpit/maps/
+cockpit/monitoring/
+cockpit/pack_UI_Pro/
+cockpit/reports/
+cockpit/shutdown/
+cockpit/startup/
+cockpit/status/
+cockpit/structure/
+cockpit/timeline/
+config/
+core/
+core/Architecture/
+core/Artistique/
+core/DMX/
+core/Diagnostic/
+core/Documentation/
+core/Exports/
+core/HF/
+core/Library/
+core/PRD/
+core/Policies/
+core/Rigging/
+core/Réseau/
+core/ShowControl/
+core/Simulation/
+core/Versioning/
+core/Visualisation/
+core/Électricité/
+dashboards/
+engine/
+engine/Analyse_Presets.md
+engine/Analyse_Projecteurs.md
+engine/Export_Shows.md
+engine/Generation_Advanced.md
+engine/Generation_ColorMix.md
+engine/Generation_Cues_Dynamiques.md
+engine/Generation_FX.md
+engine/Generation_Presets.md
+engine/Generation_Shows_Complets.md
+hud/
+lightpresets/
+lumière/
+lumière/Fixtures/
+lumière/Fixtures/Beam/
+lumière/Fixtures/FX/
+lumière/Fixtures/Hybrid/
+lumière/Fixtures/Profiles/
+lumière/Fixtures/Strobe/
+lumière/Fixtures/Wash/
+modules/
+modules/AI/
+modules/AI/data/
+modules/AI/data/docs/
+modules/AI/data/index/
+modules/AI/logs/
+modules/OpenClaw_ObsidianBridge/
+packages/
+presets/
+principles/
+rapports/
+roadmaps/
+schemas/
+scripts/
+src/
+system/
+techdocs/
+tests/
+timelines/
+userdocs/
+widgets/
+widgets/HUD/
+
+sent 65,586 bytes  received 4,869 bytes  20,130.00 bytes/sec
+total size is 188,284,479  speedup is 2,672.41
+✔ Sauvegarde OneDrive terminée
+
+── 5. Sauvegarde GitHub intelligente

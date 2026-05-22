@@ -1,0 +1,203 @@
+Pré‑scan lancé : Wed May 20 14:44:24 CEST 2026
+
+
+── SYSTÈME
+OS : Ubuntu 26.04 LTS
+Kernel : 6.18.26.1-microsoft-standard-WSL2
+WSL : Oui
+
+── RESSOURCES
+RAM totale : 7942.12 MB
+Espace disque : 876G libres
+
+── OUTILS REQUIS
+✔ Git détecté
+   Version : git version 2.53.0
+✔ Node.js détecté
+   Version : v24.15.0
+✔ Corepack détecté
+   Version : 0.34.6
+✔ pnpm détecté
+   Version : 11.1.3
+✔ Python3 détecté
+   Version : Python 3.14.4
+✔ pip détecté
+   Version : pip 25.1.1 from /usr/lib/python3/dist-packages/pip (python 3.14)
+✔ venv détecté
+   Version : usage: python3 -m venv [-h] [--system-site-packages] [--symlinks | --copies]
+                       [--clear] [--upgrade] [--without-pip] [--prompt PROMPT]
+                       [--upgrade-deps] [--without-scm-ignore-files]
+                       ENV_DIR [ENV_DIR ...]
+
+Creates virtual Python environments in one or more target directories.
+
+positional arguments:
+  ENV_DIR               A directory to create the environment in.
+
+options:
+  -h, --help            show this help message and exit
+  --system-site-packages
+                        Give the virtual environment access to the system
+                        site-packages dir.
+  --symlinks            Try to use symlinks rather than copies, when symlinks
+                        are not the default for the platform.
+  --copies              Try to use copies rather than symlinks, even when
+                        symlinks are the default for the platform.
+  --clear               Delete the contents of the environment directory if it
+                        already exists, before environment creation.
+  --upgrade             Upgrade the environment directory to use this version
+                        of Python, assuming Python has been upgraded in-place.
+  --without-pip         Skips installing or upgrading pip in the virtual
+                        environment (pip is bootstrapped by default)
+  --prompt PROMPT       Provides an alternative prompt prefix for this
+                        environment.
+  --upgrade-deps        Upgrade core dependencies (pip) to the latest version
+                        in PyPI
+  --without-scm-ignore-files
+                        Skips adding SCM ignore files to the environment
+                        directory (Git is supported by default).
+
+Once an environment has been created, you may wish to activate it, e.g. by
+sourcing an activate script in its bin directory.
+✔ build-essential détecté
+   Version : gcc (Ubuntu 15.2.0-16ubuntu1) 15.2.0
+Copyright (C) 2025 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+✔ jq détecté
+   Version : jq-1.8.1
+✔ htop détecté
+   Version : htop 3.4.1
+✔ Ollama détecté
+   Version : ollama version is 0.24.0
+
+── PORTS CRITIQUES
+✔ Port 3000 libre
+✔ Port 5173 libre
+✔ Port 8000 libre
+✔ Port 9000 libre
+
+── INTÉGRITÉ DU DOSSIER OpenClaw_Light
+✔ Dossier détecté
+Contenu :
+A10-repair.js
+A11-predictive.js
+A12-optimizer.js
+A13-timeline.js
+A14-cueflow.js
+A15-scene.js
+A16-pattern.js
+A17-emotion.js
+A18-energy.js
+A19-contrast.js
+A20-harmony.js
+A21-style.js
+A22-identity.js
+A9-intelligence.js
+ARBORESCENCE COMPLÈTE — OpenClaw_Light.txt
+AddFooter_KanbanModules.md
+AddStatus_Core.md
+Dashboard _Rollback.md
+Dashboard_API_Documentation.md
+Dashboard_Action_Hub.md
+Dashboard_Alert_Engine.md
+Dashboard_Alertes.md
+Dashboard_Alerts.md
+Dashboard_Analyse_Intelligente.md
+Dashboard_Analyse_Reseau.md
+Dashboard_Analytics.md
+Dashboard_Artistique.md
+Dashboard_Automation.md
+Dashboard_Builds.md
+Dashboard_Changelog.md
+Dashboard_Charge_Predictive.md
+Dashboard_Clustering.md
+Dashboard_Command_Center.md
+Dashboard_Dependances.md
+Dashboard_Distribution.md
+Dashboard_Documentation.md
+Dashboard_Environments.md
+Dashboard_GIL_Global_Integration_Layer.md
+Dashboard_Global_2.0.md
+Dashboard_Global_3.0.md
+Dashboard_Global_Overview.md
+Dashboard_Graphs.md
+Dashboard_Intelligence_Contextuelle.md
+Dashboard_Master.md
+Dashboard_Monitoring.md
+Dashboard_Notifications.md
+Dashboard_OpenClaw.md
+Dashboard_OpenClaw_Light.md
+Dashboard_Performance.md
+Dashboard_Pipelines.md
+Dashboard_Policies.md
+Dashboard_Priorites.md
+Dashboard_Production.md
+Dashboard_Progression_Graphique.md
+Dashboard_Progression_Modules.md
+Dashboard_Qualite.md
+Dashboard_Rapports.md
+Dashboard_Release_Train.md
+Dashboard_Risks.md
+Dashboard_Risques.md
+Dashboard_Rollback.md
+Dashboard_Scoring.md
+Dashboard_Search_Advanced.md
+Dashboard_Securite.md
+Dashboard_Simulation_Show.md
+Dashboard_Suggestions.md
+Dashboard_Supervision.md
+Dashboard_Tests.md
+Dashboard_Timeline.md
+Dashboard_Versioning.md
+Dashboard_Workflows.md
+Dashboard_Workload.md
+ENGINE
+EXPORT_GLOBAL_A1-A22 .txt
+FUSION-A1-A22.js
+Generate_Schema.md
+Home.md
+Kanban_Automatique.md
+Mode_sombre_PRO.md
+Package_Module.md
+Planning_Hebdo.md
+Tags_System.md
+Theme_PRO_Global.md
+bin
+builds
+cockpit
+config
+core
+dashboards
+engine
+fix_github.sh
+fix_history.sh
+hud
+install_log_20260520_142652.txt
+installer.sh
+lightpresets
+lumière
+modules
+package.json
+packages
+pre_scan.sh
+pre_scan_report.txt
+presets
+principles
+rapports
+roadmaps
+save.sh
+schemas
+scripts
+src
+system
+techdocs
+tests
+timelines
+userdocs
+widgets
+yarn.lock
+
+──────────────────────────────────────────────
+Pré‑scan terminé.
+Rapport généré : pre_scan_report.txt

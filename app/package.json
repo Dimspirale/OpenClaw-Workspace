@@ -1,0 +1,32 @@
+{
+  "name": "openclaw-light",
+  "version": "0.3.0",
+  "description": "OpenClaw_Light – cockpit léger et modulaire pour orchestrer pipelines et HUD Hermès",
+  "main": "src/main.js",
+  "bin": {
+    "openclaw": "src/main.js"
+  },
+  "scripts": {
+    "start": "node src/main.js run",
+    "status": "node src/main.js status",
+    "ingest": "node src/main.js ingest",
+    "test": "echo \"No tests defined yet\" && exit 0",
+    "lint": "eslint src/**/*.js",
+    "build": "echo \"Build step placeholder\""
+  },
+  "keywords": [
+    "openclaw",
+    "cockpit",
+    "hermes",
+    "hud",
+    "automation",
+    "rag",
+    "pipeline"
+  ],
+  "author": "Dimitri",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^9.0.0"
+  },
+  "packageManager": "yarn@4.5.1"
+}

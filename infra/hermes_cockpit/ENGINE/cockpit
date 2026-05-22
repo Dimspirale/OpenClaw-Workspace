@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+"/usr/bin/node" "/home/dimitri/OpenClaw_Light/src/main.js" "HERMES_COCKPIT_MASTER_TOTAL_v4" "$@"

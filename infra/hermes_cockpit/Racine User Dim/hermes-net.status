@@ -1,0 +1,13 @@
+● hermes-net.service - Hermes network throughput daemon
+     Loaded: loaded (/home/dimitri/.config/systemd/user/hermes-net.service; enabled; preset: enabled)
+     Active: active (running) since Fri 2026-05-08 22:36:57 CEST; 25s ago
+ Invocation: 51980b426df84b6593dfe9859450dca4
+   Main PID: 6911 (bash)
+      Tasks: 2 (limit: 9520)
+     Memory: 1.7M (peak: 3.7M)
+        CPU: 250ms
+     CGroup: /user.slice/user-1000.slice/user@1000.service/app.slice/hermes-net.service
+             ├─6911 bash /home/dimitri/.local/bin/hermes_net_daemon.sh
+             └─7145 sleep 1
+
+May 08 22:36:57 LAPTOP-ASUS-DIMITRI systemd[385]: Started hermes-net.service - Hermes network throughput daemon.

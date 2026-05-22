@@ -1,0 +1,32 @@
+OpenClaw_Light/
+│
+├── SYSTEM/
+│   ├── SYSTEM_GLOBAL.ocm
+│   ├── SYSTEM_AUTOMATION.ocm
+│   ├── SYSTEM_EXPORT.ocm
+│   ├── SYSTEM_RECOVERY.ocm
+│   ├── BLUEPRINT_GLOBAL.ocm
+│   ├── ARCHITECTURE_MAP.ocm
+│   └── ARCHITECTURE_MAP_MONOLITHIC.ocm
+│
+├── COCKPIT/
+│   ├── COCKPIT_ROOT.ocm
+│   │
+│   ├── ENGINE/
+│   │   └── (HUD_ENGINE.ocm arrive dès que tu valides la commande)
+│   │
+│   └── META_OPS/
+│       ├── META_OPS_OMEGA.ocm
+│       ├── META_OPS_ALPHA.ocm
+│       ├── META_OPS_BETA.ocm
+│       ├── META_OPS_GAMMA.ocm
+│       ├── META_OPS_DELTA.ocm
+│       ├── META_OPS_EPSILON.ocm
+│       ├── META_OPS_ZETA.ocm
+│       └── META_OPS_ZERO.ocm
+│
+├── SNAPSHOTS/
+│   (créé automatiquement par SYSTEM_RECOVERY lors du premier snapshot)
+│
+└── LOGS/
+    (créé automatiquement lors du premier WRITE_LOG)
