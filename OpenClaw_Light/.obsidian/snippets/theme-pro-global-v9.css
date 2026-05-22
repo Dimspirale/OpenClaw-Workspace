@@ -1,0 +1,133 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V9 — HOLOGRAPHIC / PARALLAX / 3D
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- VARIABLES HOLOGRAPHIQUES ---------- */
+:root {
+    --t9-bg: #04050a;
+    --t9-surface: rgba(255,255,255,0.03);
+    --t9-border: rgba(255,255,255,0.08);
+
+    --t9-accent: #4fd1ff;
+    --t9-accent-soft: rgba(79,209,255,0.35);
+
+    --t9-glow: 0 0 18px rgba(79,209,255,0.45);
+    --t9-glow-soft: 0 0 28px rgba(79,209,255,0.25);
+
+    --t9-depth-1: translateZ(4px);
+    --t9-depth-2: translateZ(12px);
+    --t9-depth-3: translateZ(22px);
+
+    --t9-parallax-strength: 0.6;
+}
+
+/* ---------- BASE HOLOGRAPHIQUE ---------- */
+body {
+    background: var(--t9-bg);
+    perspective: 900px;
+}
+
+/* Tous les HUD deviennent des surfaces holographiques */
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    background: var(--t9-surface);
+    border: 1px solid var(--t9-border);
+    backdrop-filter: blur(8px);
+    box-shadow: var(--t9-glow-soft);
+    transform-style: preserve-3d;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ---------- PARALLAX DYNAMIQUE ---------- */
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    transform: rotateX(calc(var(--t9-parallax-strength) * 4deg))
+               rotateY(calc(var(--t9-parallax-strength) * -4deg))
+               var(--t9-depth-2);
+    box-shadow: var(--t9-glow);
+}
+
+/* ---------- TITRES HOLOGRAPHIQUES ---------- */
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--t9-accent);
+    text-shadow: 0 0 8px var(--t9-accent-soft);
+}
+
+/* ---------- VALEURS HOLOGRAPHIQUES ---------- */
+.hud-value,
+.fusion-score,
+.matrix-value {
+    color: var(--t9-accent);
+    text-shadow: 0 0 12px var(--t9-accent-soft);
+}
+
+/* ---------- GAUGES HOLOGRAPHIQUES ---------- */
+.gauge {
+    background:
+        conic-gradient(
+            var(--t9-accent) calc(var(--gauge-fill) * 1%),
+            rgba(255,255,255,0.05) 0
+        );
+    box-shadow: var(--t9-glow-soft);
+}
+
+.gauge:hover {
+    box-shadow: var(--t9-glow);
+    transform: var(--t9-depth-1);
+}
+
+/* ---------- ENERGY BAR HOLOGRAPHIQUE ---------- */
+.energybar-seg {
+    background: var(--t9-accent);
+    box-shadow: 0 0 6px var(--t9-accent-soft);
+}
+
+/* ---------- SPECTRE FUSIONNÉ ---------- */
+.fusion-spectrum-bar {
+    background: var(--t9-accent);
+    box-shadow: 0 0 6px var(--t9-accent-soft);
+}
+
+/* ---------- HEATMAP HOLOGRAPHIQUE ---------- */
+.heat-cell {
+    background: linear-gradient(
+        to top,
+        rgba(79,209,255,0.8),
+        rgba(79,209,255,0.1)
+    );
+    box-shadow: 0 0 10px rgba(79,209,255,0.25);
+}
+
+/* ---------- RADAR HOLOGRAPHIQUE ---------- */
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--t9-accent),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow: 0 0 10px var(--t9-accent-soft);
+}
+
+/* ---------- MATRICE ---------- */
+.matrix-value {
+    text-shadow: 0 0 10px var(--t9-accent-soft);
+}
+
+/* ---------- FUSION HUD ---------- */
+.fusion-balance-fill {
+    background: var(--t9-accent);
+    box-shadow: 0 0 10px var(--t9-accent-soft);
+}

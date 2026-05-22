@@ -1,0 +1,172 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL VΞ — METASTRUCTURE
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- META VARIABLES (structure fondamentale) ---------- */
+:root {
+    --xi-thread: rgba(255,255,255,0.18);   /* fil structurel */
+    --xi-node: rgba(255,255,255,0.26);     /* nœud structurel */
+    --xi-core: rgba(255,255,255,0.34);     /* cœur structurel */
+
+    --xi-weave-speed: 12.4s;
+    --xi-breath-speed: 6.2s;
+    --xi-pulse-speed: 3.0s;
+}
+
+/* ---------------------------------------------------------
+   1) META ENGINE — STRUCTURE PURE
+   (aucun état, car la structure n’a pas d’état)
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   2) META SURFACE — GRILLE FONDAMENTALE
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -60%;
+    background-image:
+        /* grille diagonale */
+        repeating-linear-gradient(
+            45deg,
+            var(--xi-thread) 0 2px,
+            transparent 2px 12px
+        ),
+        /* grille inverse */
+        repeating-linear-gradient(
+            -45deg,
+            var(--xi-thread) 0 2px,
+            transparent 2px 12px
+        ),
+        /* nœuds structurels */
+        radial-gradient(circle at 50% 50%, var(--xi-node) 0, transparent 70%),
+        /* cœur structurel */
+        radial-gradient(circle at 30% 20%, var(--xi-core) 0, transparent 60%);
+    opacity: 0.32;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: xi-weave var(--xi-weave-speed) ease-in-out infinite;
+}
+
+@keyframes xi-weave {
+    0%   { transform: scale(1) rotate(0deg); opacity: 0.30; }
+    50%  { transform: scale(1.06) rotate(180deg); opacity: 0.36; }
+    100% { transform: scale(1) rotate(360deg); opacity: 0.30; }
+}
+
+/* ---------------------------------------------------------
+   3) META BREATH — RESPIRATION STRUCTURELLE
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: xi-breath var(--xi-breath-speed) ease-in-out infinite;
+}
+
+@keyframes xi-breath {
+    0%   { box-shadow: 0 0 18px var(--xi-node); }
+    50%  { box-shadow: 0 0 40px var(--xi-core); }
+    100% { box-shadow: 0 0 18px var(--xi-node); }
+}
+
+/* ---------------------------------------------------------
+   4) META PULSE — OSCILLATION ARCHITECTURALE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: xi-pulse var(--xi-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes xi-pulse {
+    0%   { text-shadow: 0 0 8px var(--xi-node); }
+    50%  { text-shadow: 0 0 24px var(--xi-core); }
+    100% { text-shadow: 0 0 8px var(--xi-node); }
+}
+
+/* ---------------------------------------------------------
+   5) META GRADIENTS — SPECTRE STRUCTUREL
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--xi-thread),
+        var(--xi-node),
+        var(--xi-core)
+    );
+    box-shadow: 0 0 20px var(--xi-node);
+}
+
+/* ---------------------------------------------------------
+   6) META HEATMAP — MATRICE ARCHITECTURALE
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--xi-node);
+    background: linear-gradient(
+        to top,
+        var(--xi-core),
+        transparent
+    );
+    box-shadow:
+        0 0 16px var(--xi-node),
+        0 0 22px var(--xi-core);
+}
+
+/* ---------------------------------------------------------
+   7) META RADAR — RÉSEAU FONDAMENTAL
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--xi-core),
+        transparent
+    );
+    box-shadow: 0 0 22px var(--xi-core);
+}
+
+/* ---------------------------------------------------------
+   8) META TITLES — IDENTITÉ STRUCTURELLE
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--xi-core);
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px var(--xi-core);
+}
+
+/* ---------------------------------------------------------
+   9) META HOVER — RÉACTION ARCHITECTURALE
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--xi-node);
+    outline-offset: 2px;
+    filter: brightness(1.22);
+}

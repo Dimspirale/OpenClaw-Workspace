@@ -1,0 +1,35 @@
+# META_OPS_ALPHA.ocm
+# OpenClaw_Light — META_OPS ALPHA
+# Première expansion, structuration, orientation du flux
+
+META_OPS_ALPHA {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "META_OPS"
+
+    ROLE: "ALPHA"
+    DESCRIPTION: "Première expansion après OMEGA. Mise en forme, direction, structuration."
+
+    ENGINE {
+        ENABLED: true
+        PROVIDE_STRUCTURE: true
+        PROVIDE_DIRECTION: true
+        PROVIDE_ORDER: true
+    }
+
+    INPUT {
+        PREVIOUS: "META_OPS_OMEGA"
+        FLOW: "OMEGA → ALPHA"
+    }
+
+    OUTPUT {
+        NEXT: "META_OPS_BETA"
+        FLOW: "ALPHA → BETA"
+    }
+
+    SIGNATURE {
+        ID: "META_OPS_ALPHA"
+        TYPE: "LAYER"
+        HASH: "AUTO"
+    }
+}

@@ -1,0 +1,105 @@
+:root {
+  --gil-bg: #020617;
+  --gil-soft: #0b1120;
+  --gil-border: #1f2933;
+  --gil-text: #e5e7eb;
+  --gil-accent: #38bdf8;
+  --gil-radius: 10px;
+}
+
+#gil-root {
+  background: var(--gil-bg);
+  border: 1px solid var(--gil-border);
+  border-radius: var(--gil-radius);
+  padding: 16px;
+  margin-top: 10px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.45);
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+#gil-header .gil-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gil-text);
+}
+
+#gil-header .gil-subtitle {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+#gil-summary {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.gil-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--gil-border);
+  background: #020617;
+  color: var(--gil-text);
+}
+
+.gil-pill-crit { background: rgba(248,113,113,0.15); border-color: #f87171; }
+.gil-pill-delayed { background: rgba(234,179,8,0.15); border-color: #eab308; }
+.gil-pill-missing { background: rgba(251,146,60,0.15); border-color: #fb923c; }
+.gil-pill-level { background: rgba(56,189,248,0.15); border-color: #38bdf8; }
+.gil-pill-intensity { background: rgba(129,140,248,0.15); border-color: #818cf8; }
+
+#gil-modes {
+  display: flex;
+  gap: 8px;
+}
+
+.gil-btn {
+  flex: 1;
+  background: #020617;
+  border-radius: 999px;
+  border: 1px solid var(--gil-border);
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  color: var(--gil-text);
+  cursor: pointer;
+  transition: background 0.2s ease, border 0.2s ease;
+}
+
+.gil-btn:hover {
+  background: #111827;
+  border-color: var(--gil-accent);
+}
+
+.gil-btn.gil-on {
+  background: rgba(56,189,248,0.18);
+  border-color: #38bdf8;
+}
+
+#gil-bus, #gil-logs {
+  background: var(--gil-soft);
+  border-radius: var(--gil-radius);
+  border: 1px solid var(--gil-border);
+  padding: 10px;
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.gil-bus-item, .gil-log-item {
+  font-size: 0.75rem;
+  padding: 4px 6px;
+  border-bottom: 1px solid #111827;
+  color: var(--gil-text);
+}
+
+.gil-bus-event { font-weight: 600; }
+.gil-bus-time { color: #9ca3af; font-size: 0.7rem; }
+
+.gil-log-time { color: #9ca3af; }
+.gil-log-source { color: #38bdf8; margin: 0 4px; }
+.gil-log-msg { color: var(--gil-text); }

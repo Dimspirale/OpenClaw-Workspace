@@ -1,0 +1,23 @@
+#!/bin/bash
+# Wrapper cockpit-safe pour HERMES_OS.ocm
+# Interprète le descripteur et affiche un diagnostic cockpit-grade
+
+MODULE="$HOME/OpenClaw_Light/cockpit/ENGINE/HERMES_OS.ocm"
+
+if [ ! -f "$MODULE" ]; then
+  echo "[ERR] HERMES_OS.ocm introuvable"
+  exit 1
+fi
+
+echo "=== HERMÈS OS — DIAGNOSTIC ==="
+
+while IFS= read -r line; do
+  case "$line" in
+    HERMES_OS*|CORE*|MODULES_REQUIRED*) echo "[OS] $line" ;;
+    VERSION*|STATUS*)                   echo "[INFO] $line" ;;
+    SHOWMASTER*|SHOWMASTER_*|SHOWMASTER_PLUS*|SHOWMASTER_ULTRA*|SHOWMASTER_OMEGA*|SHOWMASTER_SINGULARITY*|SHOWMASTER_INFINITY*|SHOWMASTER_OMNI*) echo "[SHOW] $line" ;;
+    *) : ;; # ignore autres lignes
+  esac
+done < "$MODULE"
+
+echo "=== DIAGNOSTIC TERMINÉ ==="

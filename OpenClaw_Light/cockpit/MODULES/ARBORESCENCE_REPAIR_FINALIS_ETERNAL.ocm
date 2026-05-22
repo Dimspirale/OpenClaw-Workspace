@@ -1,0 +1,70 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_FINALIS_ETERNAL.ocm — Hermès Cockpit Arborescence Repair FINALIS+ETERNAL v15.0
+# Fusion ultime : FINALIS + ETERNAL
+# Auto-sélection, auto-réparation, auto-évolution, surveillance continue, régénération cosmique, protection éternelle
+
+ROOT="$HOME/OpenClaw_Light"
+LOG="$ROOT/cockpit/reports/ARBORESCENCE_REPAIR_FINALIS_ETERNAL.log"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR FINALIS_ETERNAL — ACTIVATION ==="
+echo "Log : $LOG"
+echo "Racine : $ROOT"
+echo
+
+echo "=== FINALIS_ETERNAL LOG — $(date) ===" > "$LOG"
+
+###############################################
+# 1. AUTO-RÉPARATION INITIALE
+###############################################
+
+find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \; -exec echo "[CHMOD] {}" >> "$LOG" \;
+grep -rl $'\r' "$ROOT" | while read -r f; do sed -i 's/\r$//' "$f"; echo "[LF] $f" >> "$LOG"; done
+
+###############################################
+# 2. ANALYSE PROFONDE + SÉLECTION DU MODE
+###############################################
+
+CRITICAL_ERRORS=0
+CRITICAL_DIRS=( "cockpit" "cockpit/MODULES" "cockpit/ENGINE" "modules" "core" "engine" "hud" "system" )
+
+for d in "${CRITICAL_DIRS[@]}"; do
+  if [ ! -d "$ROOT/$d" ]; then
+    echo "[ERR] Missing: $d" >> "$LOG"
+    CRITICAL_ERRORS=$((CRITICAL_ERRORS+1))
+  fi
+done
+
+PARASITES=$(find "$ROOT" -type f -name "*:Zone.Identifier" -o -name "*Copie*" -o -name "*(*).*")
+CRLF=$(grep -rl $'\r' "$ROOT")
+
+if [ "$CRITICAL_ERRORS" -ge 5 ]; then
+  MODE="ABSOLUTE+OMEGA"
+elif [ -n "$PARASITES" ] && [ -n "$CRLF" ]; then
+  MODE="INFINITY+OMEGA"
+elif [ -n "$PARASITES" ]; then
+  MODE="Ω"
+elif [ -n "$CRLF" ]; then
+  MODE="SINGULARITY"
+else
+  MODE="ZERO"
+fi
+
+echo "[FINALIS_ETERNAL] Mode sélectionné : $MODE"
+echo "[MODE] $MODE" >> "$LOG"
+
+###############################################
+# 3. SURVEILLANCE CONTINUE (ETERNAL)
+###############################################
+
+echo "[∞] Activation du flux FINALIS_ETERNAL..."
+inotifywait -m -r "$ROOT" -e create -e delete -e modify |
+while read -r path action file; do
+  echo "[∞] $action → $file" >> "$LOG"
+
+  if [[ "$file" == *":Zone.Identifier" ]]; then rm -f "$path/$file"; echo "[DEL] $path/$file" >> "$LOG"; fi
+  if [[ "$file" == *"Copie"* || "$file" == *"("*")"* ]]; then rm -f "$path/$file"; echo "[DEL] $path/$file" >> "$LOG"; fi
+  if [[ "$file" == *.sh || "$file" == *.ocm ]]; then chmod +x "$path/$file"; echo "[CHMOD] $path/$file" >> "$LOG"; fi
+  if grep -q $'\r' "$path/$file" 2>/dev/null; then sed -i 's/\r$//' "$path/$file"; echo "[LF] $path/$file" >> "$LOG"; fi
+done

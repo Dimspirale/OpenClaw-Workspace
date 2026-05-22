@@ -1,0 +1,180 @@
+/*  
+===========================================================
+ PACK UI PRO v∞.Ω — VERSION MONOLITHIQUE (COCKPIT-GRADE)
+===========================================================
+ Champ harmonique global
+ Pulsation intelligente
+ Réactivité organique
+ Cohérence dynamique totale
+===========================================================
+*/
+
+/* ------------------------------
+   1. GLOBAL INFLUENCE FIELD
+------------------------------ */
+:root {
+  --ui-pro-accent: var(--color-accent, #4dd0e1);
+  --ui-pro-soft: rgba(255,255,255,0.06);
+  --ui-pro-glow: 0 0 12px var(--ui-pro-accent);
+}
+
+body {
+  animation: uiProBreath 8s ease-in-out infinite;
+}
+
+@keyframes uiProBreath {
+  0%   { filter: brightness(0.95) saturate(0.95); }
+  50%  { filter: brightness(1.05) saturate(1.05); }
+  100% { filter: brightness(0.95) saturate(0.95); }
+}
+
+/* ------------------------------
+   2. ELEMENT PULSE INTELLIGENT
+------------------------------ */
+.ui-pro-pulse {
+  animation: uiProPulse 2.8s cubic-bezier(.4,0,.2,1) infinite;
+}
+
+@keyframes uiProPulse {
+  0%   { transform: scale(1);   opacity: 0.85; }
+  50%  { transform: scale(1.03); opacity: 1; }
+  100% { transform: scale(1);   opacity: 0.85; }
+}
+
+/* ------------------------------
+   3. HOVER CINÉMATIQUE
+------------------------------ */
+.ui-pro-hover:hover {
+  transform: translateY(-2px) scale(1.015);
+  transition: 0.25s ease;
+  filter: brightness(1.15);
+}
+
+/* ------------------------------
+   4. CLICK FEEDBACK (PRESS)
+------------------------------ */
+.ui-pro-press:active {
+  transform: scale(0.97);
+  filter: brightness(0.85);
+  transition: 0.1s ease-out;
+}
+
+/* ------------------------------
+   5. RIPPLE EFFECT (UI PRO)
+------------------------------ */
+.ui-pro-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ui-pro-ripple:active::after {
+  content: "";
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 0;
+  height: 0;
+  background: var(--ui-pro-accent);
+  opacity: 0.35;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: uiProRipple 0.45s ease-out forwards;
+}
+
+@keyframes uiProRipple {
+  to {
+    width: 220px;
+    height: 220px;
+    opacity: 0;
+  }
+}
+
+/* ------------------------------
+   6. TABLES COCKPIT (ANIMÉES)
+------------------------------ */
+.ui-pro-table table {
+  border-radius: 8px;
+  overflow: hidden;
+  animation: uiProBreath 10s ease-in-out infinite;
+}
+
+.ui-pro-table th {
+  background: var(--ui-pro-accent);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ui-pro-table td {
+  backdrop-filter: blur(4px);
+  transition: 0.2s ease;
+}
+
+.ui-pro-table tr:hover td {
+  background: var(--ui-pro-soft);
+}
+
+/* ------------------------------
+   7. TITRES DE SECTION ANIMÉS
+------------------------------ */
+.ui-pro-section {
+  padding: 6px 0;
+  font-weight: 700;
+  font-size: 1.2em;
+  color: var(--ui-pro-accent);
+  animation: uiProPulse 3s ease-in-out infinite;
+}
+
+/* ------------------------------
+   8. GLOW DYNAMIQUE
+------------------------------ */
+.ui-pro-glow {
+  filter: drop-shadow(var(--ui-pro-glow));
+  animation: uiProGlow 4s ease-in-out infinite;
+}
+
+@keyframes uiProGlow {
+  0%   { filter: drop-shadow(0 0 4px var(--ui-pro-accent)); }
+  50%  { filter: drop-shadow(0 0 12px var(--ui-pro-accent)); }
+  100% { filter: drop-shadow(0 0 4px var(--ui-pro-accent)); }
+}
+
+/* ------------------------------
+   9. AUTO‑COHÉRENCE (v∞.Ω)
+------------------------------ */
+* {
+  transition: background 0.25s ease, color 0.25s ease, filter 0.25s ease;
+}
+
+/* Harmonisation automatique */
+body *:hover {
+  --ui-pro-accent: var(--color-accent);
+}
+
+/* ------------------------------
+   10. MICRO‑MOUVEMENTS (ORGANIQUES)
+------------------------------ */
+.ui-pro-micro {
+  animation: uiProMicro 6s ease-in-out infinite;
+}
+
+@keyframes uiProMicro {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-1.5px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ------------------------------
+   11. CHAMP D’INFLUENCE GLOBAL (v∞.Ω)
+------------------------------ */
+html {
+  --ui-pro-field: 0.015;
+  filter: saturate(calc(1 + var(--ui-pro-field)));
+  animation: uiProField 12s ease-in-out infinite;
+}
+
+@keyframes uiProField {
+  0%   { --ui-pro-field: 0.015; }
+  50%  { --ui-pro-field: 0.045; }
+  100% { --ui-pro-field: 0.015; }
+}

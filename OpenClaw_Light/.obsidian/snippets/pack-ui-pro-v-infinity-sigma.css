@@ -1,0 +1,124 @@
+/* ---------------------------------------------------------
+   PACK UI PRO v∞.Σ — Total System Intelligence
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- VARIABLES SYSTÉMIQUES (organisme UI) ---------- */
+:root {
+    --uis-signal-good: rgba(95,255,212,0.50);   /* stabilité */
+    --uis-signal-warn: rgba(255,210,79,0.50);   /* tension */
+    --uis-signal-bad: rgba(255,79,107,0.50);    /* anomalie */
+
+    --uis-field-speed: 5.8s;
+    --uis-pulse-speed: 2.6s;
+    --uis-sync-speed: 9.4s;
+}
+
+/* ---------------------------------------------------------
+   1) SYSTEM CORE — Le cœur cognitif
+   (tout élément portant data-system devient un nœud du réseau)
+   --------------------------------------------------------- */
+
+[data-system] {
+    --uis-current: var(--uis-signal-good);
+}
+
+[data-system="warn"] {
+    --uis-current: var(--uis-signal-warn);
+}
+
+[data-system="bad"] {
+    --uis-current: var(--uis-signal-bad);
+}
+
+/* ---------------------------------------------------------
+   2) SYSTEM FIELD — Champ d’harmonie organique
+   (le cockpit entier respire au rythme de l’UI)
+   --------------------------------------------------------- */
+
+[data-system] {
+    animation: uis-field var(--uis-field-speed) ease-in-out infinite;
+}
+
+@keyframes uis-field {
+    0%   { box-shadow: 0 0 20px var(--uis-current); }
+    50%  { box-shadow: 0 0 48px var(--uis-current); }
+    100% { box-shadow: 0 0 20px var(--uis-current); }
+}
+
+/* ---------------------------------------------------------
+   3) SYSTEM PULSE — Oscillation cognitive
+   (les valeurs et labels deviennent des neurones visuels)
+   --------------------------------------------------------- */
+
+[data-system] .ui-value,
+[data-system] .ui-label {
+    animation: uis-pulse var(--uis-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes uis-pulse {
+    0%   { text-shadow: 0 0 10px var(--uis-current); }
+    50%  { text-shadow: 0 0 32px var(--uis-current); }
+    100% { text-shadow: 0 0 10px var(--uis-current); }
+}
+
+/* ---------------------------------------------------------
+   4) SYSTEM SYNC — Synchronisation du cockpit
+   (tous les panels, HUD, overlays se mettent au même rythme)
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion,
+.ui-panel,
+.ui-navbar,
+.ui-modal,
+.ui-drawer,
+.ui-command-panel {
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, filter 0.4s ease;
+}
+
+[data-system] ~ * {
+    border-color: var(--uis-current) !important;
+    box-shadow: 0 0 24px var(--uis-current) !important;
+}
+
+/* ---------------------------------------------------------
+   5) SYSTEM CORRECTION — Auto‑régulation globale
+   (le cockpit s’ajuste selon l’état du système)
+   --------------------------------------------------------- */
+
+[data-system="bad"] ~ * {
+    filter: saturate(0.5) brightness(0.85);
+}
+
+[data-system="warn"] ~ * {
+    filter: saturate(1.1) brightness(1.05);
+}
+
+[data-system="good"],
+[data-system="omega"],
+[data-system="stable"] {
+    filter: saturate(1.25) brightness(1.15);
+}
+
+/* ---------------------------------------------------------
+   6) SYSTEM EVOLUTION — Adaptation organique
+   (le cockpit change de rythme selon le contexte)
+   --------------------------------------------------------- */
+
+[data-system][data-evolve="slow"] {
+    animation-duration: calc(var(--uis-field-speed) * 1.6);
+}
+
+[data-system][data-evolve="fast"] {
+    animation-duration: calc(var(--uis-field-speed) * 0.5);
+}
+
+[data-system][data-evolve="static"] {
+    animation: none;
+    box-shadow: none;
+}

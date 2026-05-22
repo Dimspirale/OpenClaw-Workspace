@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# HERMES_AUTO_HEAL.ocm — MODE 4 : AUTO‑HEAL
+# Cockpit‑grade, ultra‑sober, self-repair module
+
+LOG="$HOME/OpenClaw_Light/cockpit/LOGS/auto_heal.log"
+ENGINE="$HOME/OpenClaw_Light/cockpit/ENGINE"
+HERMES="$ENGINE/hermes"
+WRAPPERS="$ENGINE/wrappers"
+
+timestamp() { date +"%Y-%m-%d %H:%M:%S"; }
+
+log() {
+    echo "$(timestamp) | $1" >> "$LOG"
+}
+
+repair_permission() {
+    if [ ! -x "$1" ]; then
+        chmod +x "$1"
+        log "FIXED: permissions corrected for $1"
+    fi
+}
+
+repair_missing_file() {
+    if [ ! -f "$1" ]; then
+        log "MISSING: $1 — attempting reconstruction"
+        touch "$1"
+        chmod +x "$1"
+        log "RECREATED: $1"
+    fi
+}
+
+repair_path() {
+    if ! echo "$PATH" | grep -q "$ENGINE"; then
+        export PATH="$ENGINE:$PATH"
+        log "FIXED: PATH updated with ENGINE"
+    fi
+}
+
+scan_wrappers() {
+    for w in "$WRAPPERS"/*.sh; do
+        repair_permission "$w"
+    done
+}
+
+scan_hermes_modules() {
+    for m in "$HERMES"/*.ocm; do
+        repair_permission "$m"
+    done
+}
+
+scan_structure() {
+    [ -d "$ENGINE" ]   || mkdir -p "$ENGINE"   && log "FIXED: ENGINE folder restored"
+    [ -d "$HERMES" ]   || mkdir -p "$HERMES"   && log "FIXED: HERMES folder restored"
+    [ -d "$WRAPPERS" ] || mkdir -p "$WRAPPERS" && log "FIXED: WRAPPERS folder restored"
+}
+
+main() {
+    log "AUTO-HEAL START"
+    scan_structure
+    repair_path
+    scan_wrappers
+    scan_hermes_modules
+    log "AUTO-HEAL END"
+}
+
+main

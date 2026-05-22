@@ -1,0 +1,35 @@
+cat > ~/OpenClaw_Light/SYSTEM/HERMES_TTS_BRIDGE.ocm << 'EOF'
+# HERMES_TTS_BRIDGE.ocm
+# OpenClaw_Light — Hermes TTS Bridge
+# Pont Hermes → TTS Pipeline
+
+HERMES_TTS_BRIDGE {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "BRIDGE"
+
+    ROLE: "HERMES_TTS_BRIDGE"
+    DESCRIPTION: "Pont entre Hermes et le pipeline TTS."
+
+    LINK {
+        HERMES_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_ENGINE.ocm"
+        TTS_PIPELINE: "~/OpenClaw_Light/SYSTEM/TTS_PIPELINE.ocm"
+    }
+
+    CAPABILITIES {
+        SEND_TEXT: true
+        RECEIVE_AUDIO: true
+        BIDIRECTIONAL: true
+    }
+
+    OUTPUT {
+        PROVIDE_TTS_BRIDGE_READY: true
+    }
+
+    SIGNATURE {
+        ID: "HERMES_TTS_BRIDGE"
+        TYPE: "BRIDGE"
+        HASH: "AUTO"
+    }
+}
+EOF

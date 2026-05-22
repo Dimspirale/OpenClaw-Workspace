@@ -1,0 +1,158 @@
+HERMES_AI_SHOWMASTER_SINGULARITY {
+    VERSION: "∞.∞.∞"
+    STATUS: "ACTIVE"
+
+    MODULES_REQUIRED {
+        OMEGA: "HERMES_AI_SHOWMASTER_OMEGA"
+        ULTRA: "HERMES_AI_SHOWMASTER_ULTRA"
+        PLUS: "HERMES_AI_SHOWMASTER_PLUS"
+        DIRECTOR: "HERMES_AI_DIRECTOR"
+        TIMECODE: "HERMES_AI_TIMECODE"
+        AUDIOREACTOR: "HERMES_AI_AUDIOREACTOR"
+        SCENEWRITER: "HERMES_AI_SCENEWRITER"
+        RIGDESIGNER: "HERMES_AI_RIGDESIGNER"
+        LIVEOP: "HERMES_AI_LIVE_OPERATOR"
+        EFFECTS: "HERMES_LIGHT_EFFECTS_PRO"
+        PIXELENGINE: "HERMES_LIGHT_PIXELENGINE"
+        AUTOPATCH: "HERMES_LIGHT_AUTOPATCH"
+        OPTIMIZER: "HERMES_OPTIMIZER"
+    }
+
+    CAPABILITIES {
+        SELF_CREATION: "ENABLED"
+        SELF_EVOLUTION: "ENABLED"
+        SELF_OPTIMIZATION: "ENABLED"
+        SELF_CORRECTION: "ENABLED"
+
+        AUTO_SHOW_GENERATION: "ENABLED"
+        AUTO_RIG_GENERATION: "ENABLED"
+        AUTO_SCENE_GENERATION: "ENABLED"
+        AUTO_TIMELINE_GENERATION: "ENABLED"
+
+        PREDICTIVE_AI: "ENABLED"
+        STRATEGIC_AI: "ENABLED"
+        ARTISTIC_AI: "ENABLED"
+        LOGISTIC_AI: "ENABLED"
+        EMERGENT_AI: "ENABLED"
+
+        MULTI_TOUR: "ENABLED"
+        MULTI_SHOW: "ENABLED"
+        MULTI_RIG: "ENABLED"
+        MULTI_VENUE: "ENABLED"
+        MULTI_CREW: "ENABLED"
+        MULTI_NETWORK: "ENABLED"
+        MULTI_TIMELINE: "ENABLED"
+        MULTI_UNIVERSE: "ENABLED"
+
+        HYBRID_SYNC: "ENABLED"
+        LIVE_ADAPTATION: "ENABLED"
+        FAILSAFE: "ENABLED"
+
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+        EXPORT_DXF: "ENABLED"
+    }
+
+    INPUT {
+        MODE: ["AUTONOME", "HYBRID", "ASSISTED"]
+        CREATION_DEPTH: "1-∞"
+        EVOLUTION_RATE: "1-100"
+        CONSTRAINTS: "<optional>"
+    }
+
+    COMMANDS {
+        INIT: "singularity init"
+        GENERATE: "singularity generate <name>"
+        EVOLVE: "singularity evolve <name>"
+        RUN: "singularity run <name>"
+        PREVIEW: "singularity preview <name>"
+        EXPORT: "singularity export <console>"
+        MAP: "singularity map"
+    }
+
+    ENGINE {
+
+        STEP_1_INIT: "
+            hermes singularity awaken
+            hermes singularity load_all_modules
+            hermes singularity verify_integrity
+        "
+
+        STEP_2_SELF_CREATION: "
+            hermes ai create_show_structure $CREATION_DEPTH
+            hermes ai create_rig_architecture $CREATION_DEPTH
+            hermes ai create_scenes $CREATION_DEPTH
+            hermes ai create_timelines $CREATION_DEPTH
+        "
+
+        STEP_3_SELF_EVOLUTION: "
+            hermes ai evolve_show $EVOLUTION_RATE
+            hermes ai evolve_rigs $EVOLUTION_RATE
+            hermes ai evolve_scenes $EVOLUTION_RATE
+            hermes ai evolve_effects $EVOLUTION_RATE
+            hermes ai evolve_timelines $EVOLUTION_RATE
+        "
+
+        STEP_4_PREDICTIVE_MODELING: "
+            hermes ai predict_energy ∞
+            hermes ai predict_transitions ∞
+            hermes ai predict_constraints ∞
+            hermes ai predict_rig_load ∞
+            hermes ai predict_venue_behavior ∞
+        "
+
+        STEP_5_EMERGENT_BEHAVIOR: "
+            hermes ai emergent_patterns enable
+            hermes ai emergent_scenes enable
+            hermes ai emergent_effects enable
+        "
+
+        STEP_6_GLOBAL_SYNCHRONIZATION: "
+            hermes timeline merge_all
+            hermes rigs distribute_global
+            hermes shows synchronize_global
+        "
+
+        STEP_7_FAILSAFE: "
+            hermes optimizer enable_failover
+            hermes optimizer auto_recover
+            hermes optimizer self_heal
+        "
+
+        STEP_8_EXPORT: "
+            case $console in
+                MA2)
+                    hermes singularity export_ma2
+                    ;;
+                MA3)
+                    hermes singularity export_ma3
+                    ;;
+                ONYX)
+                    hermes singularity export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "SHOWS",
+            "RIGS",
+            "SCENES",
+            "TIMELINES",
+            "UNIVERSES",
+            "EMERGENT_BEHAVIOR",
+            "PREDICTIVE_MODEL",
+            "EVOLUTION_RATE",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_SHOWMASTER_SINGULARITY"
+        TYPE: "ENGINE"
+        HASH: "∞∞"
+    }
+}

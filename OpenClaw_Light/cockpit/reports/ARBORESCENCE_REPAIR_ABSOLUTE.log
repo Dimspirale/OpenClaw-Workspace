@@ -1,0 +1,731 @@
+=== ABSOLUTE LOG — Fri May  8 14:33:26 CEST 2026 ===
+/home/dimitri/OpenClaw_Light
+/home/dimitri/OpenClaw_Light/dashboards
+/home/dimitri/OpenClaw_Light/timelines
+/home/dimitri/OpenClaw_Light/principles
+/home/dimitri/OpenClaw_Light/ENGINE
+/home/dimitri/OpenClaw_Light/roadmaps
+/home/dimitri/OpenClaw_Light/.yarn
+/home/dimitri/OpenClaw_Light/src
+/home/dimitri/OpenClaw_Light/bin
+/home/dimitri/OpenClaw_Light/rapports
+/home/dimitri/OpenClaw_Light/builds
+/home/dimitri/OpenClaw_Light/schemas
+/home/dimitri/OpenClaw_Light/lightpresets
+/home/dimitri/OpenClaw_Light/config
+/home/dimitri/OpenClaw_Light/core
+/home/dimitri/OpenClaw_Light/core/Versioning
+/home/dimitri/OpenClaw_Light/core/HF
+/home/dimitri/OpenClaw_Light/core/Électricité
+/home/dimitri/OpenClaw_Light/core/Library
+/home/dimitri/OpenClaw_Light/core/Policies
+/home/dimitri/OpenClaw_Light/core/Exports
+/home/dimitri/OpenClaw_Light/core/Diagnostic
+/home/dimitri/OpenClaw_Light/core/DMX
+/home/dimitri/OpenClaw_Light/core/Visualisation
+/home/dimitri/OpenClaw_Light/core/Simulation
+/home/dimitri/OpenClaw_Light/core/PRD
+/home/dimitri/OpenClaw_Light/core/Artistique
+/home/dimitri/OpenClaw_Light/core/Architecture
+/home/dimitri/OpenClaw_Light/core/Rigging
+/home/dimitri/OpenClaw_Light/core/ShowControl
+/home/dimitri/OpenClaw_Light/core/Documentation
+/home/dimitri/OpenClaw_Light/core/Réseau
+/home/dimitri/OpenClaw_Light/scripts
+/home/dimitri/OpenClaw_Light/.obsidian
+/home/dimitri/OpenClaw_Light/.obsidian/snippets
+/home/dimitri/OpenClaw_Light/.obsidian/plugins
+/home/dimitri/OpenClaw_Light/.obsidian/plugins/templater-obsidian
+/home/dimitri/OpenClaw_Light/.obsidian/plugins/dataview
+/home/dimitri/OpenClaw_Light/tests
+/home/dimitri/OpenClaw_Light/modules
+/home/dimitri/OpenClaw_Light/modules/OpenClaw_ObsidianBridge
+/home/dimitri/OpenClaw_Light/system
+/home/dimitri/OpenClaw_Light/cockpit
+/home/dimitri/OpenClaw_Light/cockpit/monitoring
+/home/dimitri/OpenClaw_Light/cockpit/pack_UI_Pro
+/home/dimitri/OpenClaw_Light/cockpit/status
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE
+/home/dimitri/OpenClaw_Light/cockpit/MODULES
+/home/dimitri/OpenClaw_Light/cockpit/emergency
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS
+/home/dimitri/OpenClaw_Light/cockpit/startup
+/home/dimitri/OpenClaw_Light/cockpit/diagnostic
+/home/dimitri/OpenClaw_Light/cockpit/core
+/home/dimitri/OpenClaw_Light/cockpit/structure
+/home/dimitri/OpenClaw_Light/cockpit/flowchart
+/home/dimitri/OpenClaw_Light/cockpit/reports
+/home/dimitri/OpenClaw_Light/cockpit/blueprint
+/home/dimitri/OpenClaw_Light/cockpit/dashboard
+/home/dimitri/OpenClaw_Light/cockpit/shutdown
+/home/dimitri/OpenClaw_Light/cockpit/timeline
+/home/dimitri/OpenClaw_Light/cockpit/maps
+/home/dimitri/OpenClaw_Light/cockpit/hud
+/home/dimitri/OpenClaw_Light/cockpit/maintenance
+/home/dimitri/OpenClaw_Light/cockpit/UI
+/home/dimitri/OpenClaw_Light/techdocs
+/home/dimitri/OpenClaw_Light/presets
+/home/dimitri/OpenClaw_Light/packages
+/home/dimitri/OpenClaw_Light/widgets
+/home/dimitri/OpenClaw_Light/widgets/HUD
+/home/dimitri/OpenClaw_Light/engine
+/home/dimitri/OpenClaw_Light/userdocs
+/home/dimitri/OpenClaw_Light/hud
+/home/dimitri/OpenClaw_Light/lumière
+/home/dimitri/OpenClaw_Light/lumière/Fixtures
+/home/dimitri/OpenClaw_Light/lumière/Fixtures/FX
+/home/dimitri/OpenClaw_Light/lumière/Fixtures/Wash
+/home/dimitri/OpenClaw_Light/lumière/Fixtures/Hybrid
+/home/dimitri/OpenClaw_Light/lumière/Fixtures/Beam
+/home/dimitri/OpenClaw_Light/lumière/Fixtures/Strobe
+/home/dimitri/OpenClaw_Light/lumière/Fixtures/Profiles
+[EMPTY] /home/dimitri/OpenClaw_Light/timelines
+[EMPTY] /home/dimitri/OpenClaw_Light/roadmaps
+[EMPTY] /home/dimitri/OpenClaw_Light/rapports
+[EMPTY] /home/dimitri/OpenClaw_Light/builds
+[EMPTY] /home/dimitri/OpenClaw_Light/schemas
+[EMPTY] /home/dimitri/OpenClaw_Light/lightpresets
+[EMPTY] /home/dimitri/OpenClaw_Light/core/Library
+[EMPTY] /home/dimitri/OpenClaw_Light/core/Exports
+[EMPTY] /home/dimitri/OpenClaw_Light/core/PRD
+[EMPTY] /home/dimitri/OpenClaw_Light/tests
+[EMPTY] /home/dimitri/OpenClaw_Light/techdocs
+[EMPTY] /home/dimitri/OpenClaw_Light/presets
+[EMPTY] /home/dimitri/OpenClaw_Light/packages
+[EMPTY] /home/dimitri/OpenClaw_Light/userdocs
+[EMPTY] /home/dimitri/OpenClaw_Light/lumière/Fixtures/FX
+[EMPTY] /home/dimitri/OpenClaw_Light/lumière/Fixtures/Wash
+[EMPTY] /home/dimitri/OpenClaw_Light/lumière/Fixtures/Hybrid
+[EMPTY] /home/dimitri/OpenClaw_Light/lumière/Fixtures/Beam
+[EMPTY] /home/dimitri/OpenClaw_Light/lumière/Fixtures/Strobe
+[CHMOD] /home/dimitri/OpenClaw_Light/modules/HERMES_GPU.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/modules/HERMES_MODULE_BUILDER.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/modules/OpenClaw_ObsidianBridge/obsidian_reader.sh
+[CHMOD] /home/dimitri/OpenClaw_Light/modules/OpenClaw_ObsidianBridge/obsidian_writer.sh
+[CHMOD] /home/dimitri/OpenClaw_Light/modules/OpenClaw_ObsidianBridge/obsidian_ai_query.sh
+[CHMOD] /home/dimitri/OpenClaw_Light/modules/OpenClaw_ObsidianBridge/bridge.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/modules/TEST.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/modules/TEST_V2.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/modules/HERMES_GPU_PRIME.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/modules/HERMES_MODULE_BUILDER_v2.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/system/HERMES_BRIDGE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/system/BLUEPRINT_GLOBAL.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/system/ARCHITECTURE_MAP_MONOLITHIC.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/system/SYSTEM_EXPORT.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/system/SYSTEM_RECOVERY.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/system/ARCHITECTURE_MAP.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/system/HERMES_TTS_BRIDGE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/system/SYSTEM_AUTOMATION.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/system/TTS_PIPELINE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/system/SYSTEM_GLOBAL.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_OMEGA.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_CORE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_SINGULARITY.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_PILOT.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SCENEWRITER.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_DASHBOARD_GPU.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HUD_ENGINE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_BEHAVIOR.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_PLUS.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LIGHT_EFFECTS_PRO.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_TIMECODE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_BENCHMARK.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_ENGINE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/LIGHT_ASSISTANT.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_LIVE_OPERATOR.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_COMMANDS.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_MODEL_ROUTER.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_DIRECTOR.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_INFINITY.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/CORE_ENGINE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_ΩMEGA.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LIGHT_ASSISTANT_EXT.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/FLOW_ENGINE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AUTOPILOT.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_OPTIMIZER.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_OS.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_COCKPIT_MASTER_TOTAL_v4.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_AUDIOREACTOR.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_DASHBOARD.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LIGHT_AUTOPATCH.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_OMNI.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_MEMORY.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LIGHT_SHOWBUILDER.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/TTS_ENGINE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_ULTRA.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LIGHT_PIXELENGINE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_SYSTEM_MONITOR_TOTAL.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LISTENER.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_GPU_MONITOR.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_RIGDESIGNER.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/MODULES/CLEANER.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/MODULES/ARBORESCENCE_REPAIR.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/MODULES/ARBORESCENCE_REPAIR_Ω.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/MODULES/ARBORESCENCE_REPAIR_ABSOLUTE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/BOOT_SEQUENCE.sh
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/COCKPIT_BOOT_SEQUENCE.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_EPSILON.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ALPHA.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_OMEGA.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ZERO.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_GAMMA.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ZETA.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_BETA.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_DELTA.ocm
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/generate_wrappers.sh
+[CHMOD] /home/dimitri/OpenClaw_Light/cockpit/COCKPIT_ROOT.ocm
+[LF] /home/dimitri/OpenClaw_Light/.yarn/install-state.gz
+/home/dimitri/OpenClaw_Light/Kanban_Automatique.md
+/home/dimitri/OpenClaw_Light/yarn.lock
+/home/dimitri/OpenClaw_Light/dashboards/Dashboard_ERA_Modules_Outils.md
+/home/dimitri/OpenClaw_Light/Dashboard _Rollback.md
+/home/dimitri/OpenClaw_Light/Dashboard_Graphs.md
+/home/dimitri/OpenClaw_Light/FUSION-A1-A22.js
+/home/dimitri/OpenClaw_Light/Dashboard_Production.md
+/home/dimitri/OpenClaw_Light/principles/MONOLITH_OMEGA.md
+/home/dimitri/OpenClaw_Light/Dashboard_Analytics.md
+/home/dimitri/OpenClaw_Light/ENGINE/core
+/home/dimitri/OpenClaw_Light/ENGINE/dashboard-gpu
+/home/dimitri/OpenClaw_Light/ENGINE/fusion
+/home/dimitri/OpenClaw_Light/ENGINE/system
+/home/dimitri/OpenClaw_Light/ENGINE/cockpit
+/home/dimitri/OpenClaw_Light/ENGINE/dashboard
+/home/dimitri/OpenClaw_Light/ENGINE/hermes-os
+/home/dimitri/OpenClaw_Light/ENGINE/hud
+/home/dimitri/OpenClaw_Light/ENGINE/listener
+/home/dimitri/OpenClaw_Light/ENGINE/gpu
+/home/dimitri/OpenClaw_Light/Dashboard_OpenClaw_Light.md
+/home/dimitri/OpenClaw_Light/Dashboard_Clustering.md
+/home/dimitri/OpenClaw_Light/A19-contrast.js
+/home/dimitri/OpenClaw_Light/Generate_Schema.md
+/home/dimitri/OpenClaw_Light/A11-predictive.js
+/home/dimitri/OpenClaw_Light/.yarn/install-state.gz
+/home/dimitri/OpenClaw_Light/A15-scene.js
+/home/dimitri/OpenClaw_Light/Dashboard_Global_3.0.md
+/home/dimitri/OpenClaw_Light/Dashboard_Suggestions.md
+/home/dimitri/OpenClaw_Light/src/main.js
+/home/dimitri/OpenClaw_Light/bin/ocm
+/home/dimitri/OpenClaw_Light/Dashboard_OpenClaw.md
+/home/dimitri/OpenClaw_Light/Dashboard_Risks.md
+/home/dimitri/OpenClaw_Light/Dashboard_Release_Train.md
+/home/dimitri/OpenClaw_Light/A12-optimizer.js
+/home/dimitri/OpenClaw_Light/Dashboard_API_Documentation.md
+/home/dimitri/OpenClaw_Light/Package_Module.md
+/home/dimitri/OpenClaw_Light/Dashboard_Artistique.md
+/home/dimitri/OpenClaw_Light/Dashboard_Intelligence_Contextuelle.md
+/home/dimitri/OpenClaw_Light/ARBORESCENCE COMPLÈTE — OpenClaw_Light.txt
+/home/dimitri/OpenClaw_Light/Dashboard_Tests.md
+/home/dimitri/OpenClaw_Light/EXPORT_GLOBAL_A1-A22 .txt
+/home/dimitri/OpenClaw_Light/config/ocm.txt
+/home/dimitri/OpenClaw_Light/config/openclaw.conf
+/home/dimitri/OpenClaw_Light/core/Versioning/Kanban_Versioning.md
+/home/dimitri/OpenClaw_Light/core/Versioning/Versioning_Log.md
+/home/dimitri/OpenClaw_Light/core/HF/HF_Predictif.md
+/home/dimitri/OpenClaw_Light/core/HF/Kanban_HF.md
+/home/dimitri/OpenClaw_Light/core/OpenClaw_Light_PRD_v5.2.md
+/home/dimitri/OpenClaw_Light/core/Électricité/Electricite_Predictive.md
+/home/dimitri/OpenClaw_Light/core/Électricité/Kanban_Électricité.md
+/home/dimitri/OpenClaw_Light/core/Bibliothèque_Matériel.md
+/home/dimitri/OpenClaw_Light/core/README.md
+/home/dimitri/OpenClaw_Light/core/Policies/README.md
+/home/dimitri/OpenClaw_Light/core/Policies/IA_Policies.md
+/home/dimitri/OpenClaw_Light/core/Policies/Render_Presets.md
+/home/dimitri/OpenClaw_Light/core/Policies/Show_Control_Mappings.md
+/home/dimitri/OpenClaw_Light/core/Policies/Kanban_Policies.md
+/home/dimitri/OpenClaw_Light/core/Diagnostic/Diagnostic_Global.md
+/home/dimitri/OpenClaw_Light/core/Diagnostic/Kanban_Diagnostic.md
+/home/dimitri/OpenClaw_Light/core/DMX/Kanban_DMX.md
+/home/dimitri/OpenClaw_Light/core/DMX/DMX_Predictif.md
+/home/dimitri/OpenClaw_Light/core/Visualisation/Visualisation_3D.md
+/home/dimitri/OpenClaw_Light/core/Simulation/Simulation_Globale.md
+/home/dimitri/OpenClaw_Light/core/Simulation/Kanban_Simulation.md
+/home/dimitri/OpenClaw_Light/core/MONOLITH_PLUS_PLUS.md
+/home/dimitri/OpenClaw_Light/core/Artistique/Kanban_Artistique.md
+/home/dimitri/OpenClaw_Light/core/Artistique/Artistique_Predictif.md
+/home/dimitri/OpenClaw_Light/core/Architecture/Schema_Global_Arborescence.md
+/home/dimitri/OpenClaw_Light/core/Rigging/Rigging_Predictif.md
+/home/dimitri/OpenClaw_Light/core/Rigging/Kanban_Rigging.md
+/home/dimitri/OpenClaw_Light/core/ShowControl/Kanban_Show Control.md
+/home/dimitri/OpenClaw_Light/core/ShowControl/Show_Control.md
+/home/dimitri/OpenClaw_Light/core/Documentation/Plan_Fusion_4_Eres.md
+/home/dimitri/OpenClaw_Light/core/Réseau/Kanban_Réseau.md
+/home/dimitri/OpenClaw_Light/core/Réseau/Réseau_Predictif.md
+/home/dimitri/OpenClaw_Light/scripts/Generate_Dashboard.md
+/home/dimitri/OpenClaw_Light/scripts/Generate_Timeline.md
+/home/dimitri/OpenClaw_Light/scripts/Orchestrator_Distribue.md
+/home/dimitri/OpenClaw_Light/scripts/Batch_Footer_Status.md
+/home/dimitri/OpenClaw_Light/scripts/Generate_Preset.md
+/home/dimitri/OpenClaw_Light/scripts/Lint_Vault.md
+/home/dimitri/OpenClaw_Light/scripts/Update_Internal_Links.js
+/home/dimitri/OpenClaw_Light/scripts/Migrate_Vault.md
+/home/dimitri/OpenClaw_Light/scripts/Branching_System.md
+/home/dimitri/OpenClaw_Light/scripts/Build_OpenClaw.md
+/home/dimitri/OpenClaw_Light/scripts/CheckMissingFooter.md
+/home/dimitri/OpenClaw_Light/scripts/Create_OpenClaw_Cockpit_Structure.js
+/home/dimitri/OpenClaw_Light/scripts/Generate_TechDoc.md
+/home/dimitri/OpenClaw_Light/scripts/Generate_Roadmap.md
+/home/dimitri/OpenClaw_Light/scripts/Dashboard_Simulation.md
+/home/dimitri/OpenClaw_Light/scripts/Batch_AddTags.md
+/home/dimitri/OpenClaw_Light/scripts/AddStatus_Core.md
+/home/dimitri/OpenClaw_Light/scripts/Refactor_Links.md
+/home/dimitri/OpenClaw_Light/scripts/AddModuleTags.md
+/home/dimitri/OpenClaw_Light/scripts/AddTags_Core.md
+/home/dimitri/OpenClaw_Light/scripts/AutoVersioning.md
+/home/dimitri/OpenClaw_Light/scripts/AddFooter_KanbanModules.md
+/home/dimitri/OpenClaw_Light/scripts/AutoLog.md
+/home/dimitri/OpenClaw_Light/scripts/CleanVault.md
+/home/dimitri/OpenClaw_Light/scripts/Generate_LightPreset.md
+/home/dimitri/OpenClaw_Light/scripts/Build_Env.md
+/home/dimitri/OpenClaw_Light/scripts/Sync_Vaults.md
+/home/dimitri/OpenClaw_Light/scripts/Optimize_Vault.md
+/home/dimitri/OpenClaw_Light/scripts/AutoWriter.md
+/home/dimitri/OpenClaw_Light/scripts/Generate_UserDoc.md
+/home/dimitri/OpenClaw_Light/scripts/OpenClaw_Autonomous.md
+/home/dimitri/OpenClaw_Light/scripts/Generate_Module.md
+/home/dimitri/OpenClaw_Light/scripts/AddFooter_Core.md
+/home/dimitri/OpenClaw_Light/scripts/Generate_Tests.md
+/home/dimitri/OpenClaw_Light/scripts/Refactor_Content.md
+/home/dimitri/OpenClaw_Light/Dashboard_Supervision.md
+/home/dimitri/OpenClaw_Light/Dashboard_Analyse_Reseau.md
+/home/dimitri/OpenClaw_Light/Dashboard_Rapports.md
+/home/dimitri/OpenClaw_Light/Dashboard_Performance.md
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v19.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v-infinity2-ultrabeyond.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v-phi-primal-light.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/dashboard-gil.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v-omega2-absolute-return.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v21.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/hud-pro-global.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/pack-ui-pro-v-infinity-omega.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/pack_ui_pro_vinf_omega.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v-transcension.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v11.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v10.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/dashboard-actionhub.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/pack-ui-pro-v-transcended.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v18.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v10-1.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v20.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/pack-ui-pro-v-infinity.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/pack-ui-pro-v4.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v13.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/pack-ui-pro-v-infinity-sigma.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/pack-ui-pro-vx.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/pack-ui-pro.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v23.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v16.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v17.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v22.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v15.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v12.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v14.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v-sigma.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v-xi-metastruture.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v-omega.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v-infinity-omega.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v9.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/pack-ui-pro-v2.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v-infinity.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/pack-ui-pro-v3.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/dashboard-command-center.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/dashboard-alertengine.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/theme-pro-global-v-zero.css
+/home/dimitri/OpenClaw_Light/.obsidian/snippets/pack_ui_pro_vinf_omega_monolithique.css
+/home/dimitri/OpenClaw_Light/.obsidian/Kanban_OpenClaw.md
+/home/dimitri/OpenClaw_Light/.obsidian/workspace.json
+/home/dimitri/OpenClaw_Light/.obsidian/community-plugins.json
+/home/dimitri/OpenClaw_Light/.obsidian/core-plugins.json
+/home/dimitri/OpenClaw_Light/.obsidian/graph.json
+/home/dimitri/OpenClaw_Light/.obsidian/appearance.json
+/home/dimitri/OpenClaw_Light/.obsidian/page-preview.json
+/home/dimitri/OpenClaw_Light/.obsidian/plugins/templater-obsidian/data.json
+/home/dimitri/OpenClaw_Light/.obsidian/plugins/templater-obsidian/manifest.json
+/home/dimitri/OpenClaw_Light/.obsidian/plugins/templater-obsidian/styles.css
+/home/dimitri/OpenClaw_Light/.obsidian/plugins/templater-obsidian/main.js
+/home/dimitri/OpenClaw_Light/.obsidian/plugins/dataview/data.json
+/home/dimitri/OpenClaw_Light/.obsidian/plugins/dataview/manifest.json
+/home/dimitri/OpenClaw_Light/.obsidian/plugins/dataview/styles.css
+/home/dimitri/OpenClaw_Light/.obsidian/plugins/dataview/main.js
+/home/dimitri/OpenClaw_Light/.obsidian/app.json
+/home/dimitri/OpenClaw_Light/Home.md
+/home/dimitri/OpenClaw_Light/Dashboard_Builds.md
+/home/dimitri/OpenClaw_Light/Dashboard_Action_Hub.md
+/home/dimitri/OpenClaw_Light/A14-cueflow.js
+/home/dimitri/OpenClaw_Light/Dashboard_Versioning.md
+/home/dimitri/OpenClaw_Light/Dashboard_GIL_Global_Integration_Layer.md
+/home/dimitri/OpenClaw_Light/Dashboard_Simulation_Show.md
+/home/dimitri/OpenClaw_Light/Dashboard_Charge_Predictive.md
+/home/dimitri/OpenClaw_Light/AddStatus_Core.md
+/home/dimitri/OpenClaw_Light/Dashboard_Master.md
+/home/dimitri/OpenClaw_Light/A18-energy.js
+/home/dimitri/OpenClaw_Light/Dashboard_Command_Center.md
+/home/dimitri/OpenClaw_Light/Dashboard_Progression_Modules.md
+/home/dimitri/OpenClaw_Light/Dashboard_Documentation.md
+/home/dimitri/OpenClaw_Light/Dashboard_Workflows.md
+/home/dimitri/OpenClaw_Light/modules/HERMES_GPU.ocm
+/home/dimitri/OpenClaw_Light/modules/HERMES_MODULE_BUILDER.ocm
+/home/dimitri/OpenClaw_Light/modules/OpenClaw_ObsidianBridge/obsidian_reader.sh
+/home/dimitri/OpenClaw_Light/modules/OpenClaw_ObsidianBridge/obsidian_writer.sh
+/home/dimitri/OpenClaw_Light/modules/OpenClaw_ObsidianBridge/obsidian_ai_query.sh
+/home/dimitri/OpenClaw_Light/modules/OpenClaw_ObsidianBridge/bridge.ocm
+/home/dimitri/OpenClaw_Light/modules/TEST.ocm
+/home/dimitri/OpenClaw_Light/modules/TEST_V2.ocm
+/home/dimitri/OpenClaw_Light/modules/HERMES_GPU_PRIME.ocm
+/home/dimitri/OpenClaw_Light/modules/HERMES_MODULE_BUILDER_v2.ocm
+/home/dimitri/OpenClaw_Light/A17-emotion.js
+/home/dimitri/OpenClaw_Light/Dashboard_Workload.md
+/home/dimitri/OpenClaw_Light/Dashboard_Qualite.md
+/home/dimitri/OpenClaw_Light/Dashboard_Risques.md
+/home/dimitri/OpenClaw_Light/Dashboard_Monitoring.md
+/home/dimitri/OpenClaw_Light/A21-style.js
+/home/dimitri/OpenClaw_Light/Dashboard_Progression_Graphique.md
+/home/dimitri/OpenClaw_Light/Mode_sombre_PRO.md
+/home/dimitri/OpenClaw_Light/system/HERMES_BRIDGE.ocm
+/home/dimitri/OpenClaw_Light/system/BLUEPRINT_GLOBAL.ocm
+/home/dimitri/OpenClaw_Light/system/POINT_OMEGA_INFINITY_ZERO_VOID.md
+/home/dimitri/OpenClaw_Light/system/POINT_OMEGA_INFINITY.md
+/home/dimitri/OpenClaw_Light/system/POINT_OMEGA_PLUS.md
+/home/dimitri/OpenClaw_Light/system/SYSTEM_EXPORT.md
+/home/dimitri/OpenClaw_Light/system/POINT_OMEGA_INFINITY_ZERO.md
+/home/dimitri/OpenClaw_Light/system/ARCHITECTURE_MAP_MONOLITHIC.ocm
+/home/dimitri/OpenClaw_Light/system/SYSTEM_EXPORT.ocm
+/home/dimitri/OpenClaw_Light/system/SYSTEM_RECOVERY.md
+/home/dimitri/OpenClaw_Light/system/BLUEPRINT_GLOBAL.md
+/home/dimitri/OpenClaw_Light/system/SYSTEM_RECOVERY.ocm
+/home/dimitri/OpenClaw_Light/system/SYNTHESIS_TOTAL.md
+/home/dimitri/OpenClaw_Light/system/FUSION_CORE.md
+/home/dimitri/OpenClaw_Light/system/ARCHITECTURE_MAP.ocm
+/home/dimitri/OpenClaw_Light/system/HERMES_TTS_BRIDGE.ocm
+/home/dimitri/OpenClaw_Light/system/POINT_OMEGA.md
+/home/dimitri/OpenClaw_Light/system/ARCHITECTURE_MAP.md
+/home/dimitri/OpenClaw_Light/system/SYSTEM_AUTOMATION.md
+/home/dimitri/OpenClaw_Light/system/SYSTEM_AUTOMATION.ocm
+/home/dimitri/OpenClaw_Light/system/MONOLITH_FINAL.md
+/home/dimitri/OpenClaw_Light/system/SYSTEM_GLOBAL.md
+/home/dimitri/OpenClaw_Light/system/ARCHITECTURE_MAP_MONOLITHIC.md
+/home/dimitri/OpenClaw_Light/system/META_ORGANISM.md
+/home/dimitri/OpenClaw_Light/system/TOTAL_CONDENSATE.md
+/home/dimitri/OpenClaw_Light/system/SYSTEM_SYNTHESIS_ABSOLUTE.md
+/home/dimitri/OpenClaw_Light/system/TTS_PIPELINE.ocm
+/home/dimitri/OpenClaw_Light/system/SYSTEM_GLOBAL.ocm
+/home/dimitri/OpenClaw_Light/Dashboard_Scoring.md
+/home/dimitri/OpenClaw_Light/cockpit/monitoring/SYSTEM_MONITOR_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/COCKPIT
+/home/dimitri/OpenClaw_Light/cockpit/pack_UI_Pro/PACK_UI_PRO_vINF_OMEGA.md
+/home/dimitri/OpenClaw_Light/cockpit/pack_UI_Pro/PACK_UI_PRO_vINF_OMEGA_FINAL.md
+/home/dimitri/OpenClaw_Light/cockpit/status/Cockpit_Status_Panel.md
+/home/dimitri/OpenClaw_Light/cockpit/status/Cockpit_Status_Panel_PACK_UI_PRO_v∞Ω.md
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_OMEGA.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_CORE.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_SINGULARITY.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_PILOT.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SCENEWRITER.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_DASHBOARD_GPU.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HUD_ENGINE.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_BEHAVIOR.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_PLUS.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LIGHT_EFFECTS_PRO.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_TIMECODE.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_BENCHMARK.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_ENGINE.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/LIGHT_ASSISTANT.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_LIVE_OPERATOR.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/core
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_COMMANDS.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_MODEL_ROUTER.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_DIRECTOR.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_INFINITY.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/CORE_ENGINE.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_ΩMEGA.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/dashboard-gpu
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LIGHT_ASSISTANT_EXT.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/FLOW_ENGINE.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AUTOPILOT.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_OPTIMIZER.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_OS.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_COCKPIT_MASTER_TOTAL_v4.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/fusion
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/system
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_AUDIOREACTOR.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/cockpit
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_DASHBOARD.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LIGHT_AUTOPATCH.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_OMNI.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_MEMORY.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LIGHT_SHOWBUILDER.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/TTS_ENGINE.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/dashboard
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_SHOWMASTER_ULTRA.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LIGHT_PIXELENGINE.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/hermes-os
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/hud
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_SYSTEM_MONITOR_TOTAL.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_LISTENER.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_GPU_MONITOR.ocm
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/listener
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/gpu
+/home/dimitri/OpenClaw_Light/cockpit/ENGINE/HERMES_AI_RIGDESIGNER.ocm
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-36_AI_Layer_v12.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_FUSION.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_v2.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-ORIGIN.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-35_AI_Layer_v11.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-15_HUD_Master_INFINITY_OMEGA_Era_XIII.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-06_HUD_Master_Panel_Era_V.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_v3.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_FUSION-FLOW.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vOmega.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-30_AI_Layer_v6.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_FUSION-SINGULARITY-ORIGIN-LOOP.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-47_AI_Layer_v23.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-Infinite.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-05_HUD_Strategic_Panel_Era_IV.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vFX.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-10_HUD_Master_INFINITE_Era_VIII.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META_v2.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-45_AI_Layer_v21.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-SINGULARITY-FIELD.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-38_AI_Layer_v14.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_FUSION-ABSOLUTE.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-04_HUD_Tactical_Panel_Era_IV.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-SINGULARITY-OMEGA.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vSEC.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-07_HUD_Master_ULTRA_Era_V.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_FUSION-FIELD.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/CLEANER.ocm
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-14_HUD_Master_INFINITY_Era_XII.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-SINGULARITY.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_FUSION-COSMOS-ABSOLUTE.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-40_AI_Layer_v16.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META_vInfinite.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_FUSION-COSMOS.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vAI.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vHUD.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-41_AI_Layer_v17.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vACTION.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-23_Cockpit_Status_Panel.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-03_HUD_Vision_Panel_Era_III.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-34_AI_Layer_v10.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-13_HUD_Master_ONTOLOGIC_Era_XI.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-28_AI_Layer_v4.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-33_AI_Layer_v9.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-09_HUD_Master_ABSOLUTE_Era_VII.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vInfinite.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ARBORESCENCE_REPAIR.ocm
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-32_AI_Layer_v8.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-31_AI_Layer_v7.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_v1.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-25_AI_Layer_v1.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-26_AI_Layer_v2.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-18_HUD_Master_FINALIS_Era_XVI.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-12_HUD_Master_OMEGA_Era_X.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-42_AI_Layer_v18.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-39_AI_Layer_v15.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ARBORESCENCE_REPAIR_Ω.ocm
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-17_HUD_Master_OOO_Era_XV.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vUI.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-37_AI_Layer_v13.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_v4.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_FUSION-ORIGIN.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-11_HUD_Master_ETERNAL_Era_IX.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vABS.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-02_HUD_Status_Panel_Era_II.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-44_AI_Layer_v20.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META_v1.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-46_AI_Layer_v22.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_FUSION-CORE.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META_v3.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vUX.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-29_AI_Layer_v5.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-27_AI_Layer_v3.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_FUSION-SINGULARITY.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-SINGULARITY-ABSOLUTE.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META_vOmega.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vUI-PRO.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-SINGULARITY-CORE.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-43_AI_Layer_v19.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-08_HUD_Master_OMNI_Era_VI.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vNAV.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/H-16_HUD_Master_OMEGA_ONTO_INFINITE_Era_XIV.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_vCORE.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ARBORESCENCE_REPAIR_ABSOLUTE.ocm
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/A-24_Auto_Repair_Engine.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META-OPS_FUSION-AI.md
+/home/dimitri/OpenClaw_Light/cockpit/MODULES/ERA-META_vInfiniteInfinite.md
+/home/dimitri/OpenClaw_Light/cockpit/BOOT_SEQUENCE.sh
+/home/dimitri/OpenClaw_Light/cockpit/COCKPIT_ROOT.md
+/home/dimitri/OpenClaw_Light/cockpit/emergency/EMERGENCY_SEQUENCE_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/COCKPIT_BOOT_SEQUENCE.ocm
+/home/dimitri/OpenClaw_Light/cockpit/HERMES_COMMANDS
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_BETA_TOTAL_STACK.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_CREATION_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_EPSILON.ocm
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_EPSILON_TOTAL_STACK.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_TOTAL_PROTOCOL.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_INFINITY_FIELD.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ADAPTIVE_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ORIGIN_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ZERO_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_OMNI_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ULTIMATE_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ZETA_TOTAL_STACK.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_DELTA_TOTAL_STACK.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_INFINITY_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_SYNTHESIS_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_EPSILON_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ALPHA_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_EVOLUTION_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_FLOW_PROTOCOL.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_COSMIC_PROTOCOL.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_GAMMA_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META‑OPS_UI_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_CORE_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_TOTALITY_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_COSMIC_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ALPHA_TOTAL_STACK.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ZETA_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ALPHA.ocm
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_BEHAVIOR_MODEL.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_OMNI_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ALPHA_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_OMEGA_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_OMEGA_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_FINAL_STACK.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_OMEGA.ocm
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_FUSION_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_PRIMORDIAL_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_DELTA_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ROOT_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ZERO.ocm
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_PREDICTION_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_DIAGNOSTIC_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_COSMIC_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_REACTION_LIBRARY.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_GAMMA.ocm
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_OMEGA_TOTAL_STACK.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_DELTA_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_OMNIVERSAL_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ZETA.ocm
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_COSMIC_TOTAL_STACK.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_BETA.ocm
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_HUD_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ABSOLUTE_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_SUPERVISION_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_BETA_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_INTERNAL_MAP.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_TRANSCENDENCE_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_INFINITY_TOTAL_STACK.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_COSMIC_FUSION.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_AUTOMATION_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ZETA_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_MASTER_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_SECURITY_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_GAMMA_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_DELTA.ocm
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_SOURCE_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_INFINITY_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_STATE_PROTOCOL.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_MASTER_TOTAL_STACK.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_BETA_LAYER.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_EPSILON_ENGINE.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_GAMMA_TOTAL_STACK.md
+/home/dimitri/OpenClaw_Light/cockpit/META_OPS/META_OPS_ENGINE_FUSION.md
+/home/dimitri/OpenClaw_Light/cockpit/startup/STARTUP_SEQUENCE_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/diagnostic/DIAGNOSTIC_ENGINE_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/DASHBOARD_GLOBAL_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/BOOT_SEQUENCE.txt
+/home/dimitri/OpenClaw_Light/cockpit/core/CORE_ENGINE_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/structure/Cockpit_Architecture_A1-A22_V17-V∴.md
+/home/dimitri/OpenClaw_Light/cockpit/COCKPIT_GLOBAL.md
+/home/dimitri/OpenClaw_Light/cockpit/flowchart/COCKPIT_MASTER_FLOWCHART.md
+/home/dimitri/OpenClaw_Light/cockpit/generate_wrappers.sh
+/home/dimitri/OpenClaw_Light/cockpit/reports/SYSTEM_HEALTH_REPORT_TEMPLATE.md
+/home/dimitri/OpenClaw_Light/cockpit/reports/ARBORESCENCE_REPAIR_ABSOLUTE.log
+/home/dimitri/OpenClaw_Light/cockpit/reports/ARBORESCENCE_REPAIR_Ω.log
+/home/dimitri/OpenClaw_Light/cockpit/blueprint/Blueprint_Cockpit_Global.md
+/home/dimitri/OpenClaw_Light/cockpit/blueprint/Blueprint_Integration_Total.md
+/home/dimitri/OpenClaw_Light/cockpit/SYSTEM_MONITOR_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/COCKPIT_ROOT.ocm
+/home/dimitri/OpenClaw_Light/cockpit/Index_Cockpit.md
+/home/dimitri/OpenClaw_Light/cockpit/COCKPIT_MASTER_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/HERMES-OS
+/home/dimitri/OpenClaw_Light/cockpit/dashboard/COCKPIT_MASTER_DASHBOARD.md
+/home/dimitri/OpenClaw_Light/cockpit/shutdown/SHUTDOWN_SEQUENCE_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/timeline/COCKPIT_MASTER_TIMELINE.md
+/home/dimitri/OpenClaw_Light/cockpit/HUD_MASTER_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/maps/Carte_Mentale_Cockpit.md
+/home/dimitri/OpenClaw_Light/cockpit/CORE
+/home/dimitri/OpenClaw_Light/cockpit/hud/HUD_MASTER_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/maintenance/MAINTENANCE_ENGINE_TOTAL.md
+/home/dimitri/OpenClaw_Light/cockpit/Index_Cockpit_Auto.md
+/home/dimitri/OpenClaw_Light/cockpit/UI/PACK_UI_PRO_v∞Ω.md
+/home/dimitri/OpenClaw_Light/cockpit/FUSION
+/home/dimitri/OpenClaw_Light/AddFooter_KanbanModules.md
+/home/dimitri/OpenClaw_Light/A16-pattern.js
+/home/dimitri/OpenClaw_Light/Dashboard_Distribution.md
+/home/dimitri/OpenClaw_Light/Dashboard_Rollback.md
+/home/dimitri/OpenClaw_Light/Dashboard_Global_Overview.md
+/home/dimitri/OpenClaw_Light/A13-timeline.js
+/home/dimitri/OpenClaw_Light/.pnp.cjs
+/home/dimitri/OpenClaw_Light/.pnp.loader.mjs
+/home/dimitri/OpenClaw_Light/Dashboard_Alert_Engine.md
+/home/dimitri/OpenClaw_Light/Dashboard_Notifications.md
+/home/dimitri/OpenClaw_Light/Dashboard_Priorites.md
+/home/dimitri/OpenClaw_Light/widgets/HUD/HUD-FUSION.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A18-H-energy.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A22-H-identity.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A21-H-style.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A12-H-optimizer.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A20-H-harmony.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A9-H-intelligence.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A10-H-repair.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A19-H-contrast.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A16-H-pattern.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A17-H-emotion.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A15-H-scene.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/HUD-MASTER-ULTRA-A1-A22.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A13-H-timeline.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A11-H-predictive.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/HUD-MASTER-A1-A22.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/HUD-MASTER-EXTENDED-A1-A22.js
+/home/dimitri/OpenClaw_Light/widgets/HUD/A14-H-cueflow.js
+/home/dimitri/OpenClaw_Light/Dashboard_Pipelines.md
+/home/dimitri/OpenClaw_Light/Dashboard_Changelog.md
+/home/dimitri/OpenClaw_Light/Dashboard_Timeline.md
+/home/dimitri/OpenClaw_Light/engine/Generation_Presets.md
+/home/dimitri/OpenClaw_Light/engine/Export_Shows.md
+/home/dimitri/OpenClaw_Light/engine/Generation_FX.md
+/home/dimitri/OpenClaw_Light/engine/Generation_Advanced.md
+/home/dimitri/OpenClaw_Light/engine/Generation_Cues_Dynamiques.md
+/home/dimitri/OpenClaw_Light/engine/Analyse_Presets.md
+/home/dimitri/OpenClaw_Light/engine/Generation_Shows_Complets.md
+/home/dimitri/OpenClaw_Light/engine/Generation_ColorMix.md
+/home/dimitri/OpenClaw_Light/engine/Analyse_Projecteurs.md
+/home/dimitri/OpenClaw_Light/Dashboard_Policies.md
+/home/dimitri/OpenClaw_Light/Dashboard_Alerts.md
+/home/dimitri/OpenClaw_Light/Dashboard_Automation.md
+/home/dimitri/OpenClaw_Light/Theme_PRO_Global.md
+/home/dimitri/OpenClaw_Light/Dashboard_Search_Advanced.md
+/home/dimitri/OpenClaw_Light/A10-repair.js
+/home/dimitri/OpenClaw_Light/hud/HUD_PRO_Global.md
+/home/dimitri/OpenClaw_Light/Dashboard_Alertes.md
+/home/dimitri/OpenClaw_Light/lumière/Fixtures/Modèle_ Projecteur_ Vierge.md
+/home/dimitri/OpenClaw_Light/lumière/Fixtures/Profiles/Modèle_ Projecteur_ Vierge.md
+/home/dimitri/OpenClaw_Light/lumière/Fixtures/Profiles/Ayrton_Eurus_Profile.md
+/home/dimitri/OpenClaw_Light/A20-harmony.js
+/home/dimitri/OpenClaw_Light/A22-identity.js
+/home/dimitri/OpenClaw_Light/Planning_Hebdo.md
+/home/dimitri/OpenClaw_Light/Dashboard_Dependances.md
+/home/dimitri/OpenClaw_Light/Dashboard_Securite.md
+/home/dimitri/OpenClaw_Light/Dashboard_Environments.md
+/home/dimitri/OpenClaw_Light/Dashboard_Global_2.0.md
+/home/dimitri/OpenClaw_Light/A9-intelligence.js
+/home/dimitri/OpenClaw_Light/Tags_System.md
+/home/dimitri/OpenClaw_Light/package.json
+/home/dimitri/OpenClaw_Light/Dashboard_Analyse_Intelligente.md
+[DONE] Fri May  8 14:33:26 CEST 2026

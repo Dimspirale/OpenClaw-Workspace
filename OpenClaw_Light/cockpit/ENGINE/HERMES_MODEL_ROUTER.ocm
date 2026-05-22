@@ -1,0 +1,29 @@
+HERMES_MODEL_ROUTER {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    MODELS {
+        LIGHT_ENGINE: "llama3.1"
+        CODE_ENGINE: "qwen2.5:14b"
+    }
+
+    ROUTING_RULES {
+        PATCH: "LIGHT_ENGINE"
+        CUE: "LIGHT_ENGINE"
+        EFFECT: "LIGHT_ENGINE"
+        MACRO: "LIGHT_ENGINE"
+        CHECKLIST: "LIGHT_ENGINE"
+        DIAG: "LIGHT_ENGINE"
+
+        CODE: "CODE_ENGINE"
+        SCRIPT: "CODE_ENGINE"
+        ANALYSE: "CODE_ENGINE"
+        OPTIMISATION: "CODE_ENGINE"
+    }
+
+    SIGNATURE {
+        ID: "HERMES_MODEL_ROUTER"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

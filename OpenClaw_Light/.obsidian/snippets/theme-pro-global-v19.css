@@ -1,0 +1,188 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V19 — ECHOFIELD
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- ECHOFIELD VARIABLES ---------- */
+:root {
+    --ef-low: #ff4f6b;      /* rupture, tension */
+    --ef-mid: #4fd1ff;      /* analyse, neutralité */
+    --ef-high: #5fffd4;     /* harmonie, clarté */
+
+    --ef-soft-low: rgba(255,79,107,0.35);
+    --ef-soft-mid: rgba(79,209,255,0.35);
+    --ef-soft-high: rgba(95,255,212,0.35);
+
+    --ef-wave-speed: 7.2s;
+    --ef-breath-speed: 4.8s;
+    --ef-pulse-speed: 2.6s;
+
+    --ef-echo-opacity: 0.22;
+    --ef-afterglow-opacity: 0.18;
+}
+
+/* ---------------------------------------------------------
+   1) ECHOFIELD ENGINE — ÉTATS DE RÉSONANCE
+   data-echofield="low|mid|high"
+   --------------------------------------------------------- */
+
+[data-echofield="low"] {
+    --ef-current: var(--ef-low);
+    --ef-current-soft: var(--ef-soft-low);
+}
+
+[data-echofield="mid"] {
+    --ef-current: var(--ef-mid);
+    --ef-current-soft: var(--ef-soft-mid);
+}
+
+[data-echofield="high"] {
+    --ef-current: var(--ef-high);
+    --ef-current-soft: var(--ef-soft-high);
+}
+
+/* ---------------------------------------------------------
+   2) ECHOFIELD SURFACE — ONDES + MÉMOIRE
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -45%;
+    background-image:
+        /* onde principale */
+        radial-gradient(circle at 50% 50%, var(--ef-current-soft) 0, transparent 65%),
+        /* écho secondaire */
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,var(--ef-afterglow-opacity)) 0, transparent 55%),
+        /* propagation */
+        repeating-linear-gradient(
+            135deg,
+            rgba(255,255,255,var(--ef-echo-opacity)) 0 4px,
+            transparent 4px 12px
+        );
+    opacity: 0.34;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: ef-wave var(--ef-wave-speed) ease-in-out infinite;
+}
+
+@keyframes ef-wave {
+    0%   { transform: translate3d(0,0,0) scale(1); opacity: 0.34; }
+    50%  { transform: translate3d(14px,-18px,0) scale(1.08); opacity: 0.40; }
+    100% { transform: translate3d(0,0,0) scale(1); opacity: 0.34; }
+}
+
+/* ---------------------------------------------------------
+   3) ECHOFIELD BREATH — RESPIRATION RÉSONANTE
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: ef-breath var(--ef-breath-speed) ease-in-out infinite;
+}
+
+@keyframes ef-breath {
+    0%   { box-shadow: 0 0 18px var(--ef-current-soft); }
+    50%  { box-shadow: 0 0 42px var(--ef-current-soft); }
+    100% { box-shadow: 0 0 18px var(--ef-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   4) ECHOFIELD PULSE — PULSATION DE MÉMOIRE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: ef-pulse var(--ef-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes ef-pulse {
+    0%   { text-shadow: 0 0 10px var(--ef-current-soft); }
+    50%  { text-shadow: 0 0 30px var(--ef-current-soft); }
+    100% { text-shadow: 0 0 10px var(--ef-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   5) ECHOFIELD GRADIENTS — SPECTRE DE RÉSONANCE
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--ef-low),
+        var(--ef-mid),
+        var(--ef-high)
+    );
+    box-shadow: 0 0 18px var(--ef-current-soft);
+}
+
+/* ---------------------------------------------------------
+   6) ECHOFIELD HEATMAP
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--ef-current-soft);
+    background: linear-gradient(
+        to top,
+        var(--ef-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow:
+        0 0 14px var(--ef-current-soft),
+        0 0 24px rgba(255,255,255,0.12);
+}
+
+/* ---------------------------------------------------------
+   7) ECHOFIELD RADAR
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--ef-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow: 0 0 22px var(--ef-current-soft);
+}
+
+/* ---------------------------------------------------------
+   8) ECHOFIELD TITLES
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--ef-current);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-shadow: 0 0 18px var(--ef-current-soft);
+}
+
+/* ---------------------------------------------------------
+   9) ECHOFIELD HOVER — ÉCHO IMMÉDIAT
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--ef-current-soft);
+    outline-offset: 2px;
+    filter: brightness(1.22);
+}

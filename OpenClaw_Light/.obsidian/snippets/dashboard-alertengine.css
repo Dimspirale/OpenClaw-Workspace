@@ -1,0 +1,55 @@
+/* THEME PRO v3.0 — Alert Engine Integration */
+:root {
+  --ae-bg:      var(--t-bg);
+  --ae-soft:    var(--t-soft);
+  --ae-border:  var(--t-border);
+  --ae-text:    var(--t-text);
+  --ae-accent:  var(--t-accent);
+  --ae-crit:    var(--t-crit);
+  --ae-warn:    var(--t-warn);
+  --ae-danger:  var(--t-danger);
+  --ae-radius:  var(--t-r-md);
+  --ae-shadow:  var(--t-depth-mid);
+}
+
+#ae-root {
+  background: var(--ae-bg);
+  border: 1px solid var(--ae-border);
+  border-radius: var(--ae-radius);
+  box-shadow: var(--ae-shadow);
+  color: var(--ae-text);
+}
+
+.ae-counter {
+  background: var(--ae-soft);
+  border: 1px solid var(--ae-border);
+  border-radius: var(--ae-radius);
+}
+
+.ae-critical {
+  background: rgba( var(--t-crit-rgb), 0.15 );
+  border-left: 4px solid var(--ae-crit);
+}
+
+.ae-delayed {
+  background: rgba( var(--t-warn-rgb), 0.15 );
+  border-left: 4px solid var(--ae-warn);
+}
+
+.ae-missing {
+  background: rgba( var(--t-danger-rgb), 0.15 );
+  border-left: 4px solid var(--ae-danger);
+}
+
+.ae-btn {
+  background: var(--ae-soft);
+  border: 1px solid var(--ae-border);
+  border-radius: var(--ae-radius);
+  color: var(--ae-text);
+  transition: background var(--t-fast), border var(--t-fast), transform var(--t-fast);
+}
+
+.ae-btn:hover {
+  background: var(--t-soft);
+  border-color: var(--ae-accent);
+}

@@ -1,0 +1,108 @@
+HERMES_AI_TIMECODE {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    CAPABILITIES {
+        TIMECODE_GENERATION: "ENABLED"
+        TIMECODE_SYNC: "ENABLED"
+        TIMELINE_BUILD: "ENABLED"
+        AUTO_CUE_BINDING: "ENABLED"
+        AUTO_EFFECT_BINDING: "ENABLED"
+        BPM_ALIGN: "ENABLED"
+        DROP_ALIGN: "ENABLED"
+        BREAK_ALIGN: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+    }
+
+    INPUT {
+        AUDIO_FILE: "<path>"
+        SHOW_NAME: "<name>"
+        FPS: 30
+        FORMAT: "SMPTE"
+    }
+
+    COMMANDS {
+        GENERATE: "timecode generate <audiofile> name <showname>"
+        SYNC: "timecode sync"
+        PREVIEW: "timecode preview"
+        EXPORT: "timecode export <console>"
+    }
+
+    ENGINE {
+
+        AUDIO_ANALYSIS_LOGIC: "
+            BPM=$(hermes audio bpm $AUDIO_FILE)
+            BEATGRID=$(hermes audio beatgrid $AUDIO_FILE)
+            SECTIONS=$(hermes audio sections $AUDIO_FILE)
+            DROPS=$(hermes audio drops $AUDIO_FILE)
+            BREAKS=$(hermes audio breaks $AUDIO_FILE)
+            LENGTH=$(hermes audio length $AUDIO_FILE)
+        "
+
+        TIMECODE_GENERATION_LOGIC: "
+            hermes timecode clear
+            hermes timecode set_format $FORMAT
+            hermes timecode set_fps $FPS
+            hermes timecode set_length $LENGTH
+            hermes timecode generate_from_beatgrid $BEATGRID
+        "
+
+        TIMELINE_LOGIC: "
+            hermes timeline clear
+            hermes timeline add_sections $SECTIONS
+            hermes timeline add_drops $DROPS
+            hermes timeline add_breaks $BREAKS
+            hermes timeline align_to_timecode
+        "
+
+        CUE_BINDING_LOGIC: "
+            hermes cues bind_to_timecode
+        "
+
+        EFFECT_BINDING_LOGIC: "
+            hermes effects bind_to_timecode
+        "
+
+        OPTIMIZATION_LOGIC: "
+            hermes timeline optimize_transitions
+            hermes timeline smooth_cues
+        "
+
+        EXPORT_LOGIC: "
+            case $console in
+                MA2)
+                    hermes timecode export_ma2
+                    ;;
+                MA3)
+                    hermes timecode export_ma3
+                    ;;
+                ONYX)
+                    hermes timecode export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "SHOW_NAME",
+            "FORMAT",
+            "FPS",
+            "BPM",
+            "SECTIONS",
+            "DROPS",
+            "BREAKS",
+            "TIMECODE_LENGTH",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_TIMECODE"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

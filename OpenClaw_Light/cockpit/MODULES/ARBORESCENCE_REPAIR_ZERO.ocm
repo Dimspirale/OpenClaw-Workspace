@@ -1,0 +1,28 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_ZERO.ocm — Hermès Cockpit Arborescence Repair ZERO v1.0
+# Version minimaliste absolue — exécutable même en mode dégradé
+
+ROOT="$HOME/OpenClaw_Light"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR ZERO — MODE DÉGRADÉ ==="
+echo "Racine : $ROOT"
+echo
+
+echo "[0] Suppression des fichiers parasites..."
+find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \;
+find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \;
+
+echo
+echo "[0] Correction des permissions..."
+find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \;
+
+echo
+echo "[0] Conversion CRLF → LF..."
+grep -rl $'\r' "$ROOT" | xargs -I {} sed -i 's/\r$//' {}
+
+echo
+echo "[0] Vérification minimale..."
+find "$ROOT" -maxdepth 3 -type d
+
+echo
+echo "=== ARBORESCENCE_REPAIR_ZERO — TERMINÉ ==="

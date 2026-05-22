@@ -1,0 +1,107 @@
+HERMES_AI_DIRECTOR {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    CAPABILITIES {
+        AUDIO_ANALYSIS: "ENABLED"
+        BPM_DETECTION: "ENABLED"
+        BEATGRID: "ENABLED"
+        ENERGY_MAP: "ENABLED"
+        SECTION_DETECTION: "ENABLED"
+        DROP_DETECTION: "ENABLED"
+        BREAK_DETECTION: "ENABLED"
+        AUTO_CUE_GENERATION: "ENABLED"
+        AUTO_EFFECTS: "ENABLED"
+        AUTO_TIMELINE: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+    }
+
+    INPUT {
+        AUDIO_FILE: "<path>"
+        SHOW_NAME: "<name>"
+    }
+
+    COMMANDS {
+        ANALYZE: "director analyze <audiofile>"
+        BUILD_SHOW: "director build <audiofile> name <showname>"
+        EXPORT: "director export <console>"
+        PREVIEW: "director preview"
+    }
+
+    ENGINE {
+
+        AUDIO_ANALYSIS_LOGIC: "
+            BPM=$(hermes audio bpm $AUDIO_FILE)
+            BEATGRID=$(hermes audio beatgrid $AUDIO_FILE)
+            ENERGY=$(hermes audio energy_map $AUDIO_FILE)
+            SECTIONS=$(hermes audio sections $AUDIO_FILE)
+            DROPS=$(hermes audio drops $AUDIO_FILE)
+            BREAKS=$(hermes audio breaks $AUDIO_FILE)
+        "
+
+        TIMELINE_LOGIC: "
+            hermes timeline clear
+            hermes timeline add_sections $SECTIONS
+            hermes timeline add_energy $ENERGY
+            hermes timeline add_drops $DROPS
+            hermes timeline add_breaks $BREAKS
+            hermes timeline align_to_beatgrid $BEATGRID
+        "
+
+        CUE_GENERATION_LOGIC: "
+            hermes cues auto_from_sections $SECTIONS
+            hermes cues auto_from_energy $ENERGY
+            hermes cues auto_from_drops $DROPS
+            hermes cues auto_from_breaks $BREAKS
+        "
+
+        EFFECTS_LOGIC: "
+            hermes effects wave_complex groups ALL waveform sine speed 1 size 80 phase 0
+            hermes effects colorflow_pro mode rainbow speed 1.5 phase 45
+            hermes effects chase_multi groups G1,G2,G3 speed 2 offset 120
+            hermes effects pixelmap2d matrix AUTO mode gradient speed 1
+        "
+
+        TIMELINE_BINDING_LOGIC: "
+            hermes timeline bind_cues
+            hermes timeline bind_effects
+            hermes timeline optimize_transitions
+        "
+
+        EXPORT_LOGIC: "
+            case $console in
+                MA2)
+                    hermes show export_ma2
+                    ;;
+                MA3)
+                    hermes show export_ma3
+                    ;;
+                ONYX)
+                    hermes show export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "SHOW_NAME",
+            "BPM",
+            "SECTIONS",
+            "DROPS",
+            "BREAKS",
+            "CUES_GENERATED",
+            "EFFECTS_GENERATED",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_DIRECTOR"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

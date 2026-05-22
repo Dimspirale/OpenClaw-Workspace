@@ -1,0 +1,125 @@
+/* ============================================================
+   PACK UI PRO v∞.Ω — THEME GLOBAL FINAL
+   Cockpit/HUD/OPS — Dimitri Edition
+   ============================================================ */
+
+/* --- PALETTE PRINCIPALE ------------------------------------ */
+:root {
+  --ui-bg: #0b0f17;
+  --ui-bg-alt: #111722;
+  --ui-panel: #141a26;
+  --ui-border: #1f2633;
+
+  --ui-accent: #4da6ff;
+  --ui-accent-soft: #4da6ff22;
+  --ui-accent-strong: #4da6ffdd;
+
+  --ui-text: #d9e2f2;
+  --ui-text-dim: #9aa4b8;
+  --ui-text-strong: #ffffff;
+
+  --ui-success: #4dffb8;
+  --ui-warning: #ffd24d;
+  --ui-danger: #ff4d6a;
+
+  --ui-radius: 8px;
+  --ui-radius-sm: 4px;
+  --ui-radius-lg: 12px;
+
+  --ui-blur: 18px;
+  --ui-shadow: 0 0 32px #4da6ff22;
+}
+
+/* --- FOND GLOBAL ------------------------------------------- */
+body {
+  background: var(--ui-bg);
+  color: var(--ui-text);
+}
+
+/* --- PANNEAUX ---------------------------------------------- */
+.cm-s-obsidian .cm-line,
+.markdown-preview-view {
+  background: var(--ui-panel) !important;
+  border-radius: var(--ui-radius);
+  box-shadow: var(--ui-shadow);
+  padding: 8px 14px;
+}
+
+/* --- TITRES ------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ui-accent);
+  text-shadow: 0 0 12px var(--ui-accent-soft);
+}
+
+/* --- LIENS ------------------------------------------------- */
+a {
+  color: var(--ui-accent);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--ui-accent-strong);
+  text-shadow: 0 0 8px var(--ui-accent-soft);
+}
+
+/* --- TABLES ------------------------------------------------ */
+table {
+  background: var(--ui-bg-alt);
+  border-radius: var(--ui-radius);
+  border: 1px solid var(--ui-border);
+}
+th {
+  background: var(--ui-panel);
+  color: var(--ui-accent);
+}
+td {
+  border-top: 1px solid var(--ui-border);
+}
+
+/* --- BOUTONS ---------------------------------------------- */
+button, .mod-cta {
+  background: var(--ui-accent);
+  color: #000;
+  border-radius: var(--ui-radius-sm);
+  padding: 6px 12px;
+  transition: 0.2s ease;
+}
+button:hover, .mod-cta:hover {
+  background: var(--ui-accent-strong);
+  box-shadow: 0 0 16px var(--ui-accent-soft);
+}
+
+/* --- ANIMATIONS GLOBALES ---------------------------------- */
+@keyframes uiPulse {
+  0% { filter: drop-shadow(0 0 0px var(--ui-accent-soft)); }
+  50% { filter: drop-shadow(0 0 22px var(--ui-accent-soft)); }
+  100% { filter: drop-shadow(0 0 0px var(--ui-accent-soft)); }
+}
+
+.ui-pulse {
+  animation: uiPulse 6s ease-in-out infinite;
+}
+
+/* --- HUD --------------------------------------------------- */
+.hud-element {
+  background: var(--ui-bg-alt);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius);
+  padding: 6px 10px;
+  box-shadow: 0 0 18px #4da6ff11;
+}
+
+/* --- FX ---------------------------------------------------- */
+.fx-glow {
+  animation: fxGlow 12s ease-in-out infinite;
+}
+@keyframes fxGlow {
+  0% { opacity: .8; }
+  50% { opacity: 1; }
+  100% { opacity: .8; }
+}
+
+/* --- SÉCURITÉ VISUELLE ------------------------------------ */
+.sec-locked {
+  border: 1px solid var(--ui-danger);
+  box-shadow: 0 0 12px #ff4d6a55;
+}

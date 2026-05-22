@@ -1,0 +1,96 @@
+#!/bin/bash
+# hermes — cockpit-safe, modulaire et auto-adaptatif avec HUD animé + NEBULA continu
+# Place : ~/OpenClaw_Light/cockpit/ENGINE/hermes
+
+ENGINE="$HOME/OpenClaw_Light/cockpit/ENGINE"
+MODULES="$HOME/OpenClaw_Light/cockpit/MODULES"
+
+HUD=false; ORACLE=false; EVO=false; WATCH=false
+
+# Lecture des options
+for arg in "$@"; do
+  case $arg in
+    --hud) HUD=true ;;
+    --oracle) ORACLE=true ;;
+    --evo) EVO=true ;;
+    --watch) WATCH=true ;;
+  esac
+done
+
+# AUTO-ADAPT si aucune option donnée
+if ! $HUD && ! $ORACLE && ! $EVO && ! $WATCH; then
+  CPU=$(grep 'cpu ' /proc/stat | awk '{u=$2+$4; t=$2+$4+$5} END {print u/t*100}')
+  LAST_CMD=$(history | tail -n 2 | head -n 1 | sed 's/^[ ]*[0-9]\+[ ]*//')
+  [ "$(echo "$CPU > 50" | bc)" -eq 1 ] && HUD=true
+  [[ "$LAST_CMD" == *git* ]] && ORACLE=true
+  [[ "$LAST_CMD" == *build* ]] && EVO=true
+  WATCH=true
+fi
+
+echo "=== HERMÈS UNIVERSAL WRAPPER — MODULAIRE + AUTO-ADAPT ==="
+
+# Étapes de base
+"$ENGINE/core"; "$ENGINE/hermes-os"; "$ENGINE/cockpit"; "$ENGINE/fusion"
+
+# Protection éternelle
+[ -x "$MODULES/ARBORESCENCE_REPAIR_FINALIS_ETERNAL.ocm" ] && "$MODULES/ARBORESCENCE_REPAIR_FINALIS_ETERNAL.ocm" &
+
+###############################################
+# HUD animé + NEBULA continu
+###############################################
+if $HUD; then
+  CPU=$(grep 'cpu ' /proc/stat | awk '{u=$2+$4; t=$2+$4+$5} END {print int(u/t*100)}')
+  RAM_USED=$(free -m | awk '/Mem:/ {print $3}')
+  RAM_TOTAL=$(free -m | awk '/Mem:/ {print $2}')
+  RAM_RATIO=$((RAM_USED * 10 / RAM_TOTAL))
+  NET=$(ping -c 1 8.8.8.8 | awk -F'time=' '/time=/ {print int($2)}' | cut -d' ' -f1)
+  GPU=$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits 2>/dev/null)
+
+  echo "=== HUD PRIME+ ANIMÉ ==="
+  echo -e "U1|AI|PX|SH | CPU:$CPU% | RAM:$RAM_USED/$RAM_TOTAL MB | NET:${NET}ms | GPU:${GPU:-N/A}"
+
+  animate_bar() {
+    local label=$1 value=$2 color=$3
+    echo -ne "$label: "
+    for i in $(seq 1 $value); do
+      echo -ne "\033[${color}m█\033[0m"
+      sleep 0.05
+    done
+    echo
+  }
+
+  animate_bar "CPU" $((CPU/10)) "32"   # vert
+  animate_bar "RAM" $RAM_RATIO "34"    # bleu
+  animate_bar "NET" 3 "36"             # cyan
+  animate_bar "COHERENCE" 5 "35"       # magenta
+
+  echo "=== HUD PRIME+ ANIMÉ TERMINÉ ==="
+
+  # NEBULA continu
+  echo "[NEBULA] Animation continue activée"
+  while true; do
+    for c in {31..36}; do
+      echo -ne "\033[${c}m███\033[0m "
+      sleep 0.1
+    done
+    echo -ne "\r"
+  done &
+fi
+
+###############################################
+# ORACLE
+###############################################
+$ORACLE && {
+  LAST_CMD=$(history | tail -n 2 | head -n 1 | sed 's/^[ ]*[0-9]\+[ ]*//')
+  echo "[ORACLE] Dernière commande : $LAST_CMD"
+}
+
+###############################################
+# SINGULARITY
+###############################################
+$EVO && echo "[SINGULARITY] Auto-évolution activée"
+
+###############################################
+# INFINITY
+###############################################
+$WATCH && echo "[INFINITY] Surveillance continue activée"

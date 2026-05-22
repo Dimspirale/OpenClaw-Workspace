@@ -1,0 +1,30 @@
+# META_OPS_OMEGA.ocm
+# OpenClaw_Light — META_OPS OMEGA
+# Couche fondamentale, base ontologique, point zéro du système
+
+META_OPS_OMEGA {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "META_OPS"
+
+    ROLE: "OMEGA"
+    DESCRIPTION: "Couche fondamentale. Base ontologique. Origine du flux META_OPS."
+
+    ENGINE {
+        ENABLED: true
+        PROVIDE_GROUND: true
+        PROVIDE_STABILITY: true
+        PROVIDE_ALIGNMENT: true
+    }
+
+    OUTPUT {
+        NEXT: "META_OPS_ALPHA"
+        FLOW: "OMEGA → ALPHA"
+    }
+
+    SIGNATURE {
+        ID: "META_OPS_OMEGA"
+        TYPE: "LAYER"
+        HASH: "AUTO"
+    }
+}

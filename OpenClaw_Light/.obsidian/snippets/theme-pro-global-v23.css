@@ -1,0 +1,201 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V23 — SINGULARITY PRIME
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- PRIME VARIABLES ---------- */
+:root {
+    --sp-low: #ff4f6b;
+    --sp-mid: #4fd1ff;
+    --sp-high: #5fffd4;
+
+    --sp-soft-low: rgba(255,79,107,0.38);
+    --sp-soft-mid: rgba(79,209,255,0.38);
+    --sp-soft-high: rgba(95,255,212,0.38);
+
+    --sp-fusion-speed: 9.6s;
+    --sp-breath-speed: 5.2s;
+    --sp-pulse-speed: 2.2s;
+
+    --sp-hybrid-opacity: 0.30;
+    --sp-core-opacity: 0.24;
+}
+
+/* ---------------------------------------------------------
+   1) PRIME ENGINE — ÉTATS DE FUSION
+   data-prime="low|mid|high"
+   --------------------------------------------------------- */
+
+[data-prime="low"] {
+    --sp-current: var(--sp-low);
+    --sp-current-soft: var(--sp-soft-low);
+}
+
+[data-prime="mid"] {
+    --sp-current: var(--sp-mid);
+    --sp-current-soft: var(--sp-soft-mid);
+}
+
+[data-prime="high"] {
+    --sp-current: var(--sp-high);
+    --sp-current-soft: var(--sp-soft-high);
+}
+
+/* ---------------------------------------------------------
+   2) PRIME SURFACE — MATIÈRE HYBRIDE
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -52%;
+    background-image:
+        /* tissage infini (V22) */
+        repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,var(--sp-hybrid-opacity)) 0 3px,
+            transparent 3px 10px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            rgba(255,255,255,var(--sp-hybrid-opacity)) 0 3px,
+            transparent 3px 10px
+        ),
+        /* champ du vide (V21) */
+        radial-gradient(circle at 50% 50%, var(--sp-current-soft) 0, transparent 70%),
+        /* cœur prismatique (V20) */
+        conic-gradient(
+            from 0deg,
+            var(--sp-low),
+            var(--sp-mid),
+            var(--sp-high),
+            var(--sp-low)
+        ),
+        /* halo structurel */
+        radial-gradient(circle at 30% 20%, rgba(255,255,255,var(--sp-core-opacity)) 0, transparent 55%);
+    opacity: 0.40;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: sp-fusion var(--sp-fusion-speed) linear infinite;
+}
+
+@keyframes sp-fusion {
+    0%   { transform: rotate(0deg) scale(1); }
+    50%  { transform: rotate(180deg) scale(1.08); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+/* ---------------------------------------------------------
+   3) PRIME BREATH — RESPIRATION DE FUSION
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: sp-breath var(--sp-breath-speed) ease-in-out infinite;
+}
+
+@keyframes sp-breath {
+    0%   { box-shadow: 0 0 22px var(--sp-current-soft); }
+    50%  { box-shadow: 0 0 48px var(--sp-current-soft); }
+    100% { box-shadow: 0 0 22px var(--sp-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   4) PRIME PULSE — PULSATION DE SINGULARITÉ
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: sp-pulse var(--sp-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes sp-pulse {
+    0%   { text-shadow: 0 0 12px var(--sp-current-soft); }
+    50%  { text-shadow: 0 0 36px var(--sp-current-soft); }
+    100% { text-shadow: 0 0 12px var(--sp-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   5) PRIME GRADIENTS — SPECTRE FUSIONNÉ
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--sp-low),
+        var(--sp-mid),
+        var(--sp-high)
+    );
+    box-shadow: 0 0 22px var(--sp-current-soft);
+}
+
+/* ---------------------------------------------------------
+   6) PRIME HEATMAP
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--sp-current-soft);
+    background: linear-gradient(
+        to top,
+        var(--sp-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow:
+        0 0 18px var(--sp-current-soft),
+        0 0 28px rgba(255,255,255,0.12);
+}
+
+/* ---------------------------------------------------------
+   7) PRIME RADAR
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--sp-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow: 0 0 26px var(--sp-current-soft);
+}
+
+/* ---------------------------------------------------------
+   8) PRIME TITLES
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--sp-current);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    text-shadow: 0 0 24px var(--sp-current-soft);
+}
+
+/* ---------------------------------------------------------
+   9) PRIME HOVER — RÉACTION DE FUSION
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--sp-current-soft);
+    outline-offset: 2px;
+    filter: brightness(1.28);
+}

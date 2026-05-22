@@ -1,0 +1,69 @@
+#!/bin/bash
+# ARBORESCENCE_REPAIR_Ω.ocm — Hermès Cockpit Arborescence Repair Ω v2.0
+# Auto-réparation intelligente + logs cockpit-grade
+
+ROOT="$HOME/OpenClaw_Light"
+LOG="$ROOT/cockpit/reports/ARBORESCENCE_REPAIR_Ω.log"
+
+echo "=== HERMÈS ARBORESCENCE REPAIR Ω — DÉMARRAGE ==="
+echo "Log : $LOG"
+echo "Racine : $ROOT"
+echo
+
+echo "[Ω] Initialisation du log..."
+echo "=== ARBORESCENCE_REPAIR_Ω — $(date) ===" > "$LOG"
+
+echo "[Ω] Vérification des dossiers critiques..."
+CRITICAL_DIRS=(
+  "cockpit"
+  "cockpit/MODULES"
+  "cockpit/ENGINE"
+  "modules"
+  "core"
+  "engine"
+  "hud"
+  "system"
+)
+
+for d in "${CRITICAL_DIRS[@]}"; do
+  if [ ! -d "$ROOT/$d" ]; then
+    echo "  → Création : $d"
+    echo "[CREATE] $d" >> "$LOG"
+    mkdir -p "$ROOT/$d"
+  else
+    echo "  ✔ $d OK"
+    echo "[OK] $d" >> "$LOG"
+  fi
+done
+
+echo
+echo "[Ω] Nettoyage des fichiers Zone.Identifier..."
+find "$ROOT" -type f -name "*:Zone.Identifier" -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+
+echo
+echo "[Ω] Nettoyage des copies Windows..."
+find "$ROOT" -type f \( -name "*Copie*" -o -name "*(*).*" \) -exec rm -f {} \; -exec echo "[DEL] {}" >> "$LOG" \;
+
+echo
+echo "[Ω] Correction des permissions..."
+find "$ROOT" -type f \( -name "*.sh" -o -name "*.ocm" \) -exec chmod +x {} \; -exec echo "[CHMOD] {}" >> "$LOG" \;
+
+echo
+echo "[Ω] Détection et conversion CRLF → LF..."
+CRLF_FILES=$(grep -rl $'\r' "$ROOT")
+if [ -n "$CRLF_FILES" ]; then
+  echo "$CRLF_FILES" | while read -r f; do
+    sed -i 's/\r$//' "$f"
+    echo "[LF] $f" >> "$LOG"
+  done
+else
+  echo "Aucun fichier CRLF détecté."
+fi
+
+echo
+echo "[Ω] Vérification finale..."
+find "$ROOT" -maxdepth 4 -type d
+
+echo
+echo "=== ARBORESCENCE_REPAIR_Ω — TERMINÉ ==="
+echo "[DONE] $(date)" >> "$LOG"

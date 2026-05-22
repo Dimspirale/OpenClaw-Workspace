@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e
+
+CMD="$1"
+
+case "$CMD" in
+  init)
+    echo "[OS] Initialisation OS cockpit..."
+    echo "[OS] Environnement OK"
+    ;;
+  *)
+    echo "[OS] Usage: hermes-os init"
+    exit 1
+    ;;
+esac

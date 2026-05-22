@@ -1,0 +1,133 @@
+HERMES_AI_SHOWMASTER {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    MODULES_REQUIRED {
+        DIRECTOR: "HERMES_AI_DIRECTOR"
+        TIMECODE: "HERMES_AI_TIMECODE"
+        AUDIOREACTOR: "HERMES_AI_AUDIOREACTOR"
+        SHOWBUILDER: "HERMES_LIGHT_SHOWBUILDER"
+        EFFECTS: "HERMES_LIGHT_EFFECTS_PRO"
+        PIXELENGINE: "HERMES_LIGHT_PIXELENGINE"
+        AUTOPATCH: "HERMES_LIGHT_AUTOPATCH"
+    }
+
+    CAPABILITIES {
+        MULTI_SCENE: "ENABLED"
+        MULTI_TIMELINE: "ENABLED"
+        MULTI_UNIVERSE: "ENABLED"
+        AI_SCENE_GENERATION: "ENABLED"
+        AI_TRANSITIONS: "ENABLED"
+        AI_TIMECODE_SYNC: "ENABLED"
+        AI_AUDIO_SYNC: "ENABLED"
+        AUTO_STRUCTURE: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+    }
+
+    INPUT {
+        AUDIO_FILE: "<path>"
+        SHOW_NAME: "<name>"
+        SCENE_COUNT: "AUTO"
+        TIMELINE_MODE: ["AUDIO", "TIMECODE", "HYBRID"]
+    }
+
+    COMMANDS {
+        BUILD: "showmaster build <audiofile> name <showname>"
+        PREVIEW: "showmaster preview"
+        EXPORT: "showmaster export <console>"
+        SCENE_MAP: "showmaster scenemap"
+        TIMELINE_MAP: "showmaster timelinemap"
+    }
+
+    ENGINE {
+
+        STEP_1_ANALYZE_AUDIO: "
+            BPM=$(hermes audio bpm $AUDIO_FILE)
+            SECTIONS=$(hermes audio sections $AUDIO_FILE)
+            DROPS=$(hermes audio drops $AUDIO_FILE)
+            BREAKS=$(hermes audio breaks $AUDIO_FILE)
+            ENERGY=$(hermes audio energy_map $AUDIO_FILE)
+            LENGTH=$(hermes audio length $AUDIO_FILE)
+        "
+
+        STEP_2_SCENE_GENERATION: "
+            hermes scenes clear
+            hermes scenes generate_from_sections $SECTIONS
+            hermes scenes tag_drops $DROPS
+            hermes scenes tag_breaks $BREAKS
+            hermes scenes optimize
+        "
+
+        STEP_3_TIMELINE_BUILD: "
+            hermes timeline clear
+            hermes timeline add_scenes
+            hermes timeline add_energy $ENERGY
+            hermes timeline align_to_audio
+        "
+
+        STEP_4_TIMECODE_INTEGRATION: "
+            hermes timecode generate $AUDIO_FILE name $SHOW_NAME
+            hermes timeline align_to_timecode
+        "
+
+        STEP_5_CUE_GENERATION: "
+            hermes cues auto_from_scenes
+            hermes cues auto_from_energy $ENERGY
+            hermes cues auto_from_drops $DROPS
+            hermes cues auto_from_breaks $BREAKS
+        "
+
+        STEP_6_EFFECTS_GENERATION: "
+            hermes effects wave_complex groups ALL waveform sine speed 1 size 80 phase 0
+            hermes effects colorflow_pro mode rainbow speed 1.5 phase 45
+            hermes effects chase_multi groups G1,G2,G3 speed 2 offset 120
+            hermes effects pixelmap2d matrix AUTO mode gradient speed 1
+        "
+
+        STEP_7_BINDING: "
+            hermes timeline bind_cues
+            hermes timeline bind_effects
+            hermes timeline optimize_transitions
+        "
+
+        STEP_8_STRUCTURE: "
+            hermes show structure_auto
+            hermes show optimize
+        "
+
+        STEP_9_EXPORT: "
+            case $console in
+                MA2)
+                    hermes show export_ma2
+                    ;;
+                MA3)
+                    hermes show export_ma3
+                    ;;
+                ONYX)
+                    hermes show export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "SHOW_NAME",
+            "SCENES",
+            "TIMELINES",
+            "CUES",
+            "EFFECTS",
+            "LENGTH",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_SHOWMASTER"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

@@ -1,0 +1,176 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL VΩ — ORIGIN RETURN
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- ORIGIN VARIABLES (unité totale) ---------- */
+:root {
+    --omega-origin: rgba(255,255,255,0.06);
+    --omega-core: rgba(255,255,255,0.10);
+    --omega-thread: rgba(255,255,255,0.14);
+
+    --omega-breath: 7.4s;
+    --omega-pulse: 3.2s;
+    --omega-shift: 10.2s;
+}
+
+/* ---------------------------------------------------------
+   1) ORIGIN ENGINE — UN SEUL ÉTAT
+   (aucun data-attribute, car tout est déjà unifié)
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   2) ORIGIN SURFACE — TISSAGE + PRISME + VIDE + FUSION
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -55%;
+    background-image:
+        /* tissage infini (V22) */
+        repeating-linear-gradient(
+            45deg,
+            var(--omega-thread) 0 3px,
+            transparent 3px 12px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            var(--omega-thread) 0 3px,
+            transparent 3px 12px
+        ),
+        /* prisme fondamental (V20) */
+        conic-gradient(
+            from 0deg,
+            var(--omega-origin),
+            var(--omega-core),
+            var(--omega-origin)
+        ),
+        /* champ du vide (V21) */
+        radial-gradient(circle at 50% 50%, var(--omega-core) 0, transparent 75%);
+    opacity: 0.28;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: omega-shift var(--omega-shift) ease-in-out infinite;
+}
+
+@keyframes omega-shift {
+    0%   { transform: scale(1) rotate(0deg); opacity: 0.26; }
+    50%  { transform: scale(1.06) rotate(180deg); opacity: 0.32; }
+    100% { transform: scale(1) rotate(360deg); opacity: 0.26; }
+}
+
+/* ---------------------------------------------------------
+   3) ORIGIN BREATH — RESPIRATION DE L’UNITÉ
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: omega-breath var(--omega-breath) ease-in-out infinite;
+}
+
+@keyframes omega-breath {
+    0%   { box-shadow: 0 0 18px var(--omega-core); }
+    50%  { box-shadow: 0 0 38px var(--omega-core); }
+    100% { box-shadow: 0 0 18px var(--omega-core); }
+}
+
+/* ---------------------------------------------------------
+   4) ORIGIN PULSE — PULSATION DE L’ESSENCE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: omega-pulse var(--omega-pulse) ease-in-out infinite;
+}
+
+@keyframes omega-pulse {
+    0%   { text-shadow: 0 0 6px var(--omega-core); }
+    50%  { text-shadow: 0 0 20px var(--omega-core); }
+    100% { text-shadow: 0 0 6px var(--omega-core); }
+}
+
+/* ---------------------------------------------------------
+   5) ORIGIN GRADIENTS — SPECTRE RÉUNIFIÉ
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--omega-origin),
+        var(--omega-core),
+        var(--omega-origin)
+    );
+    box-shadow: 0 0 18px var(--omega-core);
+}
+
+/* ---------------------------------------------------------
+   6) ORIGIN HEATMAP — MATRICE PURE
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--omega-core);
+    background: linear-gradient(
+        to top,
+        var(--omega-core),
+        transparent
+    );
+    box-shadow:
+        0 0 14px var(--omega-core),
+        0 0 20px var(--omega-origin);
+}
+
+/* ---------------------------------------------------------
+   7) ORIGIN RADAR — RÉSEAU TOTAL
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--omega-core),
+        transparent
+    );
+    box-shadow: 0 0 20px var(--omega-core);
+}
+
+/* ---------------------------------------------------------
+   8) ORIGIN TITLES — L’ESSENCE
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--omega-core);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-shadow: 0 0 16px var(--omega-core);
+}
+
+/* ---------------------------------------------------------
+   9) ORIGIN HOVER — RÉACTION DE L’UNITÉ
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--omega-core);
+    outline-offset: 2px;
+    filter: brightness(1.18);
+}

@@ -1,0 +1,184 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V14 — HYPERFLUX
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- HYPERFLUX VARIABLES ---------- */
+:root {
+    --hf-core-low: #ff4f6b;
+    --hf-core-mid: #4fd1ff;
+    --hf-core-high: #5fffd4;
+
+    --hf-soft-low: rgba(255,79,107,0.35);
+    --hf-soft-mid: rgba(79,209,255,0.35);
+    --hf-soft-high: rgba(95,255,212,0.35);
+
+    --hf-flow-speed: 3.2s;
+    --hf-breath-speed: 4.2s;
+    --hf-flux-speed: 6.8s;
+
+    --hf-vector-opacity: 0.22;
+}
+
+/* ---------------------------------------------------------
+   1) HYPERFLUX ENGINE — MULTI-ÉTATS
+   data-hyperflux="low|mid|high"
+   --------------------------------------------------------- */
+
+[data-hyperflux="low"] {
+    --hf-current: var(--hf-core-low);
+    --hf-current-soft: var(--hf-soft-low);
+}
+
+[data-hyperflux="mid"] {
+    --hf-current: var(--hf-core-mid);
+    --hf-current-soft: var(--hf-soft-mid);
+}
+
+[data-hyperflux="high"] {
+    --hf-current: var(--hf-core-high);
+    --hf-current-soft: var(--hf-soft-high);
+}
+
+/* ---------------------------------------------------------
+   2) HYPERFLUX SKIN — SURCOUCHE VECTORIELLE
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background-image:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,var(--hf-vector-opacity)) 0%,
+            transparent 60%
+        ),
+        radial-gradient(circle at 30% 20%, var(--hf-current-soft) 0, transparent 55%),
+        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.08) 0, transparent 60%);
+    opacity: 0.32;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: hf-flow var(--hf-flux-speed) ease-in-out infinite;
+}
+
+@keyframes hf-flow {
+    0%   { transform: translate3d(0,0,0) rotate(0deg); }
+    50%  { transform: translate3d(14px,-10px,0) rotate(2deg); }
+    100% { transform: translate3d(0,0,0) rotate(0deg); }
+}
+
+/* ---------------------------------------------------------
+   3) HYPERFLUX BREATH — RESPIRATION DYNAMIQUE
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: hf-breath var(--hf-breath-speed) ease-in-out infinite;
+}
+
+@keyframes hf-breath {
+    0%   { box-shadow: 0 0 14px var(--hf-current-soft); }
+    50%  { box-shadow: 0 0 32px var(--hf-current-soft); }
+    100% { box-shadow: 0 0 14px var(--hf-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   4) HYPERFLUX PULSE — PULSATION VECTORIELLE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: hf-pulse var(--hf-flow-speed) ease-in-out infinite;
+}
+
+@keyframes hf-pulse {
+    0%   { text-shadow: 0 0 6px var(--hf-current-soft); }
+    50%  { text-shadow: 0 0 24px var(--hf-current-soft); }
+    100% { text-shadow: 0 0 6px var(--hf-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   5) HYPERFLUX GRADIENTS — SPECTRE VECTORIEL
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--hf-core-low),
+        var(--hf-core-mid),
+        var(--hf-core-high)
+    );
+    box-shadow: 0 0 12px var(--hf-current-soft);
+}
+
+/* ---------------------------------------------------------
+   6) HYPERFLUX HEATMAP
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--hf-current-soft);
+    background: linear-gradient(
+        to top,
+        var(--hf-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow:
+        0 0 10px var(--hf-current-soft),
+        0 0 18px rgba(255,255,255,0.12);
+}
+
+/* ---------------------------------------------------------
+   7) HYPERFLUX RADAR
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--hf-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow: 0 0 16px var(--hf-current-soft);
+}
+
+/* ---------------------------------------------------------
+   8) HYPERFLUX TITLES
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--hf-current);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px var(--hf-current-soft);
+}
+
+/* ---------------------------------------------------------
+   9) HYPERFLUX HOVER
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--hf-current-soft);
+    outline-offset: 2px;
+    filter: brightness(1.14);
+}

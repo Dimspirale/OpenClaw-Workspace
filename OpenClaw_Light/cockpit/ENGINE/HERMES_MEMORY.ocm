@@ -1,0 +1,59 @@
+# HERMES_MEMORY.ocm
+# OpenClaw_Light — Hermes Memory Engine
+# Mémoire interne : états, patterns, historique cockpit, apprentissage contextuel
+
+HERMES_MEMORY {
+    VERSION: "1.0.0"
+    STATUS: "STABLE"
+    MODE: "MEMORY"
+
+    ROLE: "HERMES_MEMORY"
+    DESCRIPTION: "Moteur de mémoire interne d'Hermes. Stockage d'états, patterns, historiques, contextes, séquences apprises."
+
+    LINK {
+        HERMES_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_ENGINE.ocm"
+        HERMES_AI: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_AI.ocm"
+        HERMES_AUTOPILOT: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_AUTOPILOT.ocm"
+        META_OPS_ROOT: "~/OpenClaw_Light/COCKPIT/META_OPS"
+        FLOW_ENGINE: "~/OpenClaw_Light/COCKPIT/ENGINE/FLOW_ENGINE.ocm"
+        SYSTEM_ROOT: "~/OpenClaw_Light/SYSTEM"
+    }
+
+    MEMORY {
+        ENABLED: true
+        STORE_STATES: true
+        STORE_FLOW: true
+        STORE_META_OPS: true
+        STORE_AUTOPILOT: true
+        STORE_AI_CONTEXT: true
+        STORE_COMMANDS: true
+        STORE_PILOT: true
+        MAX_HISTORY: 500
+        PATTERN_DETECTION: true
+        CONTEXT_LEARNING: true
+    }
+
+    CAPABILITIES {
+        SAVE_STATE: true
+        LOAD_STATE: true
+        SAVE_PATTERN: true
+        DETECT_PATTERN: true
+        SAVE_CONTEXT: true
+        RESTORE_CONTEXT: true
+        PROVIDE_HISTORY: true
+        PROVIDE_MEMORY_VIEW: true
+        AI_MEMORY_ACCESS: true
+    }
+
+    OUTPUT {
+        PROVIDE_MEMORY_READY: true
+        PROVIDE_MEMORY_DATA: true
+        PROVIDE_PATTERNS: true
+    }
+
+    SIGNATURE {
+        ID: "HERMES_MEMORY"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

@@ -1,0 +1,147 @@
+/* ---------------------------------------------------------
+   PACK UI PRO v3 — Micro-Interactions
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- VARIABLES ANIMATIONS UI v3 ---------- */
+:root {
+    --ui3-accent: #4fd1ff;
+    --ui3-accent-soft: rgba(79,209,255,0.35);
+    --ui3-speed: 0.22s;
+    --ui3-ripple-size: 180px;
+}
+
+/* ---------------------------------------------------------
+   1) BUTTON PRO — Hover + Press + Release
+   --------------------------------------------------------- */
+
+.ui-btn {
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--ui3-speed), box-shadow var(--ui3-speed);
+}
+
+.ui-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 14px var(--ui3-accent-soft);
+}
+
+.ui-btn:active {
+    transform: scale(0.96);
+}
+
+/* Ripple effect */
+.ui-btn::after {
+    content: "";
+    position: absolute;
+    width: var(--ui3-ripple-size);
+    height: var(--ui3-ripple-size);
+    background: var(--ui3-accent-soft);
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.6s ease;
+}
+
+.ui-btn:active::after {
+    transform: scale(1);
+    opacity: 0.4;
+    left: calc(var(--x, 0px) - var(--ui3-ripple-size) / 2);
+    top: calc(var(--y, 0px) - var(--ui3-ripple-size) / 2);
+}
+
+/* ---------------------------------------------------------
+   2) TOGGLE PRO — Snap Animation
+   --------------------------------------------------------- */
+
+.ui-toggle {
+    transition: background var(--ui3-speed), border var(--ui3-speed);
+}
+
+.ui-toggle::after {
+    transition: transform var(--ui3-speed) cubic-bezier(.34,1.56,.64,1);
+}
+
+/* ---------------------------------------------------------
+   3) SLIDER PRO — Thumb Pulse
+   --------------------------------------------------------- */
+
+.ui-slider-thumb {
+    transition: transform var(--ui3-speed);
+}
+
+.ui-slider-thumb:hover {
+    transform: scale(1.18);
+    box-shadow: 0 0 16px var(--ui3-accent-soft);
+}
+
+/* ---------------------------------------------------------
+   4) KNOB PRO — Rotation Feedback
+   --------------------------------------------------------- */
+
+.ui-knob {
+    transition: transform var(--ui3-speed);
+}
+
+.ui-knob:active {
+    transform: scale(0.96);
+}
+
+/* ---------------------------------------------------------
+   5) DIAL PRO — Smooth Fill Animation
+   --------------------------------------------------------- */
+
+.ui-dial-fill {
+    transition: width 0.4s cubic-bezier(.25,.8,.25,1);
+}
+
+/* ---------------------------------------------------------
+   6) GAUGE PRO — Rising Fill
+   --------------------------------------------------------- */
+
+.ui-gauge-fill {
+    transition: height 0.4s cubic-bezier(.25,.8,.25,1);
+}
+
+/* ---------------------------------------------------------
+   7) ARC PRO — Glow Pulse
+   --------------------------------------------------------- */
+
+.ui-arc {
+    animation: ui3-arc-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes ui3-arc-pulse {
+    0%   { filter: drop-shadow(0 0 4px var(--ui3-accent-soft)); }
+    50%  { filter: drop-shadow(0 0 14px var(--ui3-accent-soft)); }
+    100% { filter: drop-shadow(0 0 4px var(--ui3-accent-soft)); }
+}
+
+/* ---------------------------------------------------------
+   8) RING PRO — Breathing Ring
+   --------------------------------------------------------- */
+
+.ui-ring {
+    animation: ui3-ring-breath 4.4s ease-in-out infinite;
+}
+
+@keyframes ui3-ring-breath {
+    0%   { opacity: 0.85; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.85; }
+}
+
+/* ---------------------------------------------------------
+   9) INDICATOR PRO — Blink
+   --------------------------------------------------------- */
+
+.ui-indicator {
+    animation: ui3-indicator-blink 2.6s ease-in-out infinite;
+}
+
+@keyframes ui3-indicator-blink {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.4; }
+    100% { opacity: 1; }
+}

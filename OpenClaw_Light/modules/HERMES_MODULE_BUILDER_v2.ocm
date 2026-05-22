@@ -1,0 +1,56 @@
+# ============================================================
+# HERMES_MODULE_BUILDER_v2.ocm
+# Générateur avancé de modules Hermès Cockpit / OpenClaw_Light
+# Auto-LF, anti-CRLF, validation syntaxique, header automatique
+# Commande : ocm new-module <Nom>
+# ============================================================
+
+ocm() {
+
+    if [ "$1" != "new-module" ] || [ -z "$2" ]; then
+        echo "Usage : ocm new-module <NomModule>"
+        return 1
+    fi
+
+    local NAME="$2"
+    local DIR="$HOME/OpenClaw_Light/modules"
+    local FILE="$DIR/${NAME}.ocm"
+
+    if [ ! -d "$DIR" ]; then
+        mkdir -p "$DIR"
+    fi
+
+    if [ -f "$FILE" ]; then
+        echo "Erreur : le module '$NAME' existe déjà."
+        return 1
+    fi
+
+    cat > "$FILE" <<EOF
+# ============================================================
+# ${NAME}.ocm
+# Module généré automatiquement par HERMES_MODULE_BUILDER_v2
+# Format : LF, cockpit-safe, sans couleurs, sans Unicode
+# ============================================================
+
+${NAME}() {
+    echo -n "${NAME}:OK"
+}
+EOF
+
+    sed -i 's/\r$//' "$FILE"
+
+    if grep -q $'\r' "$FILE"; then
+        echo "Erreur : CRLF détecté dans le module. Nettoyage requis."
+        return 1
+    fi
+
+    bash -n "$FILE" 2>/dev/null
+    if [ $? -ne 0 ]; then
+        echo "Erreur : syntaxe invalide dans le module généré."
+        return 1
+    fi
+
+    echo "Module créé : $FILE"
+    echo ". $FILE"
+    echo "${NAME}"
+}

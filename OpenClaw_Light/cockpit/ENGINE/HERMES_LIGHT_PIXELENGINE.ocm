@@ -1,0 +1,98 @@
+HERMES_LIGHT_PIXELENGINE {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    CAPABILITIES {
+        PIXELMAP_2D: "ENABLED"
+        PIXELMAP_3D: "ENABLED"
+        GRADIENTS: "ENABLED"
+        PATTERNS: "ENABLED"
+        AUDIO_REACTIVE: "DISABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+    }
+
+    PARAMETERS {
+        SPEED: "0.01-20"
+        BRIGHTNESS: "0-100"
+        CONTRAST: "0-100"
+        SATURATION: "0-100"
+
+        MATRIX_WIDTH: "AUTO"
+        MATRIX_HEIGHT: "AUTO"
+        MATRIX_DEPTH: "AUTO"
+
+        COLOR_MODES: ["solid", "gradient", "rainbow", "dual", "random"]
+        PATTERN_TYPES: ["bars", "waves", "circles", "noise", "lines", "checker", "spiral"]
+        DIRECTION: ["left", "right", "up", "down", "in", "out", "rotate"]
+    }
+
+    COMMANDS {
+        PIXELMAP_2D: "pixel 2d matrix <w>x<h> pattern <type> mode <color_mode> speed <s>"
+        PIXELMAP_3D: "pixel 3d matrix <w>x<h>x<d> pattern <type> mode <color_mode> speed <s>"
+        GRADIENT: "pixel gradient <w>x<h> colors <c1,c2,...> direction <dir> speed <s>"
+        PATTERN: "pixel pattern <type> matrix <w>x<h> speed <s>"
+        RANDOMIZE: "pixel random matrix <w>x<h> speed <s>"
+        EXPORT: "pixel export <console>"
+    }
+
+    ENGINE {
+
+        MATRIX_DETECT_LOGIC: "
+            hermes pixelmap detect_matrix
+        "
+
+        PIXELMAP_2D_LOGIC: "
+            hermes pixelmap build2d $matrix $pattern $mode $speed
+        "
+
+        PIXELMAP_3D_LOGIC: "
+            hermes pixelmap build3d $matrix $pattern $mode $speed
+        "
+
+        GRADIENT_LOGIC: "
+            hermes pixelmap gradient $matrix $colors $direction $speed
+        "
+
+        PATTERN_LOGIC: "
+            hermes pixelmap pattern $matrix $pattern $speed
+        "
+
+        RANDOMIZE_LOGIC: "
+            hermes pixelmap random $matrix $speed
+        "
+
+        EXPORT_LOGIC: "
+            case $console in
+                MA2)
+                    hermes pixelmap export_ma2
+                    ;;
+                MA3)
+                    hermes pixelmap export_ma3
+                    ;;
+                ONYX)
+                    hermes pixelmap export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "PIXELMAP_TYPE",
+            "MATRIX",
+            "PATTERN",
+            "MODE",
+            "SPEED",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_LIGHT_PIXELENGINE"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

@@ -1,0 +1,92 @@
+HERMES_AI_CORE {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    MODULES_REQUIRED {
+        MODEL_ROUTER: "HERMES_MODEL_ROUTER"
+        GPU_MONITOR: "HERMES_GPU_MONITOR"
+        ASSISTANT_EXT: "HERMES_LIGHT_ASSISTANT_EXT"
+    }
+
+    CAPABILITIES {
+        MODEL_ROUTING: "ENABLED"
+        CONTEXT_ENGINE: "ENABLED"
+        MEMORY_ENGINE: "ENABLED"
+        SAFETY_ENGINE: "ENABLED"
+        TELEMETRY: "ENABLED"
+    }
+
+    INPUT {
+        TASK_TYPE: "<LIGHT|CODE|AUDIO|SHOW|SYSTEM>"
+        PRIORITY: "<0-10>"
+    }
+
+    COMMANDS {
+        ROUTE: "core route <task>"
+        PROFILE: "core profile"
+        DIAG: "core diag"
+    }
+
+    ENGINE {
+
+        MODEL_ROUTING_LOGIC: "
+            case $TASK_TYPE in
+                LIGHT)
+                    MODEL=$(hermes router select 'llama3.1-light')
+                    ;;
+                CODE)
+                    MODEL=$(hermes router select 'qwen2.5-14b-code')
+                    ;;
+                AUDIO)
+                    MODEL=$(hermes router select 'audio-specialist')
+                    ;;
+                SHOW)
+                    MODEL=$(hermes router select 'showmaster-ia')
+                    ;;
+                SYSTEM)
+                    MODEL=$(hermes router select 'system-orchestrator')
+                    ;;
+            esac
+            hermes router apply $MODEL
+        "
+
+        CONTEXT_ENGINE_LOGIC: "
+            hermes context collect
+            hermes context compress
+            hermes context attach
+        "
+
+        MEMORY_ENGINE_LOGIC: "
+            hermes memory load_profile
+            hermes memory update_on_task
+        "
+
+        SAFETY_ENGINE_LOGIC: "
+            hermes safety apply_policies
+        "
+
+        TELEMETRY_LOGIC: "
+            hermes gpu monitor
+            hermes gpu optimize
+            hermes core stats
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "CORE_STATUS"
+        INCLUDE: [
+            "ACTIVE_MODEL",
+            "TASK_TYPE",
+            "GPU_LOAD",
+            "MEMORY_STATE",
+            "SAFETY_STATE",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_CORE"
+        TYPE: "CORE"
+        HASH: "AUTO"
+    }
+}

@@ -1,0 +1,153 @@
+/* ---------------------------------------------------------
+   PACK UI PRO v4 — Intelligent Widgets
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- VARIABLES INTELLIGENTES ---------- */
+:root {
+    --ui4-good: #5fffd4;
+    --ui4-warn: #ffd24f;
+    --ui4-bad: #ff4f6b;
+
+    --ui4-soft-good: rgba(95,255,212,0.35);
+    --ui4-soft-warn: rgba(255,210,79,0.35);
+    --ui4-soft-bad: rgba(255,79,107,0.35);
+
+    --ui4-speed: 0.25s;
+}
+
+/* ---------------------------------------------------------
+   1) AUTO-STATE — Coloration intelligente
+   --------------------------------------------------------- */
+
+[data-state="good"] {
+    --ui4-current: var(--ui4-good);
+    --ui4-current-soft: var(--ui4-soft-good);
+}
+
+[data-state="warn"] {
+    --ui4-current: var(--ui4-warn);
+    --ui4-current-soft: var(--ui4-soft-warn);
+}
+
+[data-state="bad"] {
+    --ui4-current: var(--ui4-bad);
+    --ui4-current-soft: var(--ui4-soft-bad);
+}
+
+/* ---------------------------------------------------------
+   2) BUTTON PRO — Feedback intelligent
+   --------------------------------------------------------- */
+
+.ui-btn[data-state] {
+    border-color: var(--ui4-current);
+    color: var(--ui4-current);
+    box-shadow: 0 0 10px var(--ui4-current-soft);
+}
+
+.ui-btn[data-state]:hover {
+    box-shadow: 0 0 16px var(--ui4-current-soft);
+    filter: brightness(1.12);
+}
+
+/* ---------------------------------------------------------
+   3) GAUGE PRO — Auto-glow selon valeur
+   --------------------------------------------------------- */
+
+.ui-gauge[data-level="low"] .ui-gauge-fill {
+    background: var(--ui4-bad);
+    box-shadow: 0 0 14px var(--ui4-soft-bad);
+}
+
+.ui-gauge[data-level="mid"] .ui-gauge-fill {
+    background: var(--ui4-warn);
+    box-shadow: 0 0 14px var(--ui4-soft-warn);
+}
+
+.ui-gauge[data-level="high"] .ui-gauge-fill {
+    background: var(--ui4-good);
+    box-shadow: 0 0 14px var(--ui4-soft-good);
+}
+
+/* ---------------------------------------------------------
+   4) RING PRO — Auto-pulse selon état
+   --------------------------------------------------------- */
+
+.ui-ring[data-state] {
+    animation: ui4-ring-pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes ui4-ring-pulse {
+    0%   { filter: drop-shadow(0 0 6px var(--ui4-current-soft)); }
+    50%  { filter: drop-shadow(0 0 18px var(--ui4-current-soft)); }
+    100% { filter: drop-shadow(0 0 6px var(--ui4-current-soft)); }
+}
+
+/* ---------------------------------------------------------
+   5) INDICATOR PRO — Clignotement intelligent
+   --------------------------------------------------------- */
+
+.ui-indicator[data-state="good"] {
+    animation: ui4-indicator-good 2.4s ease-in-out infinite;
+}
+
+@keyframes ui4-indicator-good {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+
+.ui-indicator[data-state="warn"] {
+    animation: ui4-indicator-warn 1.4s ease-in-out infinite;
+}
+
+@keyframes ui4-indicator-warn {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.ui-indicator[data-state="bad"] {
+    animation: ui4-indicator-bad 0.8s ease-in-out infinite;
+}
+
+@keyframes ui4-indicator-bad {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.1; }
+    100% { opacity: 1; }
+}
+
+/* ---------------------------------------------------------
+   6) SLIDER PRO — Auto-coloration selon pourcentage
+   --------------------------------------------------------- */
+
+.ui-slider[data-percent] .ui-slider-fill {
+    transition: background var(--ui4-speed), box-shadow var(--ui4-speed);
+}
+
+.ui-slider[data-percent="low"] .ui-slider-fill {
+    background: var(--ui4-bad);
+    box-shadow: 0 0 12px var(--ui4-soft-bad);
+}
+
+.ui-slider[data-percent="mid"] .ui-slider-fill {
+    background: var(--ui4-warn);
+    box-shadow: 0 0 12px var(--ui4-soft-warn);
+}
+
+.ui-slider[data-percent="high"] .ui-slider-fill {
+    background: var(--ui4-good);
+    box-shadow: 0 0 12px var(--ui4-soft-good);
+}
+
+/* ---------------------------------------------------------
+   7) KNOB PRO — Glow adaptatif
+   --------------------------------------------------------- */
+
+.ui-knob[data-state] {
+    box-shadow: 0 0 14px var(--ui4-current-soft);
+}
+
+.ui-knob[data-state]:active {
+    transform: scale(0.96);
+}

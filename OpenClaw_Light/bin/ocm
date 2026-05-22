@@ -1,0 +1,33 @@
+#!/bin/bash
+
+OPENCLAW_ROOT="$HOME/OpenClaw_Light"
+
+# Charger tous les modules
+for module in "$OPENCLAW_ROOT/modules/"*/bridge.ocm; do
+    [ -f "$module" ] && source "$module"
+done
+
+cmd="$1"
+shift
+
+case "$cmd" in
+    modules)
+        echo "[OpenClaw] Modules chargés :"
+        for module in "$OPENCLAW_ROOT/modules/"*/bridge.ocm; do
+            name=$(basename "$(dirname "$module")")
+            echo " - $name"
+        done
+        ;;
+    obsidian.read)
+        ocm_obsidian_read "$@"
+        ;;
+    obsidian.write)
+        ocm_obsidian_write "$@"
+        ;;
+    obsidian.ai)
+        ocm_obsidian_ai "$@"
+        ;;
+    *)
+        echo "[OpenClaw] Commande inconnue : $cmd"
+        ;;
+esac

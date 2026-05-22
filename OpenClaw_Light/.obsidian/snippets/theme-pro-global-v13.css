@@ -1,0 +1,185 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V13 — QUANTUM SKIN
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- QUANTUM VARIABLES ---------- */
+:root {
+    --qs-core-low: #ff4f6b;
+    --qs-core-mid: #4fd1ff;
+    --qs-core-high: #5fffd4;
+
+    --qs-soft-low: rgba(255,79,107,0.35);
+    --qs-soft-mid: rgba(79,209,255,0.35);
+    --qs-soft-high: rgba(95,255,212,0.35);
+
+    --qs-quantum-speed: 1.8s;
+    --qs-breath-speed: 4.4s;
+    --qs-shift-speed: 6.2s;
+
+    --qs-grain-opacity: 0.18;
+}
+
+/* ---------------------------------------------------------
+   1) QUANTUM ENGINE — MULTI-ÉTATS
+   Le conteneur principal reçoit :
+   data-quantum="low|mid|high"
+   --------------------------------------------------------- */
+
+[data-quantum="low"] {
+    --qs-current: var(--qs-core-low);
+    --qs-current-soft: var(--qs-soft-low);
+}
+
+[data-quantum="mid"] {
+    --qs-current: var(--qs-core-mid);
+    --qs-current-soft: var(--qs-soft-mid);
+}
+
+[data-quantum="high"] {
+    --qs-current: var(--qs-core-high);
+    --qs-current-soft: var(--qs-soft-high);
+}
+
+/* ---------------------------------------------------------
+   2) QUANTUM SKIN — TEXTURE MULTI-COUCHES
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background-image:
+        radial-gradient(circle at 30% 20%, var(--qs-current-soft) 0, transparent 55%),
+        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.08) 0, transparent 60%),
+        repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,var(--qs-grain-opacity)) 0 2px,
+            transparent 2px 6px
+        );
+    opacity: 0.32;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: qs-shift var(--qs-shift-speed) linear infinite;
+}
+
+@keyframes qs-shift {
+    0%   { transform: translate3d(0,0,0); }
+    50%  { transform: translate3d(12px, -8px, 0); }
+    100% { transform: translate3d(0,0,0); }
+}
+
+/* ---------------------------------------------------------
+   3) QUANTUM BREATH — RESPIRATION MULTI-ÉTATS
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: qs-breath var(--qs-breath-speed) ease-in-out infinite;
+}
+
+@keyframes qs-breath {
+    0%   { box-shadow: 0 0 14px var(--qs-current-soft); }
+    50%  { box-shadow: 0 0 30px var(--qs-current-soft); }
+    100% { box-shadow: 0 0 14px var(--qs-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   4) QUANTUM PULSE — PULSATION CELLULAIRE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: qs-pulse var(--qs-quantum-speed) ease-in-out infinite;
+}
+
+@keyframes qs-pulse {
+    0%   { text-shadow: 0 0 6px var(--qs-current-soft); }
+    50%  { text-shadow: 0 0 22px var(--qs-current-soft); }
+    100% { text-shadow: 0 0 6px var(--qs-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   5) QUANTUM GRADIENTS — SPECTRE DYNAMIQUE
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--qs-core-low),
+        var(--qs-core-mid),
+        var(--qs-core-high)
+    );
+    box-shadow: 0 0 12px var(--qs-current-soft);
+}
+
+/* ---------------------------------------------------------
+   6) QUANTUM HEATMAP
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--qs-current-soft);
+    background: linear-gradient(
+        to top,
+        var(--qs-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow:
+        0 0 10px var(--qs-current-soft),
+        0 0 18px rgba(255,255,255,0.12);
+}
+
+/* ---------------------------------------------------------
+   7) QUANTUM RADAR
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--qs-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow: 0 0 14px var(--qs-current-soft);
+}
+
+/* ---------------------------------------------------------
+   8) QUANTUM TITLES
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--qs-current);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px var(--qs-current-soft);
+}
+
+/* ---------------------------------------------------------
+   9) QUANTUM HOVER
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--qs-current-soft);
+    outline-offset: 2px;
+    filter: brightness(1.12);
+}

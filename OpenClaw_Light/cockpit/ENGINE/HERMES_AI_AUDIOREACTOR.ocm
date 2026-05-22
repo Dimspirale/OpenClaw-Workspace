@@ -1,0 +1,104 @@
+HERMES_AI_AUDIOREACTOR {
+    VERSION: "1.0.0"
+    STATUS: "ACTIVE"
+
+    CAPABILITIES {
+        REALTIME_AUDIO: "ENABLED"
+        BEAT_DETECTION: "ENABLED"
+        ENERGY_TRACKING: "ENABLED"
+        FREQUENCY_BANDS: "ENABLED"
+        AUTO_EFFECTS: "ENABLED"
+        AUTO_GROUPING: "ENABLED"
+        PIXELMAP_REACTIVE: "ENABLED"
+        COLORFLOW_REACTIVE: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+    }
+
+    AUDIO_INPUT {
+        SOURCE: "default"        # mic, line-in, virtual device
+        SAMPLE_RATE: 44100
+        BUFFER_SIZE: 1024
+        FFT_SIZE: 1024
+        BANDS: 8                 # sub, bass, low-mid, mid, high-mid, presence, brilliance, air
+    }
+
+    COMMANDS {
+        START: "reactor start"
+        STOP: "reactor stop"
+        SET_SOURCE: "reactor source <device>"
+        SET_SENSITIVITY: "reactor sensitivity <value>"
+        PREVIEW: "reactor preview"
+        EXPORT: "reactor export <console>"
+    }
+
+    ENGINE {
+
+        AUDIO_CAPTURE_LOGIC: "
+            hermes audio stream_start $SOURCE $SAMPLE_RATE $BUFFER_SIZE
+        "
+
+        FFT_ANALYSIS_LOGIC: "
+            hermes audio fft $FFT_SIZE
+            hermes audio bands $BANDS
+            ENERGY=$(hermes audio energy)
+            BEAT=$(hermes audio beat_detect)
+            BASS=$(hermes audio band 1)
+            MID=$(hermes audio band 4)
+            HIGH=$(hermes audio band 7)
+        "
+
+        EFFECTS_REACTIVE_LOGIC: "
+            if [[ $BEAT == '1' ]]; then
+                hermes effects strobe groups ALL speed 20 size 100
+            fi
+
+            if (( $(echo \"$BASS > 0.6\" | bc -l) )); then
+                hermes effects wave_complex groups ALL waveform sine speed 1 size 80 phase 0
+            fi
+
+            if (( $(echo \"$MID > 0.5\" | bc -l) )); then
+                hermes effects colorflow_pro mode rainbow speed 1.5 phase 45
+            fi
+
+            if (( $(echo \"$HIGH > 0.4\" | bc -l) )); then
+                hermes pixelmap random AUTO speed 1
+            fi
+        "
+
+        AUTO_GROUPING_LOGIC: "
+            hermes groups auto_detect
+            hermes groups sort_by_position
+        "
+
+        EXPORT_LOGIC: "
+            case $console in
+                MA2)
+                    hermes effects export_ma2
+                    ;;
+                MA3)
+                    hermes effects export_ma3
+                    ;;
+                ONYX)
+                    hermes effects export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_DASHBOARD"
+        SECTIONS {
+            AUDIO: ["ENERGY", "BEAT", "BASS", "MID", "HIGH"]
+            EFFECTS: ["ACTIVE_EFFECTS"]
+            SYSTEM: ["SOURCE"]
+        }
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_AUDIOREACTOR"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

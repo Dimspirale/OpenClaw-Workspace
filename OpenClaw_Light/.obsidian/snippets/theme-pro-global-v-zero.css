@@ -1,0 +1,116 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL VØ — NULLSKIN
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- NULL VARIABLES (absence totale) ---------- */
+:root {
+    --null-void: rgba(255,255,255,0.00);
+    --null-hint: rgba(255,255,255,0.02);
+    --null-breath: 12s;
+}
+
+/* ---------------------------------------------------------
+   1) NULL ENGINE — AUCUN ÉTAT
+   (aucun data-attribute, aucune condition, aucun spectre)
+   --------------------------------------------------------- */
+
+/* ---------------------------------------------------------
+   2) NULL SURFACE — EFFACEMENT TOTAL
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -100%;
+    background: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   3) NULL BREATH — RESPIRATION MINIMALE
+   (presque imperceptible)
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: null-breath var(--null-breath) ease-in-out infinite;
+}
+
+@keyframes null-breath {
+    0%   { box-shadow: 0 0 0 var(--null-void); }
+    50%  { box-shadow: 0 0 2px var(--null-hint); }
+    100% { box-shadow: 0 0 0 var(--null-void); }
+}
+
+/* ---------------------------------------------------------
+   4) NULL TEXT — IDENTITÉ EFFACÉE
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label,
+.hud-value,
+.fusion-score,
+.matrix-value {
+    color: var(--null-hint);
+    text-shadow: none;
+    letter-spacing: 0.02em;
+}
+
+/* ---------------------------------------------------------
+   5) NULL GRADIENTS — NON-SPECTRE
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: var(--null-void);
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   6) NULL HEATMAP — ABSENCE
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--null-hint);
+    background: var(--null-void);
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   7) NULL RADAR — SILENCE
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: var(--null-void);
+    box-shadow: none;
+}
+
+/* ---------------------------------------------------------
+   8) NULL HOVER — NON-RÉACTION
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--null-hint);
+    outline-offset: 2px;
+    filter: none;
+}

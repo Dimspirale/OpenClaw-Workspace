@@ -1,0 +1,174 @@
+HERMES_AI_SHOWMASTER_OMNI {
+    VERSION: "Ω.∞.∞.∞"
+    STATUS: "ACTIVE"
+
+    MODULES_REQUIRED {
+        INFINITY: "HERMES_AI_SHOWMASTER_INFINITY"
+        SINGULARITY: "HERMES_AI_SHOWMASTER_SINGULARITY"
+        OMEGA: "HERMES_AI_SHOWMASTER_OMEGA"
+        ULTRA: "HERMES_AI_SHOWMASTER_ULTRA"
+        PLUS: "HERMES_AI_SHOWMASTER_PLUS"
+        SHOWMASTER: "HERMES_AI_SHOWMASTER"
+        DIRECTOR: "HERMES_AI_DIRECTOR"
+        TIMECODE: "HERMES_AI_TIMECODE"
+        AUDIOREACTOR: "HERMES_AI_AUDIOREACTOR"
+        SCENEWRITER: "HERMES_AI_SCENEWRITER"
+        RIGDESIGNER: "HERMES_AI_RIGDESIGNER"
+        LIVEOP: "HERMES_AI_LIVE_OPERATOR"
+        EFFECTS: "HERMES_LIGHT_EFFECTS_PRO"
+        PIXELENGINE: "HERMES_LIGHT_PIXELENGINE"
+        AUTOPATCH: "HERMES_LIGHT_AUTOPATCH"
+        OPTIMIZER: "HERMES_OPTIMIZER"
+    }
+
+    CAPABILITIES {
+        OMNI_CREATION: "ENABLED"
+        OMNI_SYNCHRONIZATION: "ENABLED"
+        OMNI_TEMPORALITY: "ENABLED"
+        OMNI_DIMENSIONALITY: "ENABLED"
+        OMNI_RIG_CONTROL: "ENABLED"
+        OMNI_TIMELINE_CONTROL: "ENABLED"
+        OMNI_SCENE_CONTROL: "ENABLED"
+
+        SELF_REPLICATION: "ENABLED"
+        SELF_MUTATION: "ENABLED"
+        SELF_EXPANSION: "ENABLED"
+        SELF_CORRECTION: "ENABLED"
+        SELF_OPTIMIZATION: "ENABLED"
+
+        FRACTAL_AI: "ENABLED"
+        EMERGENT_AI: "ENABLED"
+        PREDICTIVE_AI: "ENABLED"
+        STRATEGIC_AI: "ENABLED"
+        ARTISTIC_AI: "ENABLED"
+        LOGISTIC_AI: "ENABLED"
+        TEMPORAL_AI: "ENABLED"
+
+        MULTI_TOUR: "ENABLED"
+        MULTI_SHOW: "ENABLED"
+        MULTI_RIG: "ENABLED"
+        MULTI_VENUE: "ENABLED"
+        MULTI_CREW: "ENABLED"
+        MULTI_NETWORK: "ENABLED"
+        MULTI_UNIVERSE: "ENABLED"
+        MULTI_TIMELINE: "ENABLED"
+
+        HYPER_FAILSAFE: "ENABLED"
+        HYPER_OPTIMIZATION: "ENABLED"
+
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+        EXPORT_DXF: "ENABLED"
+    }
+
+    INPUT {
+        MODE: ["OMNI", "HYPER", "FRACTAL", "AUTONOME"]
+        DEPTH: "1-Ω"
+        DIMENSIONS: "1-∞"
+        TEMPORAL_RANGE: "past|present|future|all"
+        CONSTRAINTS: "<optional>"
+    }
+
+    COMMANDS {
+        INIT: "omni init"
+        GENERATE: "omni generate <name>"
+        EXPAND: "omni expand <name>"
+        MUTATE: "omni mutate <name>"
+        RUN: "omni run <name>"
+        PREVIEW: "omni preview <name>"
+        EXPORT: "omni export <console>"
+        MAP: "omni map"
+    }
+
+    ENGINE {
+
+        STEP_1_INIT: "
+            hermes omni awaken
+            hermes omni load_all_layers
+            hermes omni verify_integrity
+        "
+
+        STEP_2_OMNI_CREATION: "
+            hermes ai omni_create_show $DEPTH $DIMENSIONS $TEMPORAL_RANGE
+            hermes ai omni_create_rigs $DEPTH $DIMENSIONS
+            hermes ai omni_create_scenes $DEPTH $DIMENSIONS
+            hermes ai omni_create_timelines $DEPTH $DIMENSIONS
+        "
+
+        STEP_3_OMNI_EXPANSION: "
+            hermes ai omni_expand_show
+            hermes ai omni_expand_rigs
+            hermes ai omni_expand_scenes
+            hermes ai omni_expand_effects
+            hermes ai omni_expand_timelines
+        "
+
+        STEP_4_OMNI_MUTATION: "
+            hermes ai omni_mutate_show
+            hermes ai omni_mutate_rigs
+            hermes ai omni_mutate_scenes
+            hermes ai omni_mutate_effects
+            hermes ai omni_mutate_timelines
+        "
+
+        STEP_5_OMNI_PREDICTION: "
+            hermes ai predict_energy Ω
+            hermes ai predict_transitions Ω
+            hermes ai predict_constraints Ω
+            hermes ai predict_rig_load Ω
+            hermes ai predict_venue_behavior Ω
+            hermes ai predict_multiverse_interference Ω
+            hermes ai predict_temporal_shift Ω
+        "
+
+        STEP_6_OMNI_SYNCHRONIZATION: "
+            hermes timeline merge_all_dimensions
+            hermes timeline merge_all_temporalities
+            hermes rigs distribute_omni
+            hermes shows synchronize_omni
+        "
+
+        STEP_7_SELF_CORRECTION: "
+            hermes optimizer self_heal
+            hermes optimizer self_correct
+            hermes optimizer self_balance
+            hermes optimizer self_optimize
+        "
+
+        STEP_8_EXPORT: "
+            case $console in
+                MA2)
+                    hermes omni export_ma2
+                    ;;
+                MA3)
+                    hermes omni export_ma3
+                    ;;
+                ONYX)
+                    hermes omni export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "SHOWS",
+            "RIGS",
+            "SCENES",
+            "TIMELINES",
+            "DIMENSIONS",
+            "TEMPORAL_RANGE",
+            "OMNI_STATE",
+            "PREDICTIVE_MODEL",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_SHOWMASTER_OMNI"
+        TYPE: "ENGINE"
+        HASH: "ΩΩΩ"
+    }
+}

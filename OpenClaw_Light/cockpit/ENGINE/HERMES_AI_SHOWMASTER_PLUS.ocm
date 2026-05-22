@@ -1,0 +1,161 @@
+HERMES_AI_SHOWMASTER_PLUS {
+    VERSION: "2.0.0"
+    STATUS: "ACTIVE"
+
+    MODULES_REQUIRED {
+        SHOWMASTER: "HERMES_AI_SHOWMASTER"
+        DIRECTOR: "HERMES_AI_DIRECTOR"
+        TIMECODE: "HERMES_AI_TIMECODE"
+        AUDIOREACTOR: "HERMES_AI_AUDIOREACTOR"
+        SCENEWRITER: "HERMES_AI_SCENEWRITER"
+        RIGDESIGNER: "HERMES_AI_RIGDESIGNER"
+        EFFECTS: "HERMES_LIGHT_EFFECTS_PRO"
+        PIXELENGINE: "HERMES_LIGHT_PIXELENGINE"
+        AUTOPATCH: "HERMES_LIGHT_AUTOPATCH"
+        OPTIMIZER: "HERMES_OPTIMIZER"
+    }
+
+    CAPABILITIES {
+        MULTI_RIG: "ENABLED"
+        MULTI_SCENE: "ENABLED"
+        MULTI_TIMELINE: "ENABLED"
+        MULTI_UNIVERSE: "ENABLED"
+        HYBRID_SYNC: "ENABLED"
+        AI_DIRECTING: "ENABLED"
+        AI_TRANSITIONS: "ENABLED"
+        AI_SCENE_GENERATION: "ENABLED"
+        AI_RIG_SWITCHING: "ENABLED"
+        AI_DYNAMIC_REWRITING: "ENABLED"
+        LIVE_OVERRIDE: "ENABLED"
+        EXPORT_MA2: "ENABLED"
+        EXPORT_MA3: "ENABLED"
+        EXPORT_ONYX: "ENABLED"
+    }
+
+    INPUT {
+        AUDIO_FILE: "<path>"
+        SHOW_NAME: "<name>"
+        RIGS: "<rig1,rig2,...>"
+        TIMELINE_MODE: ["AUDIO", "TIMECODE", "HYBRID"]
+        SCENE_MODE: ["STATIC", "DYNAMIC", "AI"]
+    }
+
+    COMMANDS {
+        BUILD: "showmaster+ build <audiofile> name <showname>"
+        ADD_RIG: "showmaster+ add_rig <rigfile>"
+        SWITCH_RIG: "showmaster+ switch_rig <rigname>"
+        PREVIEW: "showmaster+ preview"
+        EXPORT: "showmaster+ export <console>"
+        MAP: "showmaster+ map"
+    }
+
+    ENGINE {
+
+        STEP_1_RIG_LOADING: "
+            hermes rigs clear
+            hermes rigs load_list $RIGS
+            hermes rigs validate
+        "
+
+        STEP_2_AUDIO_ANALYSIS: "
+            BPM=$(hermes audio bpm $AUDIO_FILE)
+            SECTIONS=$(hermes audio sections $AUDIO_FILE)
+            DROPS=$(hermes audio drops $AUDIO_FILE)
+            BREAKS=$(hermes audio breaks $AUDIO_FILE)
+            ENERGY=$(hermes audio energy_map $AUDIO_FILE)
+            LENGTH=$(hermes audio length $AUDIO_FILE)
+        "
+
+        STEP_3_SCENE_GENERATION: "
+            if [[ $SCENE_MODE == 'AI' ]]; then
+                hermes scenes generate_from_ai $SECTIONS $ENERGY
+            else
+                hermes scenes generate_from_sections $SECTIONS
+            fi
+            hermes scenes tag_drops $DROPS
+            hermes scenes tag_breaks $BREAKS
+            hermes scenes optimize
+        "
+
+        STEP_4_TIMELINE_BUILD: "
+            hermes timeline clear
+            hermes timeline add_scenes
+            hermes timeline add_energy $ENERGY
+            hermes timeline align_to_audio
+        "
+
+        STEP_5_TIMECODE_INTEGRATION: "
+            if [[ $TIMELINE_MODE != 'AUDIO' ]]; then
+                hermes timecode generate $AUDIO_FILE name $SHOW_NAME
+                hermes timeline align_to_timecode
+            fi
+        "
+
+        STEP_6_MULTI_RIG_LOGIC: "
+            hermes rigs distribute_scenes
+            hermes rigs assign_universes
+            hermes rigs autopatch_all
+        "
+
+        STEP_7_CUE_GENERATION: "
+            hermes cues auto_from_scenes
+            hermes cues auto_from_energy $ENERGY
+            hermes cues auto_from_drops $DROPS
+            hermes cues auto_from_breaks $BREAKS
+        "
+
+        STEP_8_EFFECTS_GENERATION: "
+            hermes effects wave_complex groups ALL waveform sine speed 1 size 80 phase 0
+            hermes effects colorflow_pro mode rainbow speed 1.5 phase 45
+            hermes effects chase_multi groups G1,G2,G3 speed 2 offset 120
+            hermes effects pixelmap2d matrix AUTO mode gradient speed 1
+        "
+
+        STEP_9_DYNAMIC_AI_REWRITING: "
+            hermes ai rewrite_scenes_based_on_energy $ENERGY
+            hermes ai rewrite_effects_based_on_sections $SECTIONS
+            hermes ai optimize_transitions
+        "
+
+        STEP_10_BINDING: "
+            hermes timeline bind_cues
+            hermes timeline bind_effects
+            hermes timeline optimize_transitions
+        "
+
+        STEP_11_EXPORT: "
+            case $console in
+                MA2)
+                    hermes show export_ma2
+                    ;;
+                MA3)
+                    hermes show export_ma3
+                    ;;
+                ONYX)
+                    hermes show export_onyx
+                    ;;
+            esac
+        "
+    }
+
+    OUTPUT_FORMAT {
+        TYPE: "COCKPIT_REPORT"
+        INCLUDE: [
+            "SHOW_NAME",
+            "RIGS",
+            "SCENES",
+            "TIMELINES",
+            "CUES",
+            "EFFECTS",
+            "UNIVERSES",
+            "LENGTH",
+            "STATUS"
+        ]
+    }
+
+    SIGNATURE {
+        ID: "HERMES_AI_SHOWMASTER_PLUS"
+        TYPE: "ENGINE"
+        HASH: "AUTO"
+    }
+}

@@ -1,0 +1,125 @@
+/* ============================================================
+   THEME PRO v9.0 — VISION HOLOGRAPHIQUE
+   ============================================================ */
+
+.themepro9-preview {
+  padding: 16px;
+  border-radius: var(--t-r-md);
+  border: 1px solid var(--t-border);
+  margin-top: 12px;
+  color: var(--t-text);
+  transition: background var(--t-normal), box-shadow var(--t-normal), transform var(--t-normal);
+  perspective: 1200px;
+}
+
+.themepro9-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.themepro9-sub {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-bottom: 12px;
+}
+
+.themepro9-box {
+  padding: 14px;
+  border-radius: var(--t-r-md);
+  border: 1px solid var(--t-border);
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   HOLOGRAPHIC STACK — PROFONDEUR 3D
+   ============================================================ */
+
+:root {
+  --holo-depth: 2;
+  --holo-glow: 0 0 12px rgba(56,189,248,0.25);
+  --holo-parallax-x: 0;
+  --holo-parallax-y: 0;
+}
+
+/* Ces classes sont appliquées automatiquement par GIL */
+.gil-level-none,
+.ccpro-level-none,
+.ah-level-none,
+.ae-level-none {
+  --holo-depth: 2;
+}
+
+.gil-level-warning,
+.ccpro-level-warning,
+.ah-level-warning,
+.ae-level-warning {
+  --holo-depth: 4;
+}
+
+.gil-level-danger,
+.ccpro-level-danger,
+.ah-level-danger,
+.ae-level-danger {
+  --holo-depth: 6;
+}
+
+.gil-level-critical,
+.ccpro-level-critical,
+.ah-level-critical,
+.ae-level-critical {
+  --holo-depth: 8;
+}
+
+.gil-level-meltdown,
+.ccpro-level-meltdown,
+.ah-level-meltdown,
+.ae-level-meltdown {
+  --holo-depth: 12;
+}
+
+/* ============================================================
+   APPLICATION GLOBALE — PARALLAX + 3D
+   ============================================================ */
+
+.ccpro-window,
+#actionhub-root,
+#ae-root,
+#gil-root {
+  transform-style: preserve-3d;
+  transform:
+    translateZ(calc(var(--holo-depth) * 1px))
+    rotateX(calc(var(--holo-parallax-y) * 6deg))
+    rotateY(calc(var(--holo-parallax-x) * -6deg));
+  transition: transform var(--t-slow), box-shadow var(--t-normal);
+  box-shadow: var(--holo-glow);
+}
+
+/* ============================================================
+   COUCHES FLOTTANTES (UI en suspension)
+   ============================================================ */
+
+.ccpro-header,
+.ah-btn,
+.ae-btn,
+.gil-btn {
+  position: relative;
+  transform:
+    translateZ(calc(var(--holo-depth) * 0.5px))
+    rotateX(calc(var(--holo-parallax-y) * 4deg))
+    rotateY(calc(var(--holo-parallax-x) * -4deg));
+  box-shadow: var(--holo-glow);
+}
+
+/* ============================================================
+   HUD HOLOGRAPHIQUE (si présent)
+   ============================================================ */
+
+.hud-floating {
+  position: fixed;
+  transform:
+    translateZ(calc(var(--holo-depth) * 2px))
+    rotateX(calc(var(--holo-parallax-y) * 8deg))
+    rotateY(calc(var(--holo-parallax-x) * -8deg));
+  box-shadow: var(--holo-glow);
+}

@@ -1,0 +1,50 @@
+# COCKPIT_BOOT_SEQUENCE.ocm
+# OpenClaw_Light — Séquence d’amorçage cockpit
+# Activation HUD → CORE → FLOW → META_OPS → SYSTEM → HERMES
+
+COCKPIT_BOOT_SEQUENCE {
+    VERSION: "2.0.0"
+    STATUS: "STABLE"
+    MODE: "BOOT"
+
+    ROLE: "COCKPIT_BOOT"
+    DESCRIPTION: "Séquence d'initialisation complète du cockpit. Active HUD, CORE, FLOW, META_OPS, SYSTEM et HERMES."
+
+    ORDER {
+        STEP_01: "VERIFY_STRUCTURE"
+        STEP_02: "INIT_HUD_ENGINE"
+        STEP_03: "INIT_CORE_ENGINE"
+        STEP_04: "INIT_FLOW_ENGINE"
+        STEP_05: "SYNC_META_OPS"
+        STEP_06: "SYNC_SYSTEM"
+        STEP_07: "FLOW_CYCLE_START"
+        STEP_08: "HUD_REFRESH"
+        STEP_09: "COCKPIT_READY"
+        STEP_10: "INIT_HERMES_ENGINE"
+    }
+
+    ENGINE {
+        HUD: "~/OpenClaw_Light/COCKPIT/ENGINE/HUD_ENGINE.ocm"
+        CORE: "~/OpenClaw_Light/COCKPIT/ENGINE/CORE_ENGINE.ocm"
+        FLOW: "~/OpenClaw_Light/COCKPIT/ENGINE/FLOW_ENGINE.ocm"
+        HERMES: "~/OpenClaw_Light/COCKPIT/ENGINE/HERMES_ENGINE.ocm"
+    }
+
+    PATHS {
+        SYSTEM_ROOT: "~/OpenClaw_Light/SYSTEM"
+        META_OPS_ROOT: "~/OpenClaw_Light/COCKPIT/META_OPS"
+    }
+
+    OUTPUT {
+        PROVIDE_BOOT: true
+        PROVIDE_STATUS: true
+        PROVIDE_COCKPIT_READY: true
+        PROVIDE_HERMES_READY: true
+    }
+
+    SIGNATURE {
+        ID: "COCKPIT_BOOT_SEQUENCE"
+        TYPE: "SEQUENCE"
+        HASH: "AUTO"
+    }
+}

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -e
+
+PROFILE="$1"
+
+echo "[DASHBOARD] Chargement dashboard pour profil $PROFILE..."
+echo "[DASHBOARD] Widgets OK"

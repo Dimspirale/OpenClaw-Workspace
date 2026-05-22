@@ -1,0 +1,36 @@
+/* THEME PRO v3.0 — Command Center Integration */
+:root {
+  --ccpro-bg:      var(--t-bg);
+  --ccpro-soft:    var(--t-soft);
+  --ccpro-border:  var(--t-border);
+  --ccpro-text:    var(--t-text);
+  --ccpro-accent:  var(--t-accent);
+  --ccpro-radius:  var(--t-r-md);
+  --ccpro-shadow:  var(--t-depth-mid);
+}
+
+.ccpro-window {
+  background: var(--ccpro-bg);
+  border: 1px solid var(--ccpro-border);
+  border-radius: var(--ccpro-radius);
+  box-shadow: var(--ccpro-shadow);
+  transition: transform var(--t-normal), box-shadow var(--t-normal);
+}
+
+.ccpro-header {
+  background: var(--ccpro-soft);
+  color: var(--ccpro-accent);
+}
+
+.ccpro-body {
+  color: var(--ccpro-text);
+}
+
+.ccpro-kpi-value {
+  color: var(--ccpro-accent);
+}
+
+.ccpro-kpi {
+  background: var(--ccpro-soft);
+  border: 1px solid var(--ccpro-border);
+}

@@ -1,0 +1,153 @@
+/* ---------------------------------------------------------
+   PACK UI PRO v2 — Advanced Widgets
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- VARIABLES GLOBALES UI v2 ---------- */
+:root {
+    --ui2-accent: #4fd1ff;
+    --ui2-accent-soft: rgba(79,209,255,0.35);
+    --ui2-bg: rgba(255,255,255,0.04);
+    --ui2-border: rgba(255,255,255,0.12);
+    --ui2-radius: 10px;
+    --ui2-speed: 0.25s;
+}
+
+/* ---------------------------------------------------------
+   1) KNOB PRO — Bouton rotatif
+   --------------------------------------------------------- */
+
+.ui-knob {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--ui2-bg);
+    border: 2px solid var(--ui2-border);
+    position: relative;
+    box-shadow: 0 0 12px var(--ui2-accent-soft);
+}
+
+.ui-knob::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    width: 4px;
+    height: 18px;
+    background: var(--ui2-accent);
+    transform: translateX(-50%) rotate(45deg);
+    transform-origin: bottom center;
+    border-radius: 2px;
+}
+
+/* ---------------------------------------------------------
+   2) DIAL PRO — Cadran semi-circulaire
+   --------------------------------------------------------- */
+
+.ui-dial {
+    width: 120px;
+    height: 60px;
+    border-radius: 120px 120px 0 0;
+    background: var(--ui2-bg);
+    border: 2px solid var(--ui2-border);
+    border-bottom: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.ui-dial-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 40%; /* valeur par défaut */
+    background: var(--ui2-accent);
+    box-shadow: 0 0 14px var(--ui2-accent-soft);
+}
+
+/* ---------------------------------------------------------
+   3) GAUGE PRO — Jauge verticale
+   --------------------------------------------------------- */
+
+.ui-gauge {
+    width: 22px;
+    height: 120px;
+    background: var(--ui2-bg);
+    border: 1px solid var(--ui2-border);
+    border-radius: var(--ui2-radius);
+    position: relative;
+    overflow: hidden;
+}
+
+.ui-gauge-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60%; /* valeur par défaut */
+    background: var(--ui2-accent);
+    box-shadow: 0 0 12px var(--ui2-accent-soft);
+}
+
+/* ---------------------------------------------------------
+   4) ARC PRO — Arc de progression
+   --------------------------------------------------------- */
+
+.ui-arc {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background:
+        conic-gradient(
+            var(--ui2-accent) 0deg 120deg,
+            transparent 120deg 360deg
+        );
+    mask: radial-gradient(circle, transparent 55%, black 56%);
+}
+
+/* ---------------------------------------------------------
+   5) RING PRO — Anneau lumineux
+   --------------------------------------------------------- */
+
+.ui-ring {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, transparent 55%, var(--ui2-border) 56%),
+        conic-gradient(
+            var(--ui2-accent) 0deg 220deg,
+            transparent 220deg 360deg
+        );
+    box-shadow: 0 0 16px var(--ui2-accent-soft);
+}
+
+/* ---------------------------------------------------------
+   6) BAR PRO — Barre de statut
+   --------------------------------------------------------- */
+
+.ui-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--ui2-bg);
+    border-radius: var(--ui2-radius);
+    overflow: hidden;
+}
+
+.ui-bar-fill {
+    width: 70%; /* valeur par défaut */
+    height: 100%;
+    background: var(--ui2-accent);
+    box-shadow: 0 0 10px var(--ui2-accent-soft);
+}
+
+/* ---------------------------------------------------------
+   7) INDICATOR PRO — Indicateur ponctuel
+   --------------------------------------------------------- */
+
+.ui-indicator {
+    width: 14px;
+    height: 14px;
+    background: var(--ui2-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--ui2-accent-soft);
+}

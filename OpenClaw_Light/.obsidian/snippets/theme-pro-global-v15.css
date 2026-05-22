@@ -1,0 +1,186 @@
+/* ---------------------------------------------------------
+   THEME PRO GLOBAL V15 — SINGULARITY LAYER
+   OpenClaw_Light — 2026
+   --------------------------------------------------------- */
+
+/* ---------- SINGULARITY VARIABLES ---------- */
+:root {
+    --sg-core-low: #ff4f6b;
+    --sg-core-mid: #4fd1ff;
+    --sg-core-high: #5fffd4;
+
+    --sg-soft-low: rgba(255,79,107,0.35);
+    --sg-soft-mid: rgba(79,209,255,0.35);
+    --sg-soft-high: rgba(95,255,212,0.35);
+
+    --sg-warp-speed: 5.2s;
+    --sg-breath-speed: 4.4s;
+    --sg-pulse-speed: 2.2s;
+
+    --sg-fractal-opacity: 0.18;
+}
+
+/* ---------------------------------------------------------
+   1) SINGULARITY ENGINE — MULTI-ÉTATS
+   data-singularity="low|mid|high"
+   --------------------------------------------------------- */
+
+[data-singularity="low"] {
+    --sg-current: var(--sg-core-low);
+    --sg-current-soft: var(--sg-soft-low);
+}
+
+[data-singularity="mid"] {
+    --sg-current: var(--sg-core-mid);
+    --sg-current-soft: var(--sg-soft-mid);
+}
+
+[data-singularity="high"] {
+    --sg-current: var(--sg-core-high);
+    --sg-current-soft: var(--sg-soft-high);
+}
+
+/* ---------------------------------------------------------
+   2) SINGULARITY SKIN — TEXTURE AUTO-GÉNÉRATIVE
+   --------------------------------------------------------- */
+
+.hud-block::before,
+.hud-master-section::before,
+.summary-block::before,
+.ultra-heatmap::before,
+.ultra-matrix::before,
+.hud-fusion::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background-image:
+        /* fractal generative layer */
+        repeating-radial-gradient(
+            circle at 50% 50%,
+            rgba(255,255,255,var(--sg-fractal-opacity)) 0 4px,
+            transparent 4px 12px
+        ),
+        /* chromatic warp */
+        radial-gradient(circle at 30% 20%, var(--sg-current-soft) 0, transparent 55%),
+        radial-gradient(circle at 70% 80%, rgba(255,255,255,0.08) 0, transparent 60%);
+    opacity: 0.32;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    animation: sg-warp var(--sg-warp-speed) ease-in-out infinite;
+}
+
+@keyframes sg-warp {
+    0%   { transform: translate3d(0,0,0) scale(1); }
+    50%  { transform: translate3d(10px,-12px,0) scale(1.04); }
+    100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+/* ---------------------------------------------------------
+   3) SINGULARITY BREATH — RESPIRATION MORPHIQUE
+   --------------------------------------------------------- */
+
+.hud-block,
+.hud-master-section,
+.summary-block,
+.ultra-heatmap,
+.ultra-matrix,
+.hud-fusion {
+    animation: sg-breath var(--sg-breath-speed) ease-in-out infinite;
+}
+
+@keyframes sg-breath {
+    0%   { box-shadow: 0 0 16px var(--sg-current-soft); }
+    50%  { box-shadow: 0 0 34px var(--sg-current-soft); }
+    100% { box-shadow: 0 0 16px var(--sg-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   4) SINGULARITY PULSE — PULSATION INTELLIGENTE
+   --------------------------------------------------------- */
+
+.hud-value,
+.fusion-score,
+.matrix-value {
+    animation: sg-pulse var(--sg-pulse-speed) ease-in-out infinite;
+}
+
+@keyframes sg-pulse {
+    0%   { text-shadow: 0 0 6px var(--sg-current-soft); }
+    50%  { text-shadow: 0 0 26px var(--sg-current-soft); }
+    100% { text-shadow: 0 0 6px var(--sg-current-soft); }
+}
+
+/* ---------------------------------------------------------
+   5) SINGULARITY GRADIENTS — SPECTRE MORPHIQUE
+   --------------------------------------------------------- */
+
+.fusion-balance-fill,
+.energybar-seg,
+.fusion-spectrum-bar {
+    background: linear-gradient(
+        90deg,
+        var(--sg-core-low),
+        var(--sg-core-mid),
+        var(--sg-core-high)
+    );
+    box-shadow: 0 0 14px var(--sg-current-soft);
+}
+
+/* ---------------------------------------------------------
+   6) SINGULARITY HEATMAP
+   --------------------------------------------------------- */
+
+.heat-cell {
+    border: 1px solid var(--sg-current-soft);
+    background: linear-gradient(
+        to top,
+        var(--sg-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow:
+        0 0 12px var(--sg-current-soft),
+        0 0 20px rgba(255,255,255,0.12);
+}
+
+/* ---------------------------------------------------------
+   7) SINGULARITY RADAR
+   --------------------------------------------------------- */
+
+.ultra-radar-seg {
+    background: linear-gradient(
+        to right,
+        var(--sg-current),
+        rgba(255,255,255,0.05)
+    );
+    box-shadow: 0 0 18px var(--sg-current-soft);
+}
+
+/* ---------------------------------------------------------
+   8) SINGULARITY TITLES
+   --------------------------------------------------------- */
+
+.hud-title,
+.summary-title,
+.ultra-heatmap-title,
+.ultra-matrix-title,
+.fusion-score-label {
+    color: var(--sg-current);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-shadow: 0 0 14px var(--sg-current-soft);
+}
+
+/* ---------------------------------------------------------
+   9) SINGULARITY HOVER
+   --------------------------------------------------------- */
+
+.hud-block:hover,
+.hud-master-section:hover,
+.summary-block:hover,
+.ultra-heatmap:hover,
+.ultra-matrix:hover,
+.hud-fusion:hover {
+    outline: 1px solid var(--sg-current-soft);
+    outline-offset: 2px;
+    filter: brightness(1.16);
+}
