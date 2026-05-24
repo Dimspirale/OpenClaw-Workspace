@@ -1,7 +1,7 @@
 ﻿{
     "repo_root":  "C:\\Users\\dimitri\\Documents\\OpenClaw_Light\\OpenClaw-Workspace",
-    "last_updated":  "2026-05-24T12:24:35.4091378+02:00",
-    "reference_tag":  "v19.1",
+    "last_updated":  "2026-05-24T12:49:01.5001922+02:00",
+    "reference_tag":  "context/v1.0",
     "project":  "OpenClaw_Light",
     "reference_commit":  "625c7cbe9759a1e473d6cc0a7b66e47a1e2c72c6",
     "lfs":  {
