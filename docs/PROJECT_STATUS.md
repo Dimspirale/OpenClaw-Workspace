@@ -31,3 +31,4 @@
 
 ## 6. Historique des entrÃ©es
 - 2026-05-24 â€” EntrÃ©e initiale : crÃ©ation de la synthÃ¨se et manifest.
+- 2026-05-24 — Fusion de la branche docs/project-status dans main; manifest reference_commit: 625c7cbe9759a1e473d6cc0a7b66e47a1e2c72c6; tag context/v1.0 créé.
