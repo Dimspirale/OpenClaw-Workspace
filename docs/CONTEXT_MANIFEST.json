@@ -1,5 +1,9 @@
 ﻿{
     "repo_root":  "C:\\Users\\dimitri\\Documents\\OpenClaw_Light\\OpenClaw-Workspace",
+    "last_updated":  "2026-05-24T11:44:26.6961158+02:00",
+    "reference_tag":  "v19.1",
+    "project":  "OpenClaw_Light",
+    "reference_commit":  "5801cafcf34f9f2866025b7aa4fd92ea494fe48a",
     "lfs":  {
                 "checked":  true,
                 "note":  "ExÃ©cuter git lfs ls-files pour vÃ©rifier les objets"
@@ -9,9 +13,5 @@
                             "issues":  "github:Dimspirale/OpenClaw-Workspace/issues",
                             "docs":  "docs/PROJECT_STATUS.md",
                             "conversations":  "local/notes/conversations.md"
-                        },
-    "reference_tag":  "v19.1",
-    "last_updated":  "2026-05-24T11:44:24.8217923+02:00",
-    "reference_commit":  "",
-    "project":  "OpenClaw_Light"
+                        }
 }
