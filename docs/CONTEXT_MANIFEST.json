@@ -1,0 +1,17 @@
+﻿{
+    "repo_root":  "C:\\Users\\dimitri\\Documents\\OpenClaw_Light\\OpenClaw-Workspace",
+    "lfs":  {
+                "checked":  true,
+                "note":  "ExÃ©cuter git lfs ls-files pour vÃ©rifier les objets"
+            },
+    "context_sources":  {
+                            "pull_requests":  "github:Dimspirale/OpenClaw-Workspace/pulls",
+                            "issues":  "github:Dimspirale/OpenClaw-Workspace/issues",
+                            "docs":  "docs/PROJECT_STATUS.md",
+                            "conversations":  "local/notes/conversations.md"
+                        },
+    "reference_tag":  "v19.1",
+    "last_updated":  "2026-05-24T11:40:52.9641857+02:00",
+    "reference_commit":  "",
+    "project":  "OpenClaw_Light"
+}
